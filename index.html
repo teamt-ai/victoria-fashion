@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Victoria — Ankara Re-engineered. Designed in Akwa Ibom.</title>
+    <meta name="description" content="Victoria Atelier. Discover bespoke and ready-to-wear Nigerian Ankara couture for men and women. Engineered with precision Dutch wax and bionic tailoring." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="bg-black text-[#f5f5f7] font-apple antialiased selection:bg-[#0071e3] selection:text-white overflow-x-hidden min-h-screen flex flex-col">
+
+    <!-- ============================================================= -->
+    <!-- 1. HEADER NAVIGATION (Minimal Desktop & Mobile Drawer)         -->
+    <!-- ============================================================= -->
+    <header id="main-header" class="sticky top-0 z-50 w-full transition-all duration-300 bg-black/90 backdrop-blur-md">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-8 h-[48px] flex items-center justify-between text-[12px] font-normal tracking-tight text-[#d6d6d8]">
+        
+        <!-- Brand Name -->
+        <a 
+          href="#home"
+          data-nav-target="home"
+          class="flex items-center gap-2 text-white hover:opacity-80 transition-opacity text-left"
+        >
+          <span class="font-apple font-semibold text-xs sm:text-sm md:text-base tracking-[0.12em] sm:tracking-[0.15em] uppercase text-white whitespace-nowrap">
+            VICTORIA FASHION
+          </span>
+          <span class="hidden sm:inline-block text-[11px] text-[#86868b] pl-2 border-l border-white/20 whitespace-nowrap">
+            Akwa Ibom
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Tabs -->
+        <nav class="hidden lg:flex items-center space-x-6 text-[12px] font-medium tracking-wide">
+          <button data-tab="home" data-nav-target="home" class="nav-tab-btn text-white font-semibold transition-colors duration-150">HOME</button>
+          <button data-tab="catalogue" data-nav-target="catalogue" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">CATALOGUE</button>
+          <button data-tab="men" data-nav-target="men" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">MEN</button>
+          <button data-tab="women" data-nav-target="women" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">WOMEN</button>
+          <button data-tab="children" data-nav-target="children" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">CHILDREN</button>
+          <button data-tab="occasions" data-nav-target="occasions" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">OCCASIONS</button>
+          <button data-tab="experience" data-nav-target="experience" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">SERVICE EXPERIENCE</button>
+        </nav>
+
+        <!-- Right CTA: Direct WhatsApp Booking -->
+        <div class="flex items-center space-x-3 sm:space-x-4 shrink-0">
+          <button
+            onclick="window.VictoriaApp.openBooking('', 'Men')"
+            class="text-white hover:text-emerald-400 font-medium text-[12px] transition-colors flex items-center gap-1.5"
+            aria-label="WhatsApp Booking"
+          >
+            <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+            <span class="hidden sm:inline">BOOKING</span>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-toggle"
+            class="lg:hidden text-white p-1"
+            aria-label="Toggle menu"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div id="mobile-drawer" class="hidden lg:hidden fixed inset-x-0 top-[48px] bg-black/98 backdrop-blur-2xl border-b border-white/10 px-8 py-8 h-[calc(100vh-48px)] overflow-y-auto z-50 flex flex-col space-y-6 text-left">
+        <button data-nav-target="home" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-white font-bold">
+          <span>HOME</span><span class="text-sm text-neutral-600">›</span>
+        </button>
+        <button data-nav-target="catalogue" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
+          <span>CATALOGUE</span><span class="text-sm text-neutral-600">›</span>
+        </button>
+        <button data-nav-target="men" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
+          <span>MEN</span><span class="text-sm text-neutral-600">›</span>
+        </button>
+        <button data-nav-target="women" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
+          <span>WOMEN</span><span class="text-sm text-neutral-600">›</span>
+        </button>
+        <button data-nav-target="children" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
+          <span>CHILDREN</span><span class="text-sm text-neutral-600">›</span>
+        </button>
+        <button data-nav-target="occasions" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
+          <span>OCCASIONS</span><span class="text-sm text-neutral-600">›</span>
+        </button>
+        <button data-nav-target="experience" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
+          <span>SERVICE EXPERIENCE</span><span class="text-sm text-neutral-600">›</span>
+        </button>
+
+        <div class="pt-4">
+          <button
+            onclick="window.VictoriaApp.openBooking('', 'Men')"
+            class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold py-3.5 rounded-full text-sm flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+            <span>Chat with Victoria on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================= -->
+    <!-- 2. MAIN DYNAMIC VIEW CONTAINER                                 -->
+    <!-- ============================================================= -->
+    <main class="w-full flex-1 overflow-x-hidden">
+
+      <!-- =========================================================== -->
+      <!-- VIEW: HOME                                                  -->
+      <!-- =========================================================== -->
+      <section id="view-home" class="view-section active w-full bg-[#000000] text-white overflow-x-hidden">
+        
+        <!-- 1. HERO SECTION (Pure Apple.com Depth & Scale) -->
+        <section class="relative w-full bg-black overflow-hidden flex items-end justify-center min-h-[85vh] sm:min-h-[92vh]">
+          <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[360px] bg-gradient-to-r from-blue-600/15 via-amber-500/10 to-blue-600/15 blur-[140px] pointer-events-none rounded-full"></div>
+
+          <!-- Layer 0: Typography Behind Image -->
+          <div class="absolute top-14 sm:top-18 lg:top-22 inset-x-0 z-0 flex items-center justify-center text-center select-none pointer-events-none px-4 overflow-hidden">
+            <span class="font-apple text-[5.6vw] sm:text-[5.2vw] lg:text-[5.4vw] font-semibold tracking-tight sm:tracking-[0.03em] lg:tracking-[0.05em] uppercase leading-none bg-gradient-to-b from-[#ffffff] via-[#e5e5ea] to-[#8e8e93] bg-clip-text text-transparent whitespace-nowrap select-none">
+              VICTORIA FASHION
+            </span>
+          </div>
+
+          <!-- Layer 1: Couple Image in FRONT of Text -->
+          <div class="relative z-10 w-full max-w-[960px] mx-auto flex items-end justify-center select-none pt-16 sm:pt-24 pb-20 sm:pb-30">
+            <img 
+              src="./images/hero-couple.png" 
+              alt="Victoria Fashion Akwa Ibom Couture"
+              class="w-full h-auto max-h-[56vh] sm:max-h-[64vh] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.95)]"
+              loading="eager"
+            />
+          </div>
+
+          <!-- Layer 2: Text in FRONT of Image -->
+          <div class="absolute inset-x-0 bottom-0 z-20 px-4 sm:px-16 pb-8 sm:pb-14 pt-20 flex flex-col items-center text-center bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none">
+            <div class="max-w-3xl mx-auto w-full pointer-events-auto">
+              <h1 class="font-apple text-2xl sm:text-4xl lg:text-5xl text-white font-semibold tracking-tight mb-3 drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+                Bespoke African Wax Prints & Modern Tailoring.
+              </h1>
+              <p class="font-apple text-xs sm:text-base text-[#d2d2d7] mb-6 sm:mb-8 font-normal max-w-xl mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] px-2">
+                Akwa Ibom, Nigeria · Handcrafted with Precision for Men, Women & Children
+              </p>
+              <div class="flex flex-wrap items-center justify-center gap-6 text-sm sm:text-base">
+                <button
+                  data-nav-target="men"
+                  class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
+                >
+                  <span>Explore Collections</span>
+                  <span class="text-xs">→</span>
+                </button>
+                <button
+                  onclick="window.VictoriaApp.openBooking('', 'Men')"
+                  class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
+                >
+                  <span>Book on WhatsApp</span>
+                  <span class="text-xs">›</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. MEN SECTION -->
+        <section class="relative w-full py-20 sm:py-32 px-6 sm:px-12 lg:px-20 border-t border-[#1d1d1f] overflow-hidden bg-black">
+          <div class="absolute right-1/4 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 blur-[130px] pointer-events-none rounded-full"></div>
+          <div class="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div class="lg:col-span-6 text-left z-10">
+              <h2 class="font-apple text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-3">Men.</h2>
+              <p class="text-xl sm:text-3xl text-[#a1a1a6] font-normal tracking-tight mb-4">Traditional Native & English Suiting.</p>
+              <p class="text-sm sm:text-base text-[#86868b] leading-relaxed mb-8 font-normal max-w-lg">
+                Senators, grand Agbadas, two-piece English wool suits, and bespoke Ankara tunics. Measured and handcrafted to your exact body posture in Akwa Ibom.
+              </p>
+              <div class="flex flex-wrap items-center gap-6 text-sm sm:text-base">
+                <button data-nav-target="men" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal">
+                  <span>Explore Men's Collection</span><span class="text-xs">→</span>
+                </button>
+                <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal">
+                  <span>Book Consultation</span><span class="text-xs">›</span>
+                </button>
+              </div>
+            </div>
+            <div class="lg:col-span-6 flex justify-center lg:justify-end z-10">
+              <div class="w-full max-w-[520px] flex justify-center lg:justify-end">
+                <img src="./images/men-garment.png" alt="Victoria Fashion Bespoke Men Native Tunic" class="w-full h-auto max-h-[620px] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)]" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. WOMEN SECTION -->
+        <section class="relative w-full py-20 sm:py-32 px-6 sm:px-12 lg:px-20 border-t border-[#1d1d1f] overflow-hidden bg-black">
+          <div class="absolute left-1/4 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/10 blur-[140px] pointer-events-none rounded-full"></div>
+          <div class="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div class="lg:col-span-6 flex justify-center lg:justify-start z-10 order-2 lg:order-1">
+              <div class="w-full max-w-[480px] flex justify-center lg:justify-start">
+                <img src="./images/women-garment.png" alt="Victoria Fashion Bespoke Women One-Shoulder Gown" class="w-full h-auto max-h-[660px] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)]" loading="lazy" />
+              </div>
+            </div>
+            <div class="lg:col-span-6 text-left z-10 order-1 lg:order-2">
+              <h2 class="font-apple text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-3">Women.</h2>
+              <p class="text-xl sm:text-3xl text-[#a1a1a6] font-normal tracking-tight mb-4">Corseted Ballgowns & Power Suiting.</p>
+              <p class="text-sm sm:text-base text-[#86868b] leading-relaxed mb-8 font-normal max-w-lg">
+                Structured peplum two-piece sets, internal boning corset gowns, and sculptural Ankara eveningwear that contour effortlessly to feminine curves.
+              </p>
+              <div class="flex flex-wrap items-center gap-6 text-sm sm:text-base">
+                <button data-nav-target="women" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal">
+                  <span>Explore Women's Collection</span><span class="text-xs">→</span>
+                </button>
+                <button onclick="window.VictoriaApp.openBooking('', 'Women')" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal">
+                  <span>Book Consultation</span><span class="text-xs">›</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. CHILDREN SECTION -->
+        <section class="relative w-full min-h-[85vh] sm:min-h-[92vh] border-t border-[#1d1d1f] overflow-hidden bg-black flex items-center justify-center py-16 sm:py-24 px-4 sm:px-8">
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-r from-emerald-500/10 via-amber-500/10 to-teal-500/10 blur-[150px] pointer-events-none rounded-full"></div>
+          <div class="relative z-0 max-w-3xl w-full flex justify-center items-center">
+            <img src="./images/children-garment.png" alt="Victoria Fashion Children Attire & Institutional Uniforms" class="w-full h-auto max-h-[620px] sm:max-h-[720px] object-contain drop-shadow-[0_30px_70px_rgba(0,0,0,0.95)] select-none" loading="lazy" />
+          </div>
+          <div class="absolute inset-0 bg-radial from-black/50 via-black/30 to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+            <div class="pointer-events-auto max-w-2xl flex flex-col items-center">
+              <h2 class="font-apple text-4xl sm:text-6xl lg:text-8xl xl:text-9xl font-semibold tracking-tight text-white mb-2 drop-shadow-[0_6px_32px_rgba(0,0,0,0.95)]">Children.</h2>
+              <p class="font-apple text-lg sm:text-2xl lg:text-3xl text-[#f5f5f7] font-normal tracking-tight mb-3 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Junior Senators, Party Frocks & Uniforms.</p>
+              <p class="font-apple text-xs sm:text-sm md:text-base text-[#d2d2d7] leading-relaxed max-w-xl mx-auto mb-8 font-normal drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] px-4">
+                Tailored for growing children with soft hypoallergenic inner linings, reinforced seams for play, and durable school institutional wear.
+              </p>
+              <div class="flex flex-wrap items-center justify-center gap-6 text-sm sm:text-base">
+                <button data-nav-target="children" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+                  <span>Explore Children's Collection</span><span class="text-xs">→</span>
+                </button>
+                <button onclick="window.VictoriaApp.openBooking('', 'Children & School Uniforms')" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+                  <span>Book on WhatsApp</span><span class="text-xs">›</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. OCCASIONS SECTION -->
+        <section class="relative w-full min-h-[75vh] sm:min-h-[88vh] lg:min-h-[95vh] border-t border-[#1d1d1f] overflow-hidden bg-black flex items-end">
+          <img src="./images/occasions-asoebi.jpg" alt="Victoria Fashion Royal Couple Aso-Ebi" class="absolute inset-0 w-full h-full object-cover object-top sm:object-center select-none" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/10 pointer-events-none"></div>
+          <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 w-full px-6 sm:px-16 lg:px-24 pb-14 sm:pb-24 pt-32 max-w-[1300px] mx-auto text-left">
+            <div class="max-w-3xl">
+              <h2 class="font-apple text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold tracking-tight text-white mb-3 drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">Occasions & Events.</h2>
+              <p class="font-apple text-lg sm:text-2xl lg:text-3xl text-[#f5f5f7] font-normal tracking-tight mb-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">Weddings, Aso-Ebi & Grand Ceremonies.</p>
+              <p class="text-sm sm:text-base text-[#d2d2d7] leading-relaxed mb-8 font-normal max-w-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                Coordinated group packages for groomsmen, bridesmaids, families, and celebrations of life across Akwa Ibom with guaranteed delivery dates.
+              </p>
+              <div class="flex flex-wrap items-center gap-6 text-sm sm:text-base">
+                <button data-nav-target="occasions" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  <span>Explore Occasion Packages</span><span class="text-xs">→</span>
+                </button>
+                <button onclick="window.VictoriaApp.openBooking('', 'Occasions & Aso-Ebi')" class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                  <span>Book on WhatsApp</span><span class="text-xs">›</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. BESPOKE PRESTIGE & PRESENCE -->
+        <section class="w-full py-20 px-6 sm:px-12 border-t border-[#1d1d1f] text-center">
+          <div class="max-w-3xl mx-auto">
+            <h3 class="font-apple text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
+              Our seams give your dress that address you deserve.
+            </h3>
+            <p class="text-base sm:text-lg text-[#a1a1a6] leading-relaxed mb-8 max-w-2xl mx-auto">
+              You are addressed by the way you dress. When you enter any room, your presence should command honor before you utter a single word. Handcrafted with master precision in Akwa Ibom, every Victoria Fashion garment is sculpted so you always receive the prestige, reverence, and admiration you deserve.
+            </p>
+            <button onclick="window.VictoriaApp.openBooking('Bespoke Commission', 'Men')" class="text-emerald-400 hover:underline text-base font-medium inline-flex items-center gap-2">
+              <svg class="w-4 h-4 fill-emerald-400" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+              <span>Chat on WhatsApp to craft your bespoke statement</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- 7. 3-STEP PROCESS -->
+        <section class="w-full py-20 px-6 sm:px-12 border-t border-[#1d1d1f]">
+          <div class="max-w-[1024px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+            <div>
+              <div class="text-white text-lg font-semibold mb-2">1. Choose Style & Fabric</div>
+              <p class="text-sm text-[#86868b] leading-relaxed">Select from our catalog or bring your custom photo. Provide your own fabric or let Victoria supply Grade-A Dutch wax.</p>
+            </div>
+            <div>
+              <div class="text-white text-lg font-semibold mb-2">2. Provide Measurements</div>
+              <p class="text-sm text-[#86868b] leading-relaxed">Visit our atelier in Akwa Ibom or send your measurements directly over WhatsApp.</p>
+            </div>
+            <div>
+              <div class="text-white text-lg font-semibold mb-2">3. Doorstep Delivery</div>
+              <p class="text-sm text-[#86868b] leading-relaxed">Hand-pressed, neatly packaged, and delivered on time for your special occasion.</p>
+            </div>
+          </div>
+        </section>
+
+
+      </section>
+
+
+      <!-- =========================================================== -->
+      <!-- VIEW: CATALOGUE (80 Handcrafted Items)                      -->
+      <!-- =========================================================== -->
+      <section id="view-catalogue" class="view-section w-full bg-[#000000] text-white min-h-screen py-6 sm:py-10 px-4 sm:px-12 text-left">
+        <div class="max-w-[1240px] mx-auto">
+          <!-- Top Bar: Left = Back to Home, Right = Category Filter Tabs (Same Line) -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 mb-8 sm:mb-10 border-b border-[#1d1d1f]">
+            <button data-nav-target="home" class="text-xs text-[#86868b] hover:text-white transition-colors inline-flex items-center gap-1.5 shrink-0">
+              <span>← Back to Home</span>
+            </button>
+
+            <!-- Category Filter Tabs on the Right -->
+            <div class="flex items-center gap-4 sm:gap-6 overflow-x-auto text-xs sm:text-sm">
+              <button data-filter="all" class="cat-filter-btn pb-1 transition-colors whitespace-nowrap text-white font-semibold border-b-2 border-white">
+                All Collections
+              </button>
+              <button data-filter="men" class="cat-filter-btn pb-1 transition-colors whitespace-nowrap text-[#86868b] hover:text-white">
+                Men Wears
+              </button>
+              <button data-filter="women" class="cat-filter-btn pb-1 transition-colors whitespace-nowrap text-[#86868b] hover:text-white">
+                Female Wears
+              </button>
+              <button data-filter="children" class="cat-filter-btn pb-1 transition-colors whitespace-nowrap text-[#86868b] hover:text-white">
+                Children Wears
+              </button>
+              <button data-filter="occasions" class="cat-filter-btn pb-1 transition-colors whitespace-nowrap text-[#86868b] hover:text-white">
+                Occasions
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic 80-Item Grid Container -->
+          <div id="catalogue-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8"></div>
+
+          <!-- Bottom Custom Fabric Banner -->
+          <div class="mt-24 pt-12 border-t border-[#1d1d1f] text-center">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-white mb-2">Have your own fabric or style in mind?</h3>
+            <p class="text-sm text-[#86868b] max-w-md mx-auto mb-6">Victoria crafts custom commissions from customer-supplied Ankara, brocade, or lace in Akwa Ibom.</p>
+            <button onclick="window.VictoriaApp.openBooking('Custom Style from Catalogue', 'Men')" class="text-emerald-400 hover:underline text-base font-medium inline-flex items-center gap-2">
+              <svg class="w-4 h-4 fill-emerald-400" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+              <span>Chat directly with Victoria on WhatsApp (Akwa Ibom)</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- =========================================================== -->
+      <!-- VIEW: MEN SHOWCASE                                          -->
+      <!-- =========================================================== -->
+      <section id="view-men" class="view-section w-full min-h-screen bg-men-pattern text-white flex flex-col justify-between select-none relative overflow-hidden">
+        <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-amber-600/10 blur-[160px] pointer-events-none rounded-full"></div>
+        <div class="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600/10 blur-[160px] pointer-events-none rounded-full"></div>
+
+        <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-12 pt-4 sm:pt-6 pb-2 z-20 flex items-center justify-between">
+          <button data-nav-target="home" class="text-xs sm:text-sm text-[#86868b] hover:text-white transition-colors inline-flex items-center gap-1.5">
+            <span>← Back to Home</span>
+          </button>
+          <div class="text-[10px] sm:text-xs text-[#86868b] font-apple tracking-widest uppercase">
+            Men's Bespoke Lookbook
+          </div>
+        </div>
+
+        <div class="w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex flex-col justify-center items-center z-10">
+          <div class="relative w-full max-w-[1000px] mx-auto flex items-center justify-center">
+            <button onclick="window.VictoriaApp.prevMen()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-xl" aria-label="Previous">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <!-- Dual Slanted Cards Grid -->
+            <div class="w-full grid grid-cols-2 gap-2 sm:gap-6 md:gap-8 items-center">
+              <div onclick="window.VictoriaApp.bookCurrentMen('Front View')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-[#151517] transition-transform duration-300 group-hover:scale-[1.01] slanted-card-shape">
+                  <img id="men-front-img" src="./images/men-look1-front.jpg" alt="Men Front" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
+                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">FRONT VIEW</span>
+                    <span class="text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5">Front Perspective</span>
+                  </div>
+                </div>
+              </div>
+
+              <div onclick="window.VictoriaApp.bookCurrentMen('Back View')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-[#151517] transition-transform duration-300 group-hover:scale-[1.01] slanted-card-shape">
+                  <img id="men-back-img" src="./images/men-look1-back.jpg" alt="Men Back" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
+                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">BACK VIEW</span>
+                    <span class="text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5">Back Perspective</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="window.VictoriaApp.nextMen()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-xl" aria-label="Next">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Footer Bar -->
+          <footer class="w-full max-w-[1000px] mx-auto pt-4 sm:pt-6 pb-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 mt-3 sm:mt-6">
+            <div class="text-center sm:text-left">
+              <h3 id="men-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Look 01 — Bespoke Plum Silk-Wool Native Tunic</h3>
+              <p id="men-subtitle" class="text-xs text-[#86868b] font-mono tracking-wider mt-0.5">Two-tone iridescent aubergine tailoring with vertical side panels & french cuffs</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div id="men-dots" class="flex items-center gap-2"></div>
+              <span id="men-counter" class="text-[11px] text-[#86868b] pl-1 font-mono">01 / 03</span>
+            </div>
+            <div>
+              <button onclick="window.VictoriaApp.bookCurrentMen('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.3)]">
+                <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+
+      <!-- =========================================================== -->
+      <!-- VIEW: WOMEN SHOWCASE (Love Heart Pattern)                   -->
+      <!-- =========================================================== -->
+      <section id="view-women" class="view-section w-full min-h-screen bg-heart-pattern text-white flex flex-col justify-between select-none relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-pink-500/15 blur-[160px] pointer-events-none rounded-full"></div>
+        <div class="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-rose-600/15 blur-[160px] pointer-events-none rounded-full"></div>
+        <div class="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-fuchsia-900/10 blur-[180px] pointer-events-none rounded-full"></div>
+
+        <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-12 pt-4 sm:pt-6 pb-2 z-20 flex items-center justify-between">
+          <button data-nav-target="home" class="text-xs sm:text-sm text-pink-300/80 hover:text-pink-100 transition-colors inline-flex items-center gap-1.5">
+            <span>← Back to Home</span>
+          </button>
+          <div class="flex items-center gap-1.5 text-[10px] sm:text-xs text-pink-400 font-apple tracking-widest uppercase">
+            <svg class="w-3.5 h-3.5 fill-pink-400 text-pink-400 animate-pulse" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            <span>Women's Haute Couture Lookbook</span>
+          </div>
+        </div>
+
+        <div class="w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex flex-col justify-center items-center z-10">
+          <div class="relative w-full max-w-[1000px] mx-auto flex items-center justify-center">
+            <button onclick="window.VictoriaApp.prevWomen()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-pink-950/40 hover:bg-pink-900/60 border border-pink-400/30 hover:border-pink-400/60 backdrop-blur-md items-center justify-center text-pink-200 transition-all active:scale-95 shadow-[0_0_20px_rgba(236,72,153,0.3)]" aria-label="Previous">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <!-- Dual Slanted Cards Grid -->
+            <div class="w-full grid grid-cols-2 gap-2 sm:gap-6 md:gap-8 items-center">
+              <div onclick="window.VictoriaApp.bookCurrentWomen('Front View')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-pink-500/20 slanted-card-shape">
+                  <img id="women-front-img" src="./images/women-look1-front.jpg" alt="Women Front" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-pink-950/90 via-black/30 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
+                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fbcfe8] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">FRONT VIEW</span>
+                    <span class="text-[9px] sm:text-xs text-pink-300/80 tracking-wider uppercase mt-0.5">Front Silhouette</span>
+                  </div>
+                </div>
+              </div>
+
+              <div onclick="window.VictoriaApp.bookCurrentWomen('Back View')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-pink-500/20 slanted-card-shape">
+                  <img id="women-back-img" src="./images/women-look1-back.jpg" alt="Women Back" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-pink-950/90 via-black/30 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
+                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fbcfe8] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">BACK VIEW</span>
+                    <span class="text-[9px] sm:text-xs text-pink-300/80 tracking-wider uppercase mt-0.5">Back Silhouette</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="window.VictoriaApp.nextWomen()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-pink-950/40 hover:bg-pink-900/60 border border-pink-400/30 hover:border-pink-400/60 backdrop-blur-md items-center justify-center text-pink-200 transition-all active:scale-95 shadow-[0_0_20px_rgba(236,72,153,0.3)]" aria-label="Next">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Footer Bar -->
+          <footer class="w-full max-w-[1000px] mx-auto pt-4 sm:pt-6 pb-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-pink-500/20 mt-3 sm:mt-6">
+            <div class="text-center sm:text-left">
+              <h3 id="women-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Look 01 — Bespoke Rose-Pink & Gold Corset Ballgown</h3>
+              <p id="women-subtitle" class="text-xs text-pink-200/70 font-mono tracking-wider mt-0.5">Architectural internal-boning bodice with sculpted peplum & dramatic mermaid train</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div id="women-dots" class="flex items-center gap-2"></div>
+              <span id="women-counter" class="text-[11px] text-pink-300/80 pl-1 font-mono">01 / 03</span>
+            </div>
+            <div>
+              <button onclick="window.VictoriaApp.bookCurrentWomen('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.3)]">
+                <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+
+      <!-- =========================================================== -->
+      <!-- VIEW: CHILDREN SHOWCASE (50% Dimmed Star Background)        -->
+      <!-- =========================================================== -->
+      <section id="view-children" class="view-section w-full min-h-screen bg-star-pattern text-white flex flex-col justify-between select-none relative overflow-hidden">
+        <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-12 pt-4 sm:pt-6 pb-2 z-20 flex items-center justify-between">
+          <button data-nav-target="home" class="text-xs sm:text-sm text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-1.5">
+            <span>← Back to Home</span>
+          </button>
+          <div class="flex items-center gap-1.5 text-[10px] sm:text-xs text-neutral-300 font-apple tracking-widest uppercase">
+            <svg class="w-3.5 h-3.5 text-white stroke-white fill-white/10" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <span>Children's Bespoke Lookbook</span>
+          </div>
+        </div>
+
+        <div class="w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex flex-col justify-center items-center z-10">
+          <div class="relative w-full max-w-[1000px] mx-auto flex items-center justify-center">
+            <button onclick="window.VictoriaApp.prevChildren()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-neutral-950/70 hover:bg-neutral-900 border border-white/20 hover:border-white/50 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.08)]" aria-label="Previous">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <!-- Dual Slanted Cards Grid: Left = BOY, Right = GIRL -->
+            <div class="w-full grid grid-cols-2 gap-2 sm:gap-6 md:gap-8 items-center">
+              <div onclick="window.VictoriaApp.bookCurrentChildren('Boy')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape">
+                  <img id="children-boy-img" src="./images/children-look1-boy.jpg" alt="Boy Look" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
+                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#bae6fd] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">BOY</span>
+                    <span class="text-[9px] sm:text-xs text-sky-300/80 tracking-wider uppercase mt-0.5">Junior Prince</span>
+                  </div>
+                </div>
+              </div>
+
+              <div onclick="window.VictoriaApp.bookCurrentChildren('Girl')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape">
+                  <img id="children-girl-img" src="./images/children-look1-girl.jpg" alt="Girl Look" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none"></div>
+                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
+                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fef08a] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">GIRL</span>
+                    <span class="text-[9px] sm:text-xs text-amber-300/80 tracking-wider uppercase mt-0.5">Little Princess</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="window.VictoriaApp.nextChildren()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-neutral-950/70 hover:bg-neutral-900 border border-white/20 hover:border-white/50 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.08)]" aria-label="Next">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Footer Bar -->
+          <footer class="w-full max-w-[1000px] mx-auto pt-4 sm:pt-6 pb-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 mt-3 sm:mt-6">
+            <div class="text-center sm:text-left">
+              <h3 id="children-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Look 01 — Sibling Royalty in Emerald & Gold Damask</h3>
+              <p id="children-subtitle" class="text-xs text-neutral-300 font-mono tracking-wider mt-0.5">Junior Senator tailored suit & matching Little Princess tiered tulle ballgown</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div id="children-dots" class="flex items-center gap-2"></div>
+              <span id="children-counter" class="text-[11px] text-neutral-400 pl-1 font-mono">01 / 03</span>
+            </div>
+            <div>
+              <button onclick="window.VictoriaApp.bookCurrentChildren('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.3)]">
+                <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+
+      <!-- =========================================================== -->
+      <!-- VIEW: OCCASIONS (Option A Cathedral Archways & Sub-Views)   -->
+      <!-- =========================================================== -->
+      <section id="view-occasions" class="view-section w-full min-h-screen bg-arch-lattice text-white flex flex-col justify-between select-none relative overflow-x-hidden">
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/10 blur-[180px] pointer-events-none rounded-full"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-amber-600/10 blur-[180px] pointer-events-none rounded-full"></div>
+
+        <!-- 1. Top Header & Breadcrumbs -->
+        <header class="w-full max-w-[1400px] mx-auto px-4 sm:px-12 pt-5 pb-3 z-30 flex items-center justify-between">
+          <button 
+            onclick="const isPortal = document.getElementById('occasions-portal-section').classList.contains('hidden') === false; if(isPortal) window.VictoriaApp.navigateTo('home'); else window.VictoriaApp.navigateTo('occasions', 'portal');"
+            class="text-xs sm:text-sm text-neutral-400 hover:text-amber-300 transition-colors inline-flex items-center gap-2 group font-mono uppercase tracking-widest"
+          >
+            <span>←</span>
+            <span id="occasions-back-btn-text">Back to Home</span>
+          </button>
+          <div class="flex items-center gap-2 text-[10px] sm:text-xs text-amber-200/90 font-mono tracking-wider sm:tracking-[0.22em] uppercase shrink-0">
+            <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19h16v-2H4v2z" fill="currentColor"/>
+              <path d="M4 17L6 9l4.5 4.5L12 5l1.5 8.5L18 9l2 8H4z" fill="currentColor" fill-opacity="0.15"/>
+              <circle cx="6" cy="8" r="1.2" fill="currentColor"/>
+              <circle cx="12" cy="4.2" r="1.4" fill="currentColor"/>
+              <circle cx="18" cy="8" r="1.2" fill="currentColor"/>
+            </svg>
+            <span id="occasions-breadcrumb-label" class="truncate max-w-[170px] sm:max-w-none">Occasions & Celebrations</span>
+          </div>
+        </header>
+
+        <!-- ========================================================= -->
+        <!-- SUB-VIEW 1: OCCASIONS PORTAL (2 Archway Categories)       -->
+        <!-- ========================================================= -->
+        <div id="occasions-portal-section" class="w-full max-w-[1240px] mx-auto px-4 sm:px-8 py-4 sm:py-8 flex-1 flex flex-col justify-center items-center z-20">
+          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 max-w-[1040px] mx-auto">
+            <!-- PORTAL 1: WEDDINGS -->
+            <div onclick="window.VictoriaApp.navigateTo('occasions', 'weddings')" class="group cursor-pointer flex flex-col items-center text-center transition-transform duration-500 hover:-translate-y-2">
+              <div class="relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 group-hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] group-hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)]">
+                <img src="./images/wedding-look1-front.jpg" alt="Weddings & Bridal Couture" class="w-full h-full object-cover object-top transform scale-[1.03] transition-transform duration-700 group-hover:scale-[1.07]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20 pointer-events-none"></div>
+                <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
+                <div class="absolute inset-x-0 bottom-6 sm:bottom-10 px-6 flex flex-col items-center">
+                  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-apple font-bold text-white tracking-widest uppercase mb-1 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                    Weddings
+                  </h2>
+                  <p class="text-[11px] sm:text-xs text-neutral-300 font-mono tracking-[0.16em] uppercase mb-4 max-w-xs leading-relaxed">
+                    Bridal Ballgowns, Sculpted Mermaids & Groomsmen Couture
+                  </p>
+                  <span class="border border-white/80 group-hover:border-white group-hover:bg-white group-hover:text-black text-white text-[10px] font-mono tracking-[0.2em] uppercase px-6 py-2.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+                    Explore Wedding Gowns →
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- PORTAL 2: OTHER CELEBRATIONS -->
+            <div onclick="window.VictoriaApp.navigateTo('occasions', 'celebrations')" class="group cursor-pointer flex flex-col items-center text-center transition-transform duration-500 hover:-translate-y-2">
+              <div class="relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 group-hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] group-hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)]">
+                <img src="./images/celebration-asoebi-female.jpg" alt="Other Celebrations & Memorials" class="w-full h-full object-cover object-top transform scale-[1.03] transition-transform duration-700 group-hover:scale-[1.07]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20 pointer-events-none"></div>
+                <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
+                <div class="absolute inset-x-0 bottom-6 sm:bottom-10 px-6 flex flex-col items-center">
+                  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-apple font-bold text-white tracking-widest uppercase mb-1 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                    Other Celebrations
+                  </h2>
+                  <p class="text-[11px] sm:text-xs text-neutral-300 font-mono tracking-[0.16em] uppercase mb-4 max-w-xs leading-relaxed">
+                    Celebration of Life, Naming Ceremonies & Chieftaincy
+                  </p>
+                  <span class="border border-white/80 group-hover:border-white group-hover:bg-white group-hover:text-black text-white text-[10px] font-mono tracking-[0.2em] uppercase px-6 py-2.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
+                    Explore Celebrations →
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SUB-VIEW 2: WEDDINGS (Dual Royal Archways: Front & Back)   -->
+        <!-- ========================================================= -->
+        <div id="occasions-weddings-section" class="hidden w-full max-w-[1240px] mx-auto px-3 sm:px-8 py-2 sm:py-4 flex-1 flex flex-col justify-center items-center z-20">
+          <!-- Dual Archways Container (Exact Same Scale & Shape as Portal) -->
+          <div class="relative w-full max-w-[1040px] mx-auto flex items-center justify-center">
+            <button onclick="window.VictoriaApp.prevWedding()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Previous">
+              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <!-- 2 Archway Cards Grid: Left = Front View, Right = Back View -->
+            <div class="w-full grid grid-cols-2 gap-2 sm:gap-8 lg:gap-14 max-w-[1040px] mx-auto justify-items-center">
+              <!-- Left Arch: FRONT VIEW -->
+              <div onclick="window.VictoriaApp.bookCurrentWedding('Front View')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
+                <img id="wedding-front-img" src="./images/wedding-look1-front.jpg" alt="Wedding Gown Front" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
+                  <span class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.1em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">FRONT VIEW</span>
+                  <span class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5">Front Perspective</span>
+                </div>
+              </div>
+
+              <!-- Right Arch: BACK VIEW -->
+              <div onclick="window.VictoriaApp.bookCurrentWedding('Back View')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
+                <img id="wedding-back-img" src="./images/wedding-look1-back.jpg" alt="Wedding Gown Back" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
+                  <span class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.1em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">BACK VIEW</span>
+                  <span class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5">Back Perspective</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="window.VictoriaApp.nextWedding()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Next">
+              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Footer Bar -->
+          <footer class="w-full max-w-[1040px] mx-auto pt-3 sm:pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-amber-400/20 mt-3">
+            <div class="text-center sm:text-left max-w-md">
+              <h3 id="wedding-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Look 01 — Royal Ivory & 24k Gold Cathedral Ballgown</h3>
+              <p id="wedding-subtitle" class="text-xs text-neutral-300 font-mono tracking-wider mt-0.5">Bespoke structured corset with gold filigree embroidery & cascading chapel veil</p>
+              <p id="wedding-fabric" class="text-[11px] text-amber-300/70 font-mono mt-0.5">Fabric: Pure Mulberry Silk Satin & Metallic Gold Thread</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div id="wedding-dots" class="flex items-center gap-2"></div>
+              <span id="wedding-counter" class="text-[11px] text-amber-200/90 pl-1 font-mono">01 / 03</span>
+            </div>
+            <div>
+              <button onclick="window.VictoriaApp.bookCurrentWedding('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
+                <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                <span>Order on WhatsApp</span>
+              </button>
+            </div>
+          </footer>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- SUB-VIEW 3: OTHER CELEBRATIONS (Male & Female Pairs)      -->
+        <!-- ========================================================= -->
+        <div id="occasions-celebrations-section" class="hidden w-full max-w-[1240px] mx-auto px-3 sm:px-8 py-2 sm:py-4 flex-1 flex flex-col justify-center items-center z-20">
+          <!-- Dual Archways Container (Exact Same Scale & Shape as Portal) -->
+          <div class="relative w-full max-w-[1040px] mx-auto flex items-center justify-center">
+            <button onclick="window.VictoriaApp.prevCelebration()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Previous">
+              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+
+            <!-- 2 Archway Cards Grid: Left = Male Version, Right = Female Version -->
+            <div class="w-full grid grid-cols-2 gap-2 sm:gap-8 lg:gap-14 max-w-[1040px] mx-auto justify-items-center">
+              <!-- Left Arch: MALE -->
+              <div onclick="window.VictoriaApp.bookCurrentCelebration('Male Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
+                <img id="celebration-male-img" src="./images/celebration-asoebi-male.jpg" alt="Male Version" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
+                  <span class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">MALE VERSION</span>
+                  <span id="celebration-male-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Royal 3-Piece Agbada</span>
+                </div>
+              </div>
+
+              <!-- Right Arch: FEMALE -->
+              <div onclick="window.VictoriaApp.bookCurrentCelebration('Female Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
+                <img id="celebration-female-img" src="./images/celebration-asoebi-female.jpg" alt="Female Version" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
+                  <span class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">FEMALE VERSION</span>
+                  <span id="celebration-female-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Couture Mermaid Wrapper & Gele</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="window.VictoriaApp.nextCelebration()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Next">
+              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Footer Bar -->
+          <footer class="w-full max-w-[1040px] mx-auto pt-3 sm:pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-amber-400/20 mt-3">
+            <div class="text-center sm:text-left max-w-md">
+              <h3 id="celebration-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Look 01 — Imperial Cobalt Indigo & Gold Embroidered Ensemble</h3>
+              <p id="celebration-subtitle" class="text-xs text-neutral-300 font-mono tracking-wider mt-0.5">Unified royal blue ceremonial set for couple, family, and distinguished wedding guests</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <div id="celebration-dots" class="flex items-center gap-2"></div>
+              <span id="celebration-counter" class="text-[11px] text-amber-200/90 pl-1 font-mono">01 / 03</span>
+            </div>
+            <div>
+              <button onclick="window.VictoriaApp.bookCurrentCelebration('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
+                <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                <span>Order Set on WhatsApp</span>
+              </button>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+
+      <!-- =========================================================== -->
+      <!-- VIEW: SERVICE EXPERIENCE (Bugatti.com Sequential Videos)     -->
+      <!-- =========================================================== -->
+      <section id="view-experience" class="view-section w-full bg-[#000000] text-white min-h-screen selection:bg-white selection:text-black">
+        <nav class="w-full max-w-[1400px] mx-auto px-4 sm:px-12 pt-6 pb-4 flex items-center justify-between">
+          <button data-nav-target="home" class="text-xs sm:text-sm text-neutral-400 hover:text-white transition-colors inline-flex items-center gap-2 group uppercase tracking-widest font-mono">
+            <span>← Back to Home</span>
+          </button>
+        </nav>
+
+        <main class="w-full pb-20">
+          <!-- CHAPTER 1: VICTORIA BESPOKE (Signature Script) -->
+          <section class="w-full max-w-[1360px] mx-auto px-3 sm:px-8 my-8 sm:my-16">
+            <div class="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/9] min-h-[440px] sm:min-h-[520px] rounded-2xl sm:rounded-[32px] overflow-hidden bg-black group">
+              <video src="./videos/chapter1-design.mp4" poster="./images/ankara-pro-hero.jpg" autoplay loop muted playsinline class="w-full h-full object-cover transform scale-[1.01] transition-transform duration-1000 group-hover:scale-[1.03]"></video>
+              <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 shadow-[inset_0_0_90px_45px_#000000] pointer-events-none"></div>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 sm:p-12 z-10 max-w-4xl mx-auto">
+                <span class="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-white/90 tracking-widest mb-3 drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">Victoria</span>
+                <p class="text-[11px] sm:text-xs lg:text-sm text-neutral-200 font-mono tracking-[0.18em] sm:tracking-[0.24em] uppercase leading-relaxed max-w-2xl mb-6 sm:mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                  ROOTED IN TRADITION. BUILT TO LEAVE A LEGACY.
+                </p>
+                <div>
+                  <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="border border-white/80 hover:border-white hover:bg-white hover:text-black text-white text-[10px] sm:text-xs font-mono tracking-[0.22em] uppercase px-8 sm:px-11 py-3 sm:py-3.5 rounded-full backdrop-blur-md transition-all duration-300 active:scale-95 shadow-[0_0_25px_rgba(0,0,0,0.7)]">
+                    DISCOVER BESPOKE TAILORING
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CHAPTER 2: VICTORIA BESPOKE (The Pinnacle of Customization) -->
+          <section class="w-full max-w-[1360px] mx-auto px-3 sm:px-8 my-8 sm:my-16">
+            <div class="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/9] min-h-[440px] sm:min-h-[520px] rounded-2xl sm:rounded-[32px] overflow-hidden bg-black group">
+              <video src="./videos/chapter2-cutting.mp4" poster="./images/textile-macro.jpg" autoplay loop muted playsinline class="w-full h-full object-cover transform scale-[1.01] transition-transform duration-1000 group-hover:scale-[1.03]"></video>
+              <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 shadow-[inset_0_0_90px_45px_#000000] pointer-events-none"></div>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 sm:p-12 z-10 max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-apple font-bold text-white tracking-[0.14em] sm:tracking-[0.18em] uppercase mb-3 sm:mb-4 drop-shadow-[0_4px_25px_rgba(0,0,0,0.95)]">
+                  VICTORIA BESPOKE
+                </h2>
+                <p class="text-[11px] sm:text-xs lg:text-sm text-neutral-200 font-mono tracking-[0.18em] sm:tracking-[0.24em] uppercase leading-relaxed max-w-2xl mb-6 sm:mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                  THE PINNACLE OF CUSTOMIZATION. UNLIMITED CREATIVITY. INFINITE POSSIBILITIES.
+                </p>
+                <div>
+                  <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="border border-white/80 hover:border-white hover:bg-white hover:text-black text-white text-[10px] sm:text-xs font-mono tracking-[0.22em] uppercase px-8 sm:px-11 py-3 sm:py-3.5 rounded-full backdrop-blur-md transition-all duration-300 active:scale-95 shadow-[0_0_25px_rgba(0,0,0,0.7)]">
+                    BOOK PRIVATE FITTING
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CHAPTER 3: THE MASTER CUT -->
+          <section class="w-full max-w-[1360px] mx-auto px-3 sm:px-8 my-8 sm:my-16">
+            <div class="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/9] min-h-[440px] sm:min-h-[520px] rounded-2xl sm:rounded-[32px] overflow-hidden bg-black group">
+              <video src="./videos/chapter3-sewing.mp4" poster="./images/agbada-ultra.jpg" autoplay loop muted playsinline class="w-full h-full object-cover transform scale-[1.01] transition-transform duration-1000 group-hover:scale-[1.03]"></video>
+              <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 shadow-[inset_0_0_90px_45px_#000000] pointer-events-none"></div>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 sm:p-12 z-10 max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-apple font-bold text-white tracking-[0.14em] sm:tracking-[0.18em] uppercase mb-3 sm:mb-4 drop-shadow-[0_4px_25px_rgba(0,0,0,0.95)]">
+                  THE MASTER CUT
+                </h2>
+                <p class="text-[11px] sm:text-xs lg:text-sm text-neutral-200 font-mono tracking-[0.18em] sm:tracking-[0.24em] uppercase leading-relaxed max-w-2xl mb-6 sm:mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                  PRECISION TO 0.2 MILLIMETERS. ARCHITECTURAL PATTERN SYMMETRY.
+                </p>
+                <div>
+                  <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="border border-white/80 hover:border-white hover:bg-white hover:text-black text-white text-[10px] sm:text-xs font-mono tracking-[0.22em] uppercase px-8 sm:px-11 py-3 sm:py-3.5 rounded-full backdrop-blur-md transition-all duration-300 active:scale-95 shadow-[0_0_25px_rgba(0,0,0,0.7)]">
+                    EXPLORE THE CRAFT
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CHAPTER 4: INTERNAL ARCHITECTURE -->
+          <section class="w-full max-w-[1360px] mx-auto px-3 sm:px-8 my-8 sm:my-16">
+            <div class="relative w-full aspect-[16/10] sm:aspect-[16/8] lg:aspect-[21/9] min-h-[440px] sm:min-h-[520px] rounded-2xl sm:rounded-[32px] overflow-hidden bg-black group">
+              <video src="./videos/chapter4-fitting.mp4" poster="./images/luxury-unboxing.jpg" autoplay loop muted playsinline class="w-full h-full object-cover transform scale-[1.01] transition-transform duration-1000 group-hover:scale-[1.03]"></video>
+              <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80 pointer-events-none"></div>
+              <div class="absolute inset-0 shadow-[inset_0_0_90px_45px_#000000] pointer-events-none"></div>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 sm:p-12 z-10 max-w-4xl mx-auto">
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-apple font-bold text-white tracking-[0.14em] sm:tracking-[0.18em] uppercase mb-3 sm:mb-4 drop-shadow-[0_4px_25px_rgba(0,0,0,0.95)]">
+                  INTERNAL ARCHITECTURE
+                </h2>
+                <p class="text-[11px] sm:text-xs lg:text-sm text-neutral-200 font-mono tracking-[0.18em] sm:tracking-[0.24em] uppercase leading-relaxed max-w-2xl mb-6 sm:mb-8 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                  AS IMPECCABLE ON THE INSIDE AS IT IS ON THE OUTSIDE. BUILT TO ENDURE.
+                </p>
+                <div>
+                  <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="border border-white/80 hover:border-white hover:bg-white hover:text-black text-white text-[10px] sm:text-xs font-mono tracking-[0.22em] uppercase px-8 sm:px-11 py-3 sm:py-3.5 rounded-full backdrop-blur-md transition-all duration-300 active:scale-95 shadow-[0_0_25px_rgba(0,0,0,0.7)]">
+                    VIEW CRAFT STANDARDS
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CEREMONIAL PUNCTUALITY MILESTONE -->
+          <section class="w-full max-w-[1360px] mx-auto px-4 sm:px-8 pt-12 sm:pt-20 pb-16 text-center">
+            <div class="max-w-3xl mx-auto space-y-6">
+              <h2 class="text-3xl sm:text-5xl lg:text-6xl font-apple font-bold text-white tracking-tight uppercase">
+                Non-Negotiable Ceremonial Dates.
+              </h2>
+              <p class="text-xs sm:text-sm lg:text-base text-neutral-300 font-mono tracking-[0.2em] uppercase leading-relaxed max-w-2xl mx-auto">
+                IF YOUR OUTFIT IS PROMISED FOR THURSDAY, IT WILL BE IN YOUR HANDS BY THURSDAY.
+              </p>
+              <div class="pt-4">
+                <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="border border-white text-white hover:bg-white hover:text-black text-xs sm:text-sm font-mono tracking-[0.25em] uppercase px-9 sm:px-12 py-3.5 sm:py-4 rounded-full transition-all active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.15)] inline-flex items-center gap-3">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                  <span>Start Your Custom Order →</span>
+                </button>
+              </div>
+              <div class="text-[10px] font-mono text-neutral-400 tracking-[0.25em] uppercase pt-4">
+                VICTORIA FASHION · AKWA IBOM, NIGERIA · WORLDWIDE DELIVERY
+              </div>
+            </div>
+          </section>
+        </main>
+      </section>
+
+    </main>
+
+    <!-- ============================================================= -->
+    <!-- 3. INTERACTIVE WHATSAPP CONSULTATION / BOOKING MODAL           -->
+    <!-- ============================================================= -->
+    <div id="booking-modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-black/80 backdrop-blur-xl text-left">
+      <div class="relative w-full max-w-lg bg-[#121214] border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl">
+        <button class="close-booking-modal absolute top-6 right-6 text-neutral-400 hover:text-white p-1" aria-label="Close">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+
+        <div class="mb-6">
+          <h2 class="text-3xl font-semibold text-white tracking-tight">Book a Consultation</h2>
+          <p class="text-sm text-[#86868b] mt-1">Victoria Fashion · Akwa Ibom, Nigeria</p>
+        </div>
+
+        <div class="space-y-4 mb-6">
+          <div>
+            <label class="text-xs text-[#86868b] block mb-2 font-medium">Select Department</label>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <button type="button" data-dept="Men" class="booking-dept-btn p-2.5 rounded-xl border text-left transition-colors border-white text-white font-medium bg-white/10">Men</button>
+              <button type="button" data-dept="Women" class="booking-dept-btn p-2.5 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white">Women</button>
+              <button type="button" data-dept="Children & School Uniforms" class="booking-dept-btn p-2.5 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white">Children & School Uniforms</button>
+              <button type="button" data-dept="Occasions & Aso-Ebi" class="booking-dept-btn p-2.5 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white">Occasions & Aso-Ebi</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-xs text-[#86868b] block mb-2 font-medium">Style / Notes (Optional)</label>
+            <textarea
+              id="booking-notes"
+              rows="3"
+              placeholder="Tell Victoria what you want to sew (e.g. Senator set, Agbada, wedding gown, children school uniforms)..."
+              class="w-full bg-[#1c1c1e] text-white border border-white/10 rounded-xl p-3 text-sm focus:border-white focus:outline-none placeholder:text-neutral-600"
+            ></textarea>
+          </div>
+        </div>
+
+        <button
+          id="booking-submit-btn"
+          class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold py-3.5 px-6 rounded-full text-sm flex items-center justify-center gap-2 transition-transform active:scale-95"
+        >
+          <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+          <span>Chat with Victoria on WhatsApp</span>
+        </button>
+
+        <div class="text-center text-[11px] text-[#6e6e73] mt-3">
+          Akwa Ibom, Nigeria · Friendly response within minutes
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- 4. APPLE CLEAN DIRECTORY FOOTER                                -->
+    <!-- ============================================================= -->
+    <footer class="w-full bg-black text-[#86868b] text-[12px] border-t border-[#1d1d1f] pt-12 pb-14 px-6 sm:px-12 text-left">
+      <div class="max-w-[1140px] mx-auto">
+        <div class="border-b border-[#1d1d1f] pb-6 mb-8 text-[11px] text-[#6e6e73] leading-relaxed">
+          <p>
+            Victoria Fashion is a bespoke fashion tailoring house based in Akwa Ibom, Nigeria. We craft formal, traditional, ceremonial, and uniform garments using woven cotton, wool, linen, lace, and luxury African wax prints. We do not produce heavy stretch denim.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10 text-xs">
+          <div>
+            <div class="text-white font-medium mb-3">Departments</div>
+            <ul class="space-y-2">
+              <li><button data-nav-target="men" class="hover:text-white transition-colors">Men's Collection</button></li>
+              <li><button data-nav-target="women" class="hover:text-white transition-colors">Women's Collection</button></li>
+              <li><button data-nav-target="children" class="hover:text-white transition-colors">Children & Uniforms</button></li>
+              <li><button data-nav-target="occasions" class="hover:text-white transition-colors">Occasions & Aso-Ebi</button></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-white font-medium mb-3">Craftsmanship</div>
+            <ul class="space-y-2">
+              <li><button data-nav-target="experience" class="hover:text-white transition-colors">Service Experience</button></li>
+              <li><button data-nav-target="experience" class="hover:text-white transition-colors">The Finishing Standards</button></li>
+              <li><button data-nav-target="experience" class="hover:text-white transition-colors">Affordable Budget</button></li>
+              <li><button data-nav-target="experience" class="hover:text-white transition-colors">Range of Styles</button></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-white font-medium mb-3">Location</div>
+            <ul class="space-y-2 text-[#86868b]">
+              <li>Akwa Ibom State, Nigeria</li>
+              <li>In-person atelier fittings</li>
+              <li>Doorstep delivery nationwide</li>
+              <li>DHL express worldwide shipping</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-white font-medium mb-3">Consultation</div>
+            <ul class="space-y-2">
+              <li><a href="https://wa.me/2348000000000" target="_blank" rel="noreferrer" class="text-emerald-400 hover:underline">WhatsApp Direct</a></li>
+              <li><span class="text-[#86868b]">Fast response</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-[#1d1d1f] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-[#6e6e73]">
+          <div>
+            Copyright © 2026 Victoria Fashion. Akwa Ibom, Nigeria. All rights reserved.
+          </div>
+          <div class="text-[#86868b]">
+            Akwa Ibom / Nigeria / Worldwide
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts: Pure Vanilla JS, Zero Bundlers or Node Needed -->
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
