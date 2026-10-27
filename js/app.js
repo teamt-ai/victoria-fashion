@@ -221,6 +221,29 @@
       countEl.textContent = `${items.length} Handcrafted Designs · Victoria Fashion`;
     }
 
+    if (items.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full py-20 text-center text-[#86868b] flex flex-col items-center justify-center">
+          <p class="font-apple text-lg text-white font-semibold mb-2">Collection Updating</p>
+          <p class="text-sm text-[#86868b] max-w-md mx-auto mb-6">More bespoke designs are being added to this collection. Browse our Women Collections or chat directly with Victoria for custom orders.</p>
+          <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm px-6 py-2.5 rounded-full font-medium transition-all">
+            Inquire on WhatsApp
+          </button>
+        </div>
+      `;
+      document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+        const f = btn.getAttribute('data-filter');
+        if (f === state.catalogueFilter) {
+          btn.classList.add('text-white', 'font-semibold', 'border-b-2', 'border-white');
+          btn.classList.remove('text-[#86868b]');
+        } else {
+          btn.classList.remove('text-white', 'font-semibold', 'border-b-2', 'border-white');
+          btn.classList.add('text-[#86868b]');
+        }
+      });
+      return;
+    }
+
     // Render cards (Backgroundless feathered edges & Style Name overlay like Front View / Back View)
     grid.innerHTML = items.map(item => `
       <div
