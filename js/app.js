@@ -486,7 +486,7 @@
     }
 
     if (counterEl) {
-      counterEl.textContent = `0${state.womenIndex + 1} / 0${DATA.womenLooks.length}`;
+      counterEl.textContent = `${String(state.womenIndex + 1).padStart(2, '0')} / ${String(DATA.womenLooks.length).padStart(2, '0')}`;
     }
   }
 

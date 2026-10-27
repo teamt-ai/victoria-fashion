@@ -33,6 +33,36 @@ window.VICTORIA_DATA = {
         name: "Executive Black Crepe and Gold Baroque Gown",
         desc: "Sophisticated black pencil dress with opulent gold baroque silk balloon sleeves and arched chest yoke.",
         image: "./images/women-bespoke-black-paisley.jpg"
+      },
+      {
+        id: "w-6",
+        name: "Emerald & Gold Geometric Ankara Asymmetric Pencil Dress",
+        desc: "Tailored sleeveless cocktail silhouette featuring a textured emerald beaded bodice and sculpted diagonal hemline.",
+        image: "./images/women-bespoke-ankara-asymmetric.jpg"
+      },
+      {
+        id: "w-7",
+        name: "Vintage Ivory Botanical Flared Midi Dress",
+        desc: "Classic couture swing silhouette with draped portrait collar, elbow puff sleeves, belt-cinched waist, and a voluminous circle skirt.",
+        image: "./images/women-bespoke-vintage-floral.jpg"
+      },
+      {
+        id: "w-8",
+        name: "Emerald Circles Ankara & Sheer Black Lace Skater Dress",
+        desc: "Fusion midi pairing vibrant Dutch wax geometric circle print with delicate sheer Chantilly lace illusion neckline and long sleeves.",
+        image: "./images/women-bespoke-green-lace-skater.jpg"
+      },
+      {
+        id: "w-9",
+        name: "Monochrome Paisley Pussycat Bow Blouse & Fluted Skirt",
+        desc: "Executive two-piece ensemble combining an intricate baroque silk tie-neck blouse with an elegant high-waisted black midi skirt.",
+        image: "./images/women-bespoke-monochrome-tie.jpg"
+      },
+      {
+        id: "w-10",
+        name: "Festive Multi-Hue Batik Brocade Maxi Gown",
+        desc: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and radiant metallic sheen.",
+        image: "./images/women-bespoke-batik-bell-maxi.jpg"
       }
     ],
     children: [],
@@ -180,6 +210,51 @@ window.VICTORIA_DATA = {
       subtitle: "Modern tailored black column dress with opulent baroque patterned balloon sleeves and chest yoke",
       frontImage: "./images/women-bespoke-black-paisley.jpg",
       backImage: "./images/women-bespoke-black-paisley.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    },
+    {
+      id: 6,
+      title: "Look 06 — Emerald & Gold Geometric Ankara Asymmetric Pencil Dress",
+      subtitle: "Tailored sleeveless cocktail silhouette featuring textured beaded bodice and sculpted diagonal hemline",
+      frontImage: "./images/women-bespoke-ankara-asymmetric.jpg",
+      backImage: "./images/women-bespoke-ankara-asymmetric.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    },
+    {
+      id: 7,
+      title: "Look 07 — Vintage Ivory Botanical Flared Midi Dress",
+      subtitle: "Classic couture swing silhouette with draped portrait collar, puff sleeves, belted waist, and pleated circle skirt",
+      frontImage: "./images/women-bespoke-vintage-floral.jpg",
+      backImage: "./images/women-bespoke-vintage-floral.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    },
+    {
+      id: 8,
+      title: "Look 08 — Emerald Circles Ankara & Sheer Black Lace Skater Dress",
+      subtitle: "Fusion midi pairing vibrant geometric Dutch wax print with delicate sheer Chantilly lace illusion yoke and long sleeves",
+      frontImage: "./images/women-bespoke-green-lace-skater.jpg",
+      backImage: "./images/women-bespoke-green-lace-skater.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    },
+    {
+      id: 9,
+      title: "Look 09 — Monochrome Paisley Pussycat Bow Blouse & Fluted Skirt",
+      subtitle: "Executive two-piece ensemble combining intricate baroque silk tie-neck blouse with high-waisted black skirt",
+      frontImage: "./images/women-bespoke-monochrome-tie.jpg",
+      backImage: "./images/women-bespoke-monochrome-tie.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    },
+    {
+      id: 10,
+      title: "Look 10 — Festive Multi-Hue Batik Brocade Maxi Gown",
+      subtitle: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and metallic luster",
+      frontImage: "./images/women-bespoke-batik-bell-maxi.jpg",
+      backImage: "./images/women-bespoke-batik-bell-maxi.jpg",
       frontLabel: "FULL VIEW",
       backLabel: "ATELIER VIEW"
     }
