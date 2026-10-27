@@ -119,59 +119,49 @@
       <!-- =========================================================== -->
       <section id="view-home" class="view-section active w-full bg-[#000000] text-white overflow-x-hidden">
         
-        <!-- 1. HERO SECTION (Pure Apple.com Depth & Scale) -->
-        <section class="relative w-full bg-black overflow-hidden flex items-end justify-center min-h-[85vh] sm:min-h-[92vh]">
-          <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[750px] h-[360px] bg-gradient-to-r from-blue-600/15 via-amber-500/10 to-blue-600/15 blur-[140px] pointer-events-none rounded-full"></div>
+        <!-- 1. HERO SECTION (Clean Luxury Brand Centerpiece) -->
+        <section class="relative w-full bg-black overflow-hidden flex items-center justify-center min-h-[80vh] sm:min-h-[88vh] py-20 sm:py-28">
+          <!-- Ambient Royal Sapphire & Gold Aura -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[460px] bg-gradient-to-r from-blue-600/25 via-blue-500/15 to-indigo-600/20 blur-[150px] pointer-events-none rounded-full"></div>
 
-          <!-- Layer 0: Typography Behind Image -->
-          <div class="absolute top-10 sm:top-14 lg:top-18 inset-x-0 z-0 flex items-center justify-center text-center select-none pointer-events-none px-2 sm:px-4 overflow-hidden">
-            <h2 class="font-apple text-[clamp(1.75rem,7.5vw,7.8rem)] font-black tracking-tight uppercase leading-none flex items-center justify-center whitespace-nowrap select-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.9)]">
+          <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 flex flex-col items-center justify-center text-center">
+            <!-- Big, Bold Brand Lockup on ONE LINE with Logo as 'V' -->
+            <h1 class="font-apple text-[clamp(2rem,7.8vw,7.2rem)] font-black tracking-tight uppercase leading-none flex items-center justify-center whitespace-nowrap select-none drop-shadow-[0_16px_50px_rgba(0,0,0,0.95)] mb-6 sm:mb-8">
               <img 
                 src="./images/logo-v.png" 
-                alt="V" 
-                class="inline-block h-[1.12em] w-auto object-contain align-middle drop-shadow-[0_0_35px_rgba(41,151,255,0.7)] -mr-[0.06em] pointer-events-auto"
+                alt="Victoria Fashion Logo" 
+                class="inline-block h-[1.15em] w-auto object-contain align-middle drop-shadow-[0_0_45px_rgba(41,151,255,0.75)] -mr-[0.06em] transition-transform duration-500 hover:scale-105"
               />
-              <span class="bg-gradient-to-b from-[#ffffff] via-[#f0f0f5] to-[#8e8e93] bg-clip-text text-transparent font-black tracking-tight">
+              <span class="bg-gradient-to-b from-[#ffffff] via-[#f2f2f7] to-[#8e8e93] bg-clip-text text-transparent font-black tracking-tight">
                 ICTORIA FASHION
               </span>
-            </h2>
-          </div>
+            </h1>
 
-          <!-- Layer 1: Bespoke Couture Attire in FRONT of Text -->
-          <div class="relative z-10 w-full max-w-[960px] mx-auto flex items-end justify-center select-none pt-16 sm:pt-24 pb-20 sm:pb-30">
-            <img 
-              src="./images/hero-couple.png" 
-              alt="Victoria Fashion Bespoke Couture"
-              class="w-full h-auto max-h-[54vh] sm:max-h-[62vh] object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.95)]"
-              loading="eager"
-            />
-          </div>
+            <!-- Subheading Tagline -->
+            <p class="font-apple text-xl sm:text-3xl lg:text-4xl text-white font-medium tracking-tight mb-4 max-w-3xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+              Bespoke African Wax Prints &amp; Modern Tailoring.
+            </p>
 
-          <!-- Layer 2: Text in FRONT of Image -->
-          <div class="absolute inset-x-0 bottom-0 z-20 px-4 sm:px-16 pb-8 sm:pb-14 pt-20 flex flex-col items-center text-center bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none">
-            <div class="max-w-3xl mx-auto w-full pointer-events-auto">
-              <h1 class="font-apple text-2xl sm:text-4xl lg:text-5xl text-white font-semibold tracking-tight mb-3 drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
-                Bespoke African Wax Prints & Modern Tailoring.
-              </h1>
-              <p class="font-apple text-xs sm:text-base text-[#d2d2d7] mb-6 sm:mb-8 font-normal max-w-xl mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] px-2">
-                Akwa Ibom, Nigeria · Handcrafted with Precision for Men, Women & Children
-              </p>
-              <div class="flex flex-wrap items-center justify-center gap-6 text-sm sm:text-base">
-                <button
-                  data-nav-target="men"
-                  class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
-                >
-                  <span>Explore Collections</span>
-                  <span class="text-xs">→</span>
-                </button>
-                <button
-                  onclick="window.VictoriaApp.openBooking('', 'Men')"
-                  class="text-[#2997ff] hover:underline inline-flex items-center gap-1 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]"
-                >
-                  <span>Book on WhatsApp</span>
-                  <span class="text-xs">›</span>
-                </button>
-              </div>
+            <p class="font-apple text-xs sm:text-base text-[#a1a1a6] mb-8 sm:mb-10 font-normal max-w-xl mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] px-2">
+              Akwa Ibom, Nigeria · Handcrafted with Precision for Men, Women &amp; Children
+            </p>
+
+            <!-- Luxury Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm sm:text-base">
+              <button
+                data-nav-target="men"
+                class="bg-[#2997ff] hover:bg-[#0077ed] text-white px-8 py-3.5 rounded-full font-medium transition-all duration-300 drop-shadow-[0_4px_20px_rgba(41,151,255,0.4)] hover:scale-105 inline-flex items-center gap-2"
+              >
+                <span>Explore Collections</span>
+                <span class="text-xs">→</span>
+              </button>
+              <button
+                onclick="window.VictoriaApp.openBooking('', 'Men')"
+                class="bg-white/10 hover:bg-white/20 text-white border border-white/25 px-8 py-3.5 rounded-full font-medium transition-all duration-300 backdrop-blur-md hover:scale-105 inline-flex items-center gap-2"
+              >
+                <span>Book on WhatsApp</span>
+                <span class="text-xs">›</span>
+              </button>
             </div>
           </div>
         </section>
