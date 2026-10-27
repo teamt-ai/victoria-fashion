@@ -519,26 +519,26 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
 
-            <!-- Dual Slanted Cards Grid: Left = BOY, Right = GIRL -->
+            <!-- Dual Slanted Cards Grid: Left = Card 1, Right = Card 2 -->
             <div class="w-full grid grid-cols-2 gap-2 sm:gap-6 md:gap-8 items-center">
-              <div onclick="window.VictoriaApp.bookCurrentChildren('Boy')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
-                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape">
-                  <img id="children-boy-img" src="./images/children-look1-boy.jpg" alt="Boy Look" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+              <div onclick="window.VictoriaApp.bookCurrentChildren('Card1')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape flex items-center justify-center">
+                  <img id="children-boy-img" src="./images/children-bespoke-teal-mosaic.jpg" alt="Children Look 1" class="w-full h-full object-contain object-center origin-center transform transition-transform duration-500 group-hover:scale-105" />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none"></div>
                   <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
-                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#bae6fd] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">BOY</span>
-                    <span class="text-[9px] sm:text-xs text-sky-300/80 tracking-wider uppercase mt-0.5">Junior Prince</span>
+                    <span id="children-card1-label" class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#bae6fd] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 01</span>
+                    <span id="children-card1-sublabel" class="text-[9px] sm:text-xs text-sky-300/80 tracking-wider uppercase mt-0.5">Mosaic Flutter Dress</span>
                   </div>
                 </div>
               </div>
 
-              <div onclick="window.VictoriaApp.bookCurrentChildren('Girl')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
-                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape">
-                  <img id="children-girl-img" src="./images/children-look1-girl.jpg" alt="Girl Look" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+              <div onclick="window.VictoriaApp.bookCurrentChildren('Card2')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape flex items-center justify-center">
+                  <img id="children-girl-img" src="./images/children-bespoke-yellow-lace.jpg" alt="Children Look 2" class="w-full h-full object-contain object-center origin-center transform transition-transform duration-500 group-hover:scale-105" />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none"></div>
                   <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
-                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fef08a] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">GIRL</span>
-                    <span class="text-[9px] sm:text-xs text-amber-300/80 tracking-wider uppercase mt-0.5">Little Princess</span>
+                    <span id="children-card2-label" class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fef08a] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 02</span>
+                    <span id="children-card2-sublabel" class="text-[9px] sm:text-xs text-amber-300/80 tracking-wider uppercase mt-0.5">Solar Peplum Dress</span>
                   </div>
                 </div>
               </div>

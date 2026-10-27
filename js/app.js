@@ -248,12 +248,13 @@
     grid.innerHTML = items.map(item => `
       <div
         onclick="window.VictoriaApp.openBooking('${escapeQuotes(item.name)}', '${getDeptBySection(item.section)}')"
-        class="catalogue-card group"
+        class="catalogue-card group ${item.section === 'Children Wears' ? 'children-card' : ''}"
         title="Click to order ${escapeQuotes(item.name)} on WhatsApp"
       >
         <img
           src="${item.image}"
           alt="${item.name}"
+          class="${item.section === 'Children Wears' ? '!object-contain p-2' : ''}"
           loading="lazy"
         />
         <!-- Seamless feathered edges into black (vignetted like Service Experience videos) -->
@@ -509,6 +510,15 @@
     if (titleEl) titleEl.textContent = item.title;
     if (subtitleEl) subtitleEl.textContent = item.subtitle;
 
+    const card1Label = document.getElementById('children-card1-label');
+    const card1Sublabel = document.getElementById('children-card1-sublabel');
+    const card2Label = document.getElementById('children-card2-label');
+    const card2Sublabel = document.getElementById('children-card2-sublabel');
+    if (card1Label) card1Label.textContent = item.boyLabel || 'LOOK 01';
+    if (card1Sublabel) card1Sublabel.textContent = item.boySublabel || 'Mosaic Flutter Dress';
+    if (card2Label) card2Label.textContent = item.girlLabel || 'LOOK 02';
+    if (card2Sublabel) card2Sublabel.textContent = item.girlSublabel || 'Solar Peplum Dress';
+
     if (dotsContainer) {
       dotsContainer.innerHTML = DATA.childrenLooks.map((c, idx) => `
         <button
@@ -745,9 +755,13 @@
       const item = DATA.womenLooks[state.womenIndex];
       openBooking(`${item.title} ${perspective ? `(${perspective})` : ''}`, 'Women');
     },
-    bookCurrentChildren: (role = '') => {
+    bookCurrentChildren: (slot = '') => {
       const item = DATA.childrenLooks[state.childrenIndex];
-      openBooking(`${item.title} ${role ? `(${role})` : ''}`, 'Children & School Uniforms');
+      let role = '';
+      if (slot === 'Card1' || slot === 'Boy') role = item.boySublabel || 'Look 01';
+      else if (slot === 'Card2' || slot === 'Girl') role = item.girlSublabel || 'Look 02';
+      else role = slot;
+      openBooking(`${item.title} (${role})`, "Children's Bespoke");
     }
   };
 

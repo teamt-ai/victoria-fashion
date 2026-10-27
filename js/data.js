@@ -71,7 +71,20 @@ window.VICTORIA_DATA = {
         image: "./images/women-bespoke-teal-lace.jpg"
       }
     ],
-    children: [],
+    children: [
+      {
+        id: "c-1",
+        name: "Little Princess Mosaic Ankara Flutter-Sleeve Dress",
+        desc: "Tailored festive girls' party dress crafted in vibrant teal, rust, and gold mosaic Dutch wax, featuring winged flutter cap sleeves and matching bow headband.",
+        image: "./images/children-bespoke-teal-mosaic.jpg"
+      },
+      {
+        id: "c-2",
+        name: "Little Princess Solar Yellow & Maroon Peplum Dress",
+        desc: "Regal ceremonial girls' ensemble featuring delicate black eyelet lace capelet collar, tiered ruffled peplum waist, and matching bow headband.",
+        image: "./images/children-bespoke-yellow-lace.jpg"
+      }
+    ],
     occasions: []
   },
   weddingLooks: [
@@ -258,38 +271,20 @@ window.VICTORIA_DATA = {
     {
       id: 10,
       title: "Look 10 — Festive Multi-Hue Batik Brocade Maxi Gown",
-      subtitle: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and metallic luster",
-      frontImage: "./images/women-bespoke-batik-bell-maxi.jpg",
-      backImage: "./images/women-bespoke-batik-bell-maxi.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
-    },
-    {
-      id: 11,
-      title: "Look 11 — Teal Corded French Lace Column Gown",
-      subtitle: "Exquisite peacock teal corded lace evening gown with structured square sweetheart neckline and flared lace sleeves",
-      frontImage: "./images/women-bespoke-teal-lace.jpg",
-      backImage: "./images/women-bespoke-teal-lace.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
-    }
-  ],
-  childrenLooks: [
+      subtitle: "Vibrant floor-sweeping ceremonial gown with tiered flutt  childrenLooks: [
     {
       id: 1,
-      title: "Look 01 — Sibling Royalty in Emerald & Gold Damask",
-      subtitle: "Junior Senator tailored suit & matching Little Princess tiered tulle ballgown",
-      boyImage: "./images/children-look1-boy.jpg",
-      girlImage: "./images/children-look1-girl.jpg",
-      boyLabel: "BOY",
-      girlLabel: "GIRL",
-      boySublabel: "Junior Prince",
-      girlSublabel: "Little Princess"
-    },
-    {
-      id: 2,
-      title: "Look 02 — Ivory & Bronze Celebratory Aso-Ebi Pair",
-      subtitle: "Handcrafted geometric embroidery kaftan & matching flutter-sleeve tiered party frock",
+      title: "Look 01 — Little Princess Festive Ankara Couture Collection",
+      subtitle: "Bespoke handcrafted girls' party dresses in mosaic Dutch wax & ruffled peplum lace",
+      boyImage: "./images/children-bespoke-teal-mosaic.jpg",
+      girlImage: "./images/children-bespoke-yellow-lace.jpg",
+      boyLabel: "LOOK 01",
+      girlLabel: "LOOK 02",
+      boySublabel: "Mosaic Flutter Dress",
+      girlSublabel: "Solar Peplum Dress"
+    }
+  ],
+iered party frock",
       boyImage: "./images/children-look2-boy.jpg",
       girlImage: "./images/children-look2-girl.jpg",
       boyLabel: "BOY",
