@@ -260,6 +260,17 @@
         <!-- Seamless feathered edges into black (vignetted like Service Experience videos) -->
         <div class="catalogue-card-scrim"></div>
 
+        <!-- Large Faint Copyright Protection Watermark -->
+        <div class="catalogue-watermark">
+          <img
+            src="./images/watermark-logo.png"
+            alt="Victoria Fashion Copyright Protection"
+            class="catalogue-watermark-logo"
+            loading="lazy"
+            draggable="false"
+          />
+        </div>
+
         <!-- Style Name written directly on the image matching Front View / Back View style -->
         <div class="absolute inset-x-0 bottom-4 sm:bottom-6 flex flex-col items-center justify-center text-center px-3 pointer-events-none">
           <span class="font-apple font-bold text-xs xs:text-sm sm:text-base tracking-[0.12em] sm:tracking-[0.16em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] line-clamp-2">

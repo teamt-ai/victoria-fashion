@@ -126,3 +126,32 @@
   object-position: center !important;
   padding: 8px;
 }
+
+/* 9. Large Subtle Copyright Watermark Overlay */
+.catalogue-watermark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.catalogue-watermark-logo {
+  width: 68%;
+  max-width: 290px;
+  height: auto;
+  opacity: 0.13;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalogue-card:hover .catalogue-watermark-logo {
+  opacity: 0.17;
+  transform: scale(1.04);
+}
