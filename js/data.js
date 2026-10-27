@@ -63,6 +63,12 @@ window.VICTORIA_DATA = {
         name: "Festive Multi-Hue Batik Brocade Maxi Gown",
         desc: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and radiant metallic sheen.",
         image: "./images/women-bespoke-batik-bell-maxi.jpg"
+      },
+      {
+        id: "w-11",
+        name: "Teal Corded French Lace Column Gown",
+        desc: "Exquisite peacock teal corded lace evening gown featuring a structured square sweetheart neckline, flared lace sleeves, and tailored column silhouette.",
+        image: "./images/women-bespoke-teal-lace.jpg"
       }
     ],
     children: [],
@@ -255,6 +261,15 @@ window.VICTORIA_DATA = {
       subtitle: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and metallic luster",
       frontImage: "./images/women-bespoke-batik-bell-maxi.jpg",
       backImage: "./images/women-bespoke-batik-bell-maxi.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    },
+    {
+      id: 11,
+      title: "Look 11 — Teal Corded French Lace Column Gown",
+      subtitle: "Exquisite peacock teal corded lace evening gown with structured square sweetheart neckline and flared lace sleeves",
+      frontImage: "./images/women-bespoke-teal-lace.jpg",
+      backImage: "./images/women-bespoke-teal-lace.jpg",
       frontLabel: "FULL VIEW",
       backLabel: "ATELIER VIEW"
     }
