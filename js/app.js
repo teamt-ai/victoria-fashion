@@ -192,6 +192,7 @@
   // 2. CATALOGUE VIEW (80 Creations Grid)
   // ==========================================
   function renderCatalogue() {
+
     const grid = document.getElementById('catalogue-grid');
     if (!grid) return;
 

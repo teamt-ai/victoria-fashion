@@ -271,7 +271,23 @@ window.VICTORIA_DATA = {
     {
       id: 10,
       title: "Look 10 — Festive Multi-Hue Batik Brocade Maxi Gown",
-      subtitle: "Vibrant floor-sweeping ceremonial gown with tiered flutt  childrenLooks: [
+      subtitle: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and metallic luster",
+      frontImage: "./images/women-bespoke-batik-bell-maxi.jpg",
+      backImage: "./images/women-bespoke-batik-bell-maxi.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    },
+    {
+      id: 11,
+      title: "Look 11 — Teal Corded French Lace Column Gown",
+      subtitle: "Exquisite peacock teal corded lace evening gown with structured square sweetheart neckline and flared lace sleeves",
+      frontImage: "./images/women-bespoke-teal-lace.jpg",
+      backImage: "./images/women-bespoke-teal-lace.jpg",
+      frontLabel: "FULL VIEW",
+      backLabel: "ATELIER VIEW"
+    }
+  ],
+  childrenLooks: [
     {
       id: 1,
       title: "Look 01 — Little Princess Festive Ankara Couture Collection",
@@ -282,26 +298,6 @@ window.VICTORIA_DATA = {
       girlLabel: "LOOK 02",
       boySublabel: "Mosaic Flutter Dress",
       girlSublabel: "Solar Peplum Dress"
-    }
-  ],
-iered party frock",
-      boyImage: "./images/children-look2-boy.jpg",
-      girlImage: "./images/children-look2-girl.jpg",
-      boyLabel: "BOY",
-      girlLabel: "GIRL",
-      boySublabel: "Junior Prince",
-      girlSublabel: "Little Princess"
-    },
-    {
-      id: 3,
-      title: "Look 03 — Sunburst Gold & Royal Navy Ensemble",
-      subtitle: "Contemporary native senator tunic & matching flared sunburst Ankara dress",
-      boyImage: "./images/children-look3-boy.jpg",
-      girlImage: "./images/children-look3-girl.jpg",
-      boyLabel: "BOY",
-      girlLabel: "GIRL",
-      boySublabel: "Junior Prince",
-      girlSublabel: "Little Princess"
     }
   ],
   serviceVideos: [
