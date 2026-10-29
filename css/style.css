@@ -155,3 +155,8 @@
   opacity: 0.17;
   transform: scale(1.04);
 }
+
+.col-span-full {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+}

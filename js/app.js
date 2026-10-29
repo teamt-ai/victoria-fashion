@@ -223,11 +223,12 @@
     }
 
     if (items.length === 0) {
+      const deptName = state.catalogueFilter === 'occasions' ? 'Occasions & Aso-Ebi' : (state.catalogueFilter === 'men' ? 'Men' : 'Bespoke Atelier');
       grid.innerHTML = `
-        <div class="col-span-full py-20 text-center text-[#86868b] flex flex-col items-center justify-center">
-          <p class="font-apple text-lg text-white font-semibold mb-2">Collection Updating</p>
-          <p class="text-sm text-[#86868b] max-w-md mx-auto mb-6">More bespoke designs are being added to this collection. Browse our Women Collections or chat directly with Victoria for custom orders.</p>
-          <button onclick="window.VictoriaApp.openBooking('', 'Men')" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 text-xs sm:text-sm px-6 py-2.5 rounded-full font-medium transition-all">
+        <div class="col-span-full w-full py-28 text-center text-[#86868b] flex flex-col items-center justify-center mx-auto" style="grid-column: 1 / -1; width: 100%; min-height: 45vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+          <p class="font-apple text-xl sm:text-2xl text-white font-semibold mb-3">Collection Updating</p>
+          <p class="text-sm sm:text-base text-[#86868b] max-w-lg mx-auto mb-8 leading-relaxed">More bespoke designs are being added to this collection. Browse our Women Collections or chat directly with Victoria for custom orders.</p>
+          <button onclick="window.VictoriaApp.openBooking('', '${deptName}')" class="bg-white/10 hover:bg-white/20 hover:border-white/40 text-white border border-white/20 text-sm px-8 py-3 rounded-full font-medium transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
             Inquire on WhatsApp
           </button>
         </div>
