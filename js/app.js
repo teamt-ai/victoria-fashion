@@ -227,7 +227,7 @@
       grid.innerHTML = `
         <div class="col-span-full w-full py-28 text-center text-[#86868b] flex flex-col items-center justify-center mx-auto" style="grid-column: 1 / -1; width: 100%; min-height: 45vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
           <p class="font-apple text-xl sm:text-2xl text-white font-semibold mb-3">Collection Updating</p>
-          <p class="text-sm sm:text-base text-[#86868b] max-w-lg mx-auto mb-8 leading-relaxed">More bespoke designs are being added to this collection. Browse our Women Collections or chat directly with Victoria for custom orders.</p>
+          <p class="text-sm sm:text-base text-[#86868b] max-w-lg mx-auto mb-8 leading-relaxed">More bespoke designs are being added to this collection. Browse our available Collections or chat directly with Victoria for custom orders.</p>
           <button onclick="window.VictoriaApp.openBooking('', '${deptName}')" class="bg-white/10 hover:bg-white/20 hover:border-white/40 text-white border border-white/20 text-sm px-8 py-3 rounded-full font-medium transition-all shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
             Inquire on WhatsApp
           </button>
