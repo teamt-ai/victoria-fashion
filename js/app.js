@@ -510,20 +510,10 @@
     const dotsContainer = document.getElementById('women-dots');
     const counterEl = document.getElementById('women-counter');
 
-    const card1Label = document.getElementById('women-card1-label');
-    const card1Sublabel = document.getElementById('women-card1-sublabel');
-    const card2Label = document.getElementById('women-card2-label');
-    const card2Sublabel = document.getElementById('women-card2-sublabel');
-
     if (frontImg) frontImg.src = item.card1Image || item.frontImage;
     if (backImg) backImg.src = item.card2Image || item.backImage;
     if (titleEl) titleEl.textContent = item.title;
     if (subtitleEl) subtitleEl.textContent = item.subtitle;
-
-    if (card1Label) card1Label.textContent = item.card1Label || 'LOOK 01';
-    if (card1Sublabel) card1Sublabel.textContent = item.card1Sublabel || 'Bespoke Couture';
-    if (card2Label) card2Label.textContent = item.card2Label || 'LOOK 02';
-    if (card2Sublabel) card2Sublabel.textContent = item.card2Sublabel || 'Bespoke Couture';
 
     if (dotsContainer) {
       dotsContainer.innerHTML = DATA.womenLooks.map((w, idx) => `
