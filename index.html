@@ -578,14 +578,33 @@
         <div class="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-amber-600/10 blur-[180px] pointer-events-none rounded-full"></div>
 
         <!-- 1. Top Header & Breadcrumbs -->
-        <header class="w-full max-w-[1400px] mx-auto px-4 sm:px-12 pt-5 pb-3 z-30 flex items-center justify-between">
+        <header class="w-full max-w-[1400px] mx-auto px-4 sm:px-12 pt-5 pb-3 z-30 flex items-center justify-between gap-2">
           <button 
-            onclick="const isPortal = document.getElementById('occasions-portal-section').classList.contains('hidden') === false; if(isPortal) window.VictoriaApp.navigateTo('home'); else window.VictoriaApp.navigateTo('occasions', 'portal');"
-            class="text-xs sm:text-sm text-neutral-400 hover:text-amber-300 transition-colors inline-flex items-center gap-2 group font-mono uppercase tracking-widest"
+            onclick="window.VictoriaApp.navigateTo('home')"
+            class="text-xs sm:text-sm text-neutral-400 hover:text-amber-300 transition-colors inline-flex items-center gap-2 group font-mono uppercase tracking-widest shrink-0"
           >
             <span>←</span>
             <span id="occasions-back-btn-text">Back to Home</span>
           </button>
+
+          <!-- Category Toggle Pills -->
+          <div class="flex items-center gap-1 sm:gap-2 p-1 bg-black/60 backdrop-blur-md rounded-full border border-amber-400/30 text-[10px] sm:text-xs">
+            <button 
+              id="occasions-tab-celebrations" 
+              onclick="window.VictoriaApp.navigateTo('occasions', 'celebrations')"
+              class="px-3 sm:px-4 py-1.5 rounded-full transition-all text-amber-300 font-bold bg-amber-400/20"
+            >
+              Celebrations &amp; Boubous
+            </button>
+            <button 
+              id="occasions-tab-weddings" 
+              onclick="window.VictoriaApp.navigateTo('occasions', 'weddings')"
+              class="px-3 sm:px-4 py-1.5 rounded-full transition-all text-neutral-400 hover:text-white"
+            >
+              Bridal Weddings
+            </button>
+          </div>
+
           <div class="flex items-center gap-2 text-[10px] sm:text-xs text-amber-200/90 font-mono tracking-wider sm:tracking-[0.22em] uppercase shrink-0">
             <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 19h16v-2H4v2z" fill="currentColor"/>
@@ -594,7 +613,7 @@
               <circle cx="12" cy="4.2" r="1.4" fill="currentColor"/>
               <circle cx="18" cy="8" r="1.2" fill="currentColor"/>
             </svg>
-            <span id="occasions-breadcrumb-label" class="truncate max-w-[170px] sm:max-w-none">Occasions & Celebrations</span>
+            <span id="occasions-breadcrumb-label" class="truncate max-w-[170px] sm:max-w-none">Occasions Lookbook</span>
           </div>
         </header>
 
@@ -626,7 +645,7 @@
             <!-- PORTAL 2: OTHER CELEBRATIONS -->
             <div onclick="window.VictoriaApp.navigateTo('occasions', 'celebrations')" class="group cursor-pointer flex flex-col items-center text-center transition-transform duration-500 hover:-translate-y-2">
               <div class="relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 group-hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] group-hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)]">
-                <img src="./images/celebration-asoebi-female.jpg" alt="Other Celebrations & Memorials" class="w-full h-full object-cover object-top transform scale-[1.03] transition-transform duration-700 group-hover:scale-[1.07]" />
+                <img src="./images/women-bespoke-emerald-boubou.jpg" alt="Ceremonial Boubou & Celebrations" class="w-full h-full object-cover object-top transform scale-[1.03] transition-transform duration-700 group-hover:scale-[1.07]" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20 pointer-events-none"></div>
                 <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
                 <div class="absolute inset-x-0 bottom-6 sm:bottom-10 px-6 flex flex-col items-center">
@@ -715,23 +734,23 @@
 
             <!-- 2 Archway Cards Grid: Left = Male Version, Right = Female Version -->
             <div class="w-full grid grid-cols-2 gap-2 sm:gap-8 lg:gap-14 max-w-[1040px] mx-auto justify-items-center">
-              <!-- Left Arch: MALE -->
+              <!-- Left Arch: LOOK 01 -->
               <div onclick="window.VictoriaApp.bookCurrentCelebration('Male Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
-                <img id="celebration-male-img" src="./images/celebration-asoebi-male.jpg" alt="Male Version" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                <img id="celebration-male-img" src="./images/women-bespoke-emerald-boubou.jpg" alt="Emerald Green Floral Brocade Boubou" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
                 <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
-                  <span id="celebration-male-label" class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">MALE VERSION</span>
-                  <span id="celebration-male-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Royal 3-Piece Agbada</span>
+                  <span id="celebration-male-label" class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 01</span>
+                  <span id="celebration-male-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Emerald Green Floral Brocade Boubou</span>
                 </div>
               </div>
 
-              <!-- Right Arch: FEMALE -->
+              <!-- Right Arch: LOOK 02 -->
               <div onclick="window.VictoriaApp.bookCurrentCelebration('Female Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
-                <img id="celebration-female-img" src="./images/celebration-asoebi-female.jpg" alt="Female Version" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                <img id="celebration-female-img" src="./images/women-bespoke-batik-bell-maxi.jpg" alt="Festive Multi-Hue Batik Brocade Maxi Gown" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
                 <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
-                  <span id="celebration-female-label" class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">FEMALE VERSION</span>
-                  <span id="celebration-female-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Couture Mermaid Wrapper & Gele</span>
+                  <span id="celebration-female-label" class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 02</span>
+                  <span id="celebration-female-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Festive Multi-Hue Batik Brocade Maxi Gown</span>
                 </div>
               </div>
             </div>
@@ -744,8 +763,8 @@
           <!-- Footer Bar -->
           <footer class="w-full max-w-[1040px] mx-auto pt-3 sm:pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-amber-400/20 mt-3">
             <div class="text-center sm:text-left max-w-md">
-              <h3 id="celebration-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Look 01 — Imperial Cobalt Indigo & Gold Embroidered Ensemble</h3>
-              <p id="celebration-subtitle" class="text-xs text-neutral-300 font-mono tracking-wider mt-0.5">Unified royal blue ceremonial set for couple, family, and distinguished wedding guests</p>
+              <h3 id="celebration-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Look 01 &amp; 02 — Emerald Brocade Boubou &amp; Multi-Hue Batik Maxi Pair</h3>
+              <p id="celebration-subtitle" class="text-xs text-neutral-300 font-mono tracking-wider mt-0.5">Opulent regal ceremonial robes engineered for grand receptions, VIP guests, and milestone anniversaries</p>
             </div>
             <div class="flex items-center gap-2">
               <div id="celebration-dots" class="flex items-center gap-2"></div>

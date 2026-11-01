@@ -22,7 +22,7 @@
   const state = {
     activeTab: 'home',
     // Occasions state
-    occasionsMode: 'portal', // 'portal' | 'weddings' | 'celebrations'
+    occasionsMode: 'celebrations', // 'celebrations' | 'weddings' | 'portal'
     weddingIndex: 0,
     weddingView: 'front', // 'front' | 'back'
     celebrationIndex: 0,
@@ -54,8 +54,8 @@
     state.activeTab = tabId;
 
     if (tabId === 'occasions') {
-      state.occasionsMode = subMode || 'portal';
-      window.location.hash = state.occasionsMode === 'portal' ? 'occasions' : `occasions/${state.occasionsMode}`;
+      state.occasionsMode = subMode || 'celebrations';
+      window.location.hash = state.occasionsMode === 'celebrations' ? 'occasions' : `occasions/${state.occasionsMode}`;
     } else {
       window.location.hash = tabId === 'home' ? '' : tabId;
     }
@@ -132,8 +132,17 @@
             state.celebrationIndex = idx;
           }
         }
-      } else {
+      } else if (rawHash.includes('/portal')) {
         state.occasionsMode = 'portal';
+      } else {
+        state.occasionsMode = 'celebrations';
+        const parts = rawHash.split('/');
+        if (parts[2]) {
+          const idx = parseInt(parts[2], 10) - 1;
+          if (!isNaN(idx) && idx >= 0 && idx < DATA.celebrationLooks.length) {
+            state.celebrationIndex = idx;
+          }
+        }
       }
     } else if (rawHash.startsWith('men')) {
       state.activeTab = 'men';
@@ -319,6 +328,19 @@
     const breadcrumbLabel = document.getElementById('occasions-breadcrumb-label');
     const backBtnText = document.getElementById('occasions-back-btn-text');
 
+    const tabCelebrations = document.getElementById('occasions-tab-celebrations');
+    const tabWeddings = document.getElementById('occasions-tab-weddings');
+
+    if (tabCelebrations && tabWeddings) {
+      if (state.occasionsMode === 'celebrations') {
+        tabCelebrations.className = "px-3 sm:px-4 py-1.5 rounded-full transition-all text-amber-300 font-bold bg-amber-400/20 shadow-[0_0_12px_rgba(203,161,53,0.3)]";
+        tabWeddings.className = "px-3 sm:px-4 py-1.5 rounded-full transition-all text-neutral-400 hover:text-white";
+      } else if (state.occasionsMode === 'weddings') {
+        tabCelebrations.className = "px-3 sm:px-4 py-1.5 rounded-full transition-all text-neutral-400 hover:text-white";
+        tabWeddings.className = "px-3 sm:px-4 py-1.5 rounded-full transition-all text-amber-300 font-bold bg-amber-400/20 shadow-[0_0_12px_rgba(203,161,53,0.3)]";
+      }
+    }
+
     if (state.occasionsMode === 'portal') {
       if (portalSec) portalSec.classList.remove('hidden');
       if (weddingsSec) weddingsSec.classList.add('hidden');
@@ -329,15 +351,15 @@
       if (portalSec) portalSec.classList.add('hidden');
       if (weddingsSec) weddingsSec.classList.remove('hidden');
       if (celebrationsSec) celebrationsSec.classList.add('hidden');
-      if (breadcrumbLabel) breadcrumbLabel.textContent = "Weddings";
-      if (backBtnText) backBtnText.textContent = "Back to Occasions";
+      if (breadcrumbLabel) breadcrumbLabel.textContent = "Weddings & Bridal";
+      if (backBtnText) backBtnText.textContent = "Back to Home";
       renderWeddingSlide();
     } else if (state.occasionsMode === 'celebrations') {
       if (portalSec) portalSec.classList.add('hidden');
       if (weddingsSec) weddingsSec.classList.add('hidden');
       if (celebrationsSec) celebrationsSec.classList.remove('hidden');
-      if (breadcrumbLabel) breadcrumbLabel.textContent = "Other Celebrations";
-      if (backBtnText) backBtnText.textContent = "Back to Occasions";
+      if (breadcrumbLabel) breadcrumbLabel.textContent = "Occasions Lookbook";
+      if (backBtnText) backBtnText.textContent = "Back to Home";
       renderCelebrationSlide();
     }
   }

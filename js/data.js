@@ -120,11 +120,28 @@ window.VICTORIA_DATA = {
   celebrationLooks: [
     {
       id: 1,
+      eventCategory: "Grand Ceremonial Kaftan & Jubilee Celebration",
+      title: "Look 01 & 02 — Emerald Brocade Boubou & Multi-Hue Batik Maxi Pair",
+      subtitle: "Opulent regal ceremonial robes engineered for grand receptions, VIP guests, and milestone anniversaries",
+      maleImage: "./images/women-bespoke-emerald-boubou.jpg",
+      femaleImage: "./images/women-bespoke-batik-bell-maxi.jpg",
+      maleLabel: "LOOK 01",
+      femaleLabel: "LOOK 02",
+      maleTitle: "Emerald Green Floral Brocade Boubou",
+      maleDesc: "Luminous Nigerian ceremonial silk brocade kaftan with intricate gold chest embroidery and flowing regal drape.",
+      femaleTitle: "Festive Multi-Hue Batik Brocade Maxi Gown",
+      femaleDesc: "Floor-length metallic batik brocade gown featuring tiered flutter bell sleeves and contrast coral Peter Pan collar.",
+      ceremonyType: "Grand Boubou & Celebratory Reception"
+    },
+    {
+      id: 2,
       eventCategory: "Royal Aso-Ebi & Traditional Wedding",
-      title: "Look 01 — Imperial Cobalt Indigo & Gold Embroidered Ensemble",
+      title: "Look 03 — Imperial Cobalt Indigo & Gold Embroidered Ensemble",
       subtitle: "Unified royal blue ceremonial set for couple, family, and distinguished wedding guests",
       maleImage: "./images/celebration-asoebi-male.jpg",
       femaleImage: "./images/celebration-asoebi-female.jpg",
+      maleLabel: "MALE VERSION",
+      femaleLabel: "FEMALE VERSION",
       maleTitle: "Royal 3-Piece Agbada",
       maleDesc: "Heavyweight Swiss brocade with dense computerized gold chest embroidery & matching fila cap.",
       femaleTitle: "Couture Mermaid Wrapper & Gele",
@@ -132,12 +149,14 @@ window.VICTORIA_DATA = {
       ceremonyType: "Traditional Marriage & Grand Aso-Ebi"
     },
     {
-      id: 2,
+      id: 3,
       eventCategory: "Chieftaincy Coronation & 50th Golden Jubilee",
-      title: "Look 02 — Benin Bronze & Midnight Navy Geometric Wax Pair",
+      title: "Look 04 — Benin Bronze & Midnight Navy Geometric Wax Pair",
       subtitle: "Architectural coronation attire engineered for milestone birthdays and traditional titles",
       maleImage: "./images/celebration-chieftaincy-male.jpg",
       femaleImage: "./images/celebration-chieftaincy-female.jpg",
+      maleLabel: "MALE VERSION",
+      femaleLabel: "FEMALE VERSION",
       maleTitle: "Bespoke Wax Dinner Tuxedo",
       maleDesc: "Structured Italian satin shawl lapel with matching Nigerian wax trousers & silk bowtie.",
       femaleTitle: "Architectural Peplum Ballgown",
@@ -145,32 +164,19 @@ window.VICTORIA_DATA = {
       ceremonyType: "Chieftaincy, Coronation & Jubilee Gala"
     },
     {
-      id: 3,
+      id: 4,
       eventCategory: "Child Dedication & Family Thanksgiving",
-      title: "Look 03 — Royal Indigo Brocade & Warm Ochre Couple Set",
+      title: "Look 05 — Royal Indigo Brocade & Warm Ochre Couple Set",
       subtitle: "Coordinated luxury tailoring designed for church thanksgiving and family blessings",
       maleImage: "./images/celebration-thanksgiving-male.jpg",
       femaleImage: "./images/celebration-thanksgiving-female.jpg",
+      maleLabel: "MALE VERSION",
+      femaleLabel: "FEMALE VERSION",
       maleTitle: "Double-Breasted Brocade Blazer",
       maleDesc: "Custom high-twist metallic weave with silver crest buttons and sharp cigarette trousers.",
       femaleTitle: "Sculpted Ochre Column Gown",
       femaleDesc: "Sweetheart corset bodice with dramatic high slit and sweeping floor-length train.",
       ceremonyType: "Thanksgiving, Dedication & Milestone Anniversaries"
-    },
-    {
-      id: 4,
-      eventCategory: "Grand Ceremonial Kaftan & Jubilee Celebration",
-      title: "Look 04 — Emerald Brocade Boubou & Multi-Hue Batik Maxi Pair",
-      subtitle: "Opulent regal ceremonial robes engineered for grand receptions, VIP guests, and milestone anniversaries",
-      maleImage: "./images/women-bespoke-emerald-boubou.jpg",
-      femaleImage: "./images/women-bespoke-batik-bell-maxi.jpg",
-      maleLabel: "CEREMONIAL BOUBOU",
-      femaleLabel: "BATIK MAXI GOWN",
-      maleTitle: "Emerald Floral Brocade Boubou",
-      maleDesc: "Luminous Nigerian ceremonial silk brocade kaftan with intricate gold chest embroidery and flowing regal drape.",
-      femaleTitle: "Festive Multi-Hue Batik Brocade Maxi",
-      femaleDesc: "Floor-length metallic batik brocade gown featuring tiered flutter bell sleeves and contrast coral Peter Pan collar.",
-      ceremonyType: "Grand Boubou & Celebratory Reception"
     }
   ],
   menLooks: [
