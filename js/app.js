@@ -391,8 +391,8 @@
       imgEl.alt = `${item.title} - ${state.weddingView} view`;
     }
 
-    if (titleEl) titleEl.textContent = item.title;
-    if (subtitleEl) subtitleEl.textContent = item.subtitle;
+    if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
+    if (subtitleEl) subtitleEl.textContent = '';
     if (fabricEl) fabricEl.textContent = `Fabric: ${item.fabric}`;
 
     // Dots
@@ -443,8 +443,8 @@
     const femaleLabel = document.getElementById('celebration-female-label');
     if (femaleLabel) femaleLabel.textContent = item.femaleLabel || "FEMALE VERSION";
 
-    if (titleEl) titleEl.textContent = item.title;
-    if (subtitleEl) subtitleEl.textContent = item.subtitle;
+    if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
+    if (subtitleEl) subtitleEl.textContent = '';
 
     // Dots
     if (dotsContainer) {
@@ -478,8 +478,8 @@
 
     if (frontImg) frontImg.src = item.frontImage;
     if (backImg) backImg.src = item.backImage;
-    if (titleEl) titleEl.textContent = item.title;
-    if (subtitleEl) subtitleEl.textContent = item.subtitle;
+    if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
+    if (subtitleEl) subtitleEl.textContent = '';
 
     if (dotsContainer) {
       dotsContainer.innerHTML = DATA.menLooks.map((m, idx) => `
@@ -512,8 +512,8 @@
 
     if (frontImg) frontImg.src = item.card1Image || item.frontImage;
     if (backImg) backImg.src = item.card2Image || item.backImage;
-    if (titleEl) titleEl.textContent = item.title;
-    if (subtitleEl) subtitleEl.textContent = item.subtitle;
+    if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
+    if (subtitleEl) subtitleEl.textContent = '';
 
     if (dotsContainer) {
       dotsContainer.innerHTML = DATA.womenLooks.map((w, idx) => `
@@ -546,8 +546,8 @@
 
     if (boyImg) boyImg.src = item.boyImage;
     if (girlImg) girlImg.src = item.girlImage;
-    if (titleEl) titleEl.textContent = item.title;
-    if (subtitleEl) subtitleEl.textContent = item.subtitle;
+    if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
+    if (subtitleEl) subtitleEl.textContent = '';
 
     const card1Label = document.getElementById('children-card1-label');
     const card1Sublabel = document.getElementById('children-card1-sublabel');

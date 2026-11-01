@@ -91,7 +91,7 @@ window.VICTORIA_DATA = {
   weddingLooks: [
     {
       id: 1,
-      title: "Look 01 — Royal Ivory & 24k Gold Cathedral Ballgown",
+      title: "Royal Ivory & 24k Gold Cathedral Ballgown",
       subtitle: "Bespoke structured corset with gold filigree embroidery & cascading chapel veil",
       frontImage: "./images/wedding-look1-front.jpg",
       backImage: "./images/wedding-look1-back.jpg",
@@ -100,7 +100,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 2,
-      title: "Look 02 — Sculpted Mermaid Crystal & French Lace Gown",
+      title: "Sculpted Mermaid Crystal & French Lace Gown",
       subtitle: "Hand-embellished Swarovski crystals with multi-tiered ruffled organza fishtail train",
       frontImage: "./images/wedding-look2-front.jpg",
       backImage: "./images/wedding-look2-back.jpg",
@@ -109,7 +109,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 3,
-      title: "Look 03 — Contemporary Off-The-Shoulder Champagne Silk Gown",
+      title: "Contemporary Off-The-Shoulder Champagne Silk Gown",
       subtitle: "Sculptural off-shoulder neckline with subtle royal wax accents & floating tulle skirt",
       frontImage: "./images/wedding-look3-front.jpg",
       backImage: "./images/wedding-look3-back.jpg",
@@ -121,7 +121,7 @@ window.VICTORIA_DATA = {
     {
       id: 1,
       eventCategory: "Grand Ceremonial Kaftan & Jubilee Celebration",
-      title: "Look 01 & 02 — Emerald Brocade Boubou & Multi-Hue Batik Maxi Pair",
+      title: "Emerald Brocade Boubou & Multi-Hue Batik Maxi Pair",
       subtitle: "Opulent regal ceremonial robes engineered for grand receptions, VIP guests, and milestone anniversaries",
       maleImage: "./images/women-bespoke-emerald-boubou.jpg",
       femaleImage: "./images/women-bespoke-batik-bell-maxi.jpg",
@@ -136,7 +136,7 @@ window.VICTORIA_DATA = {
     {
       id: 2,
       eventCategory: "Royal Aso-Ebi & Traditional Wedding",
-      title: "Look 03 — Imperial Cobalt Indigo & Gold Embroidered Ensemble",
+      title: "Imperial Cobalt Indigo & Gold Embroidered Ensemble",
       subtitle: "Unified royal blue ceremonial set for couple, family, and distinguished wedding guests",
       maleImage: "./images/celebration-asoebi-male.jpg",
       femaleImage: "./images/celebration-asoebi-female.jpg",
@@ -151,7 +151,7 @@ window.VICTORIA_DATA = {
     {
       id: 3,
       eventCategory: "Chieftaincy Coronation & 50th Golden Jubilee",
-      title: "Look 04 — Benin Bronze & Midnight Navy Geometric Wax Pair",
+      title: "Benin Bronze & Midnight Navy Geometric Wax Pair",
       subtitle: "Architectural coronation attire engineered for milestone birthdays and traditional titles",
       maleImage: "./images/celebration-chieftaincy-male.jpg",
       femaleImage: "./images/celebration-chieftaincy-female.jpg",
@@ -166,7 +166,7 @@ window.VICTORIA_DATA = {
     {
       id: 4,
       eventCategory: "Child Dedication & Family Thanksgiving",
-      title: "Look 05 — Royal Indigo Brocade & Warm Ochre Couple Set",
+      title: "Royal Indigo Brocade & Warm Ochre Couple Set",
       subtitle: "Coordinated luxury tailoring designed for church thanksgiving and family blessings",
       maleImage: "./images/celebration-thanksgiving-male.jpg",
       femaleImage: "./images/celebration-thanksgiving-female.jpg",
@@ -182,7 +182,7 @@ window.VICTORIA_DATA = {
   menLooks: [
     {
       id: 1,
-      title: "Look 01 — Bespoke Plum Silk-Wool Native Tunic",
+      title: "Bespoke Plum Silk-Wool Native Tunic",
       subtitle: "Two-tone iridescent aubergine tailoring with vertical side panels & french cuffs",
       frontImage: "./images/men-look1-front.jpg",
       backImage: "./images/men-look1-back.jpg",
@@ -191,7 +191,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 2,
-      title: "Look 02 — Bespoke White & Gold Senator Native Tunic",
+      title: "Bespoke White & Gold Senator Native Tunic",
       subtitle: "Pristine white luxury wool with vertical spinal gold piping & curved breast pocket detailing",
       frontImage: "./images/men-look2-front.jpg",
       backImage: "./images/men-look2-back.jpg",
@@ -200,7 +200,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 3,
-      title: "Look 03 — Ivory Minimalist Kaftan",
+      title: "Ivory Minimalist Kaftan",
       subtitle: "Modern concealed-placket tailoring in lightweight breathable wool",
       frontImage: "./images/kaftan-air.jpg",
       backImage: "./images/kaftan-air-waist.jpg",
@@ -211,7 +211,7 @@ window.VICTORIA_DATA = {
   womenLooks: [
     {
       id: 1,
-      title: "Look 01 & 02 — Executive Sheath & Beaded Lace Ceremony",
+      title: "Executive Sheath & Beaded Lace Ceremony",
       subtitle: "Contrast floral balloon sleeve sheath dress paired with hand-embellished blush crystal sequin gown",
       card1Image: "./images/women-bespoke-grey-balloon.jpg",
       card2Image: "./images/women-bespoke-pink-lace.jpg",
@@ -224,7 +224,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 2,
-      title: "Look 03 & 04 — Royal Sapphire Pleated & Gold Baroque Crepe",
+      title: "Royal Sapphire Pleated & Gold Baroque Crepe",
       subtitle: "Rich royal blue A-line midi dress with beaded crystal collar paired with black crepe and opulent gold balloon sleeves",
       card1Image: "./images/women-bespoke-royal-blue.jpg",
       card2Image: "./images/women-bespoke-black-paisley.jpg",
@@ -237,7 +237,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 3,
-      title: "Look 05 & 06 — Emerald Ankara Pencil & Vintage Botanical Swing",
+      title: "Emerald Ankara Pencil & Vintage Botanical Swing",
       subtitle: "Tailored textured beaded asymmetric cocktail dress paired with classic draped portrait collar pleated midi",
       card1Image: "./images/women-bespoke-ankara-asymmetric.jpg",
       card2Image: "./images/women-bespoke-vintage-floral.jpg",
@@ -250,7 +250,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 4,
-      title: "Look 07 & 08 — Emerald Circles Skater & Monochrome Bow Blouse",
+      title: "Emerald Circles Skater & Monochrome Bow Blouse",
       subtitle: "Geometric Dutch wax with sheer lace yoke paired with executive tie-neck blouse and fluted pencil skirt",
       card1Image: "./images/women-bespoke-green-lace-skater.jpg",
       card2Image: "./images/women-bespoke-monochrome-tie.jpg",
@@ -263,7 +263,7 @@ window.VICTORIA_DATA = {
     },
     {
       id: 5,
-      title: "Look 09 & 01 — Peacock Teal French Lace & Grey Balloon Sheath",
+      title: "Peacock Teal French Lace & Grey Balloon Sheath",
       subtitle: "Structured square sweetheart corded lace evening gown paired with signature floral balloon sleeve sheath",
       card1Image: "./images/women-bespoke-teal-lace.jpg",
       card2Image: "./images/women-bespoke-grey-balloon.jpg",
@@ -278,7 +278,7 @@ window.VICTORIA_DATA = {
   childrenLooks: [
     {
       id: 1,
-      title: "Look 01 — Little Princess Festive Ankara Couture Collection",
+      title: "Little Princess Festive Ankara Couture Collection",
       subtitle: "Bespoke handcrafted girls' party dresses in mosaic Dutch wax & ruffled peplum lace",
       boyImage: "./images/children-bespoke-teal-mosaic.jpg",
       girlImage: "./images/children-bespoke-yellow-lace.jpg",
