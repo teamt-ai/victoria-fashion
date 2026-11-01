@@ -189,102 +189,81 @@ window.VICTORIA_DATA = {
   womenLooks: [
     {
       id: 1,
-      title: "Look 01 — Grey Sheath Dress with Floral Balloon Sleeves",
-      subtitle: "Tailored executive chic silhouette featuring waist-defining belt and contrast floral puff sleeves",
-      frontImage: "./images/women-bespoke-grey-balloon.jpg",
-      backImage: "./images/women-bespoke-grey-balloon.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
+      title: "Look 01 & 02 — Executive Sheath & Ceremonial Brocade Boubou",
+      subtitle: "Contrast floral balloon sleeve sheath dress paired with luminous emerald silk brocade kaftan",
+      card1Image: "./images/women-bespoke-grey-balloon.jpg",
+      card2Image: "./images/women-bespoke-emerald-boubou.jpg",
+      card1Label: "LOOK 01",
+      card1Sublabel: "Grey Sheath Gown",
+      card1Title: "Grey Sheath Dress with Floral Balloon Sleeves",
+      card2Label: "LOOK 02",
+      card2Sublabel: "Emerald Boubou Kaftan",
+      card2Title: "Emerald Green Floral Brocade Boubou"
     },
     {
       id: 2,
-      title: "Look 02 — Emerald Green Floral Brocade Boubou",
-      subtitle: "Luminous Nigerian ceremonial silk brocade kaftan with intricate floral embroidery and gold accents",
-      frontImage: "./images/women-bespoke-emerald-boubou.jpg",
-      backImage: "./images/women-bespoke-emerald-boubou.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
+      title: "Look 03 & 04 — Beaded Lace Ceremony & Royal Sapphire Pleated Midi",
+      subtitle: "Hand-embellished blush crystal sequin gown paired with vibrant royal blue crystal-collar dress",
+      card1Image: "./images/women-bespoke-pink-lace.jpg",
+      card2Image: "./images/women-bespoke-royal-blue.jpg",
+      card1Label: "LOOK 03",
+      card1Sublabel: "Blush Beaded Lace",
+      card1Title: "Blush Pink Beaded Lace Ceremony Ensemble",
+      card2Label: "LOOK 04",
+      card2Sublabel: "Royal Sapphire Midi",
+      card2Title: "Royal Sapphire Pleated Flared Dress"
     },
     {
       id: 3,
-      title: "Look 03 — Blush Pink Beaded Lace Ceremony Ensemble",
-      subtitle: "Hand-beaded sequin lace couture gown with side-ruched drape and matching ceremonial gele",
-      frontImage: "./images/women-bespoke-pink-lace.jpg",
-      backImage: "./images/women-bespoke-pink-lace.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
+      title: "Look 05 & 06 — Gold Baroque Crepe & Emerald Ankara Pencil Dress",
+      subtitle: "Black crepe with opulent baroque balloon sleeves paired with textured beaded asymmetric hem cocktail dress",
+      card1Image: "./images/women-bespoke-black-paisley.jpg",
+      card2Image: "./images/women-bespoke-ankara-asymmetric.jpg",
+      card1Label: "LOOK 05",
+      card1Sublabel: "Baroque Silk Column",
+      card1Title: "Executive Black Crepe and Gold Baroque Gown",
+      card2Label: "LOOK 06",
+      card2Sublabel: "Emerald Ankara Pencil",
+      card2Title: "Emerald & Gold Geometric Ankara Asymmetric Pencil Dress"
     },
     {
       id: 4,
-      title: "Look 04 — Royal Sapphire Pleated Flared Dress",
-      subtitle: "Vibrant royal blue A-line midi gown featuring crystal-beaded neckline and flutter cuffs",
-      frontImage: "./images/women-bespoke-royal-blue.jpg",
-      backImage: "./images/women-bespoke-royal-blue.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
+      title: "Look 07 & 08 — Vintage Ivory Botanical & Emerald Circles Skater",
+      subtitle: "Classic draped swing silhouette with pleated skirt paired with geometric circle print and sheer lace yoke",
+      card1Image: "./images/women-bespoke-vintage-floral.jpg",
+      card2Image: "./images/women-bespoke-green-lace-skater.jpg",
+      card1Label: "LOOK 07",
+      card1Sublabel: "Vintage Botanical Swing",
+      card1Title: "Vintage Ivory Botanical Flared Midi Dress",
+      card2Label: "LOOK 08",
+      card2Sublabel: "Lace & Ankara Skater",
+      card2Title: "Emerald Circles Ankara & Sheer Black Lace Skater Dress"
     },
     {
       id: 5,
-      title: "Look 05 — Executive Black Crepe and Gold Baroque Gown",
-      subtitle: "Modern tailored black column dress with opulent baroque patterned balloon sleeves and chest yoke",
-      frontImage: "./images/women-bespoke-black-paisley.jpg",
-      backImage: "./images/women-bespoke-black-paisley.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
+      title: "Look 09 & 10 — Monochrome Bow Blouse & Multi-Hue Batik Maxi",
+      subtitle: "Baroque tie-neck blouse with fluted pencil skirt paired with tiered flutter-sleeve metallic batik gown",
+      card1Image: "./images/women-bespoke-monochrome-tie.jpg",
+      card2Image: "./images/women-bespoke-batik-bell-maxi.jpg",
+      card1Label: "LOOK 09",
+      card1Sublabel: "Monochrome Bow Blouse",
+      card1Title: "Monochrome Paisley Pussycat Bow Blouse & Fluted Skirt",
+      card2Label: "LOOK 10",
+      card2Sublabel: "Tiered Batik Maxi",
+      card2Title: "Festive Multi-Hue Batik Brocade Maxi Gown"
     },
     {
       id: 6,
-      title: "Look 06 — Emerald & Gold Geometric Ankara Asymmetric Pencil Dress",
-      subtitle: "Tailored sleeveless cocktail silhouette featuring textured beaded bodice and sculpted diagonal hemline",
-      frontImage: "./images/women-bespoke-ankara-asymmetric.jpg",
-      backImage: "./images/women-bespoke-ankara-asymmetric.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
-    },
-    {
-      id: 7,
-      title: "Look 07 — Vintage Ivory Botanical Flared Midi Dress",
-      subtitle: "Classic couture swing silhouette with draped portrait collar, puff sleeves, belted waist, and pleated circle skirt",
-      frontImage: "./images/women-bespoke-vintage-floral.jpg",
-      backImage: "./images/women-bespoke-vintage-floral.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
-    },
-    {
-      id: 8,
-      title: "Look 08 — Emerald Circles Ankara & Sheer Black Lace Skater Dress",
-      subtitle: "Fusion midi pairing vibrant geometric Dutch wax print with delicate sheer Chantilly lace illusion yoke and long sleeves",
-      frontImage: "./images/women-bespoke-green-lace-skater.jpg",
-      backImage: "./images/women-bespoke-green-lace-skater.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
-    },
-    {
-      id: 9,
-      title: "Look 09 — Monochrome Paisley Pussycat Bow Blouse & Fluted Skirt",
-      subtitle: "Executive two-piece ensemble combining intricate baroque silk tie-neck blouse with high-waisted black skirt",
-      frontImage: "./images/women-bespoke-monochrome-tie.jpg",
-      backImage: "./images/women-bespoke-monochrome-tie.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
-    },
-    {
-      id: 10,
-      title: "Look 10 — Festive Multi-Hue Batik Brocade Maxi Gown",
-      subtitle: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and metallic luster",
-      frontImage: "./images/women-bespoke-batik-bell-maxi.jpg",
-      backImage: "./images/women-bespoke-batik-bell-maxi.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
-    },
-    {
-      id: 11,
-      title: "Look 11 — Teal Corded French Lace Column Gown",
-      subtitle: "Exquisite peacock teal corded lace evening gown with structured square sweetheart neckline and flared lace sleeves",
-      frontImage: "./images/women-bespoke-teal-lace.jpg",
-      backImage: "./images/women-bespoke-teal-lace.jpg",
-      frontLabel: "FULL VIEW",
-      backLabel: "ATELIER VIEW"
+      title: "Look 11 & 01 — Peacock Teal French Lace & Grey Balloon Sheath",
+      subtitle: "Structured square sweetheart corded lace evening gown paired with signature floral balloon sleeve sheath",
+      card1Image: "./images/women-bespoke-teal-lace.jpg",
+      card2Image: "./images/women-bespoke-grey-balloon.jpg",
+      card1Label: "LOOK 11",
+      card1Sublabel: "Teal Corded Lace",
+      card1Title: "Teal Corded French Lace Column Gown",
+      card2Label: "LOOK 01",
+      card2Sublabel: "Grey Sheath Gown",
+      card2Title: "Grey Sheath Dress with Floral Balloon Sleeves"
     }
   ],
   childrenLooks: [

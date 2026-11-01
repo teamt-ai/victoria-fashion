@@ -448,26 +448,26 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
 
-            <!-- Dual Slanted Cards Grid -->
+            <!-- Dual Slanted Cards Grid: Left = Card 1, Right = Card 2 -->
             <div class="w-full grid grid-cols-2 gap-2 sm:gap-6 md:gap-8 items-center">
-              <div onclick="window.VictoriaApp.bookCurrentWomen('Front View')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+              <div onclick="window.VictoriaApp.bookCurrentWomen('Card1')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
                 <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-pink-500/20 slanted-card-shape">
-                  <img id="women-front-img" src="./images/women-look1-front.jpg" alt="Women Front" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <img id="women-front-img" src="./images/women-bespoke-grey-balloon.jpg" alt="Women Design 1" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
                   <div class="absolute inset-0 bg-gradient-to-t from-pink-950/90 via-black/30 to-transparent pointer-events-none"></div>
                   <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
-                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fbcfe8] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">FRONT VIEW</span>
-                    <span class="text-[9px] sm:text-xs text-pink-300/80 tracking-wider uppercase mt-0.5">Front Silhouette</span>
+                    <span id="women-card1-label" class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fbcfe8] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 01</span>
+                    <span id="women-card1-sublabel" class="text-[9px] sm:text-xs text-pink-300/80 tracking-wider uppercase mt-0.5">Grey Sheath Gown</span>
                   </div>
                 </div>
               </div>
 
-              <div onclick="window.VictoriaApp.bookCurrentWomen('Back View')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
+              <div onclick="window.VictoriaApp.bookCurrentWomen('Card2')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
                 <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-pink-500/20 slanted-card-shape">
-                  <img id="women-back-img" src="./images/women-look1-back.jpg" alt="Women Back" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
+                  <img id="women-back-img" src="./images/women-bespoke-emerald-boubou.jpg" alt="Women Design 2" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
                   <div class="absolute inset-0 bg-gradient-to-t from-pink-950/90 via-black/30 to-transparent pointer-events-none"></div>
                   <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
-                    <span class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fbcfe8] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">BACK VIEW</span>
-                    <span class="text-[9px] sm:text-xs text-pink-300/80 tracking-wider uppercase mt-0.5">Back Silhouette</span>
+                    <span id="women-card2-label" class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fbcfe8] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 02</span>
+                    <span id="women-card2-sublabel" class="text-[9px] sm:text-xs text-pink-300/80 tracking-wider uppercase mt-0.5">Emerald Boubou Kaftan</span>
                   </div>
                 </div>
               </div>

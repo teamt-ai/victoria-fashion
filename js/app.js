@@ -484,10 +484,20 @@
     const dotsContainer = document.getElementById('women-dots');
     const counterEl = document.getElementById('women-counter');
 
-    if (frontImg) frontImg.src = item.frontImage;
-    if (backImg) backImg.src = item.backImage;
+    const card1Label = document.getElementById('women-card1-label');
+    const card1Sublabel = document.getElementById('women-card1-sublabel');
+    const card2Label = document.getElementById('women-card2-label');
+    const card2Sublabel = document.getElementById('women-card2-sublabel');
+
+    if (frontImg) frontImg.src = item.card1Image || item.frontImage;
+    if (backImg) backImg.src = item.card2Image || item.backImage;
     if (titleEl) titleEl.textContent = item.title;
     if (subtitleEl) subtitleEl.textContent = item.subtitle;
+
+    if (card1Label) card1Label.textContent = item.card1Label || 'LOOK 01';
+    if (card1Sublabel) card1Sublabel.textContent = item.card1Sublabel || 'Bespoke Couture';
+    if (card2Label) card2Label.textContent = item.card2Label || 'LOOK 02';
+    if (card2Sublabel) card2Sublabel.textContent = item.card2Sublabel || 'Bespoke Couture';
 
     if (dotsContainer) {
       dotsContainer.innerHTML = DATA.womenLooks.map((w, idx) => `
@@ -764,9 +774,13 @@
       const item = DATA.menLooks[state.menIndex];
       openBooking(`${item.title} ${perspective ? `(${perspective})` : ''}`, 'Men');
     },
-    bookCurrentWomen: (perspective = '') => {
+    bookCurrentWomen: (slot = '') => {
       const item = DATA.womenLooks[state.womenIndex];
-      openBooking(`${item.title} ${perspective ? `(${perspective})` : ''}`, 'Women');
+      let pieceTitle = item.title;
+      if (slot === 'Card1' || slot === 'Front View') pieceTitle = item.card1Title || item.title;
+      else if (slot === 'Card2' || slot === 'Back View') pieceTitle = item.card2Title || item.title;
+      else if (slot) pieceTitle = `${item.title} (${slot})`;
+      openBooking(pieceTitle, 'Women');
     },
     bookCurrentChildren: (slot = '') => {
       const item = DATA.childrenLooks[state.childrenIndex];
