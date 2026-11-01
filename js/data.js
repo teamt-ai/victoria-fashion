@@ -11,12 +11,6 @@ window.VICTORIA_DATA = {
         image: "./images/women-bespoke-grey-balloon.jpg"
       },
       {
-        id: "w-2",
-        name: "Emerald Green Floral Brocade Boubou",
-        desc: "Luminous Nigerian silk brocade ceremonial kaftan gown with intricate floral motif embroidery.",
-        image: "./images/women-bespoke-emerald-boubou.jpg"
-      },
-      {
         id: "w-3",
         name: "Blush Pink Beaded Lace Ceremony Ensemble",
         desc: "Hand-embellished crystal sequin lace gown with tailored side-drape and matching ceremonial gele.",
@@ -59,12 +53,6 @@ window.VICTORIA_DATA = {
         image: "./images/women-bespoke-monochrome-tie.jpg"
       },
       {
-        id: "w-10",
-        name: "Festive Multi-Hue Batik Brocade Maxi Gown",
-        desc: "Vibrant floor-sweeping ceremonial gown with tiered flutter bell sleeves, contrast coral collar, and radiant metallic sheen.",
-        image: "./images/women-bespoke-batik-bell-maxi.jpg"
-      },
-      {
         id: "w-11",
         name: "Teal Corded French Lace Column Gown",
         desc: "Exquisite peacock teal corded lace evening gown featuring a structured square sweetheart neckline, flared lace sleeves, and tailored column silhouette.",
@@ -85,7 +73,20 @@ window.VICTORIA_DATA = {
         image: "./images/children-bespoke-yellow-lace.jpg"
       }
     ],
-    occasions: []
+    occasions: [
+      {
+        id: "occ-1",
+        name: "Emerald Green Floral Brocade Boubou",
+        desc: "Luminous Nigerian ceremonial silk brocade kaftan gown with intricate floral motif embroidery and opulent gold accents.",
+        image: "./images/women-bespoke-emerald-boubou.jpg"
+      },
+      {
+        id: "occ-2",
+        name: "Festive Multi-Hue Batik Brocade Maxi Gown",
+        desc: "Vibrant floor-sweeping celebratory gown with tiered flutter bell sleeves, contrast coral Peter Pan collar, and shimmering metallic luster.",
+        image: "./images/women-bespoke-batik-bell-maxi.jpg"
+      }
+    ]
   },
   weddingLooks: [
     {
@@ -155,6 +156,21 @@ window.VICTORIA_DATA = {
       femaleTitle: "Sculpted Ochre Column Gown",
       femaleDesc: "Sweetheart corset bodice with dramatic high slit and sweeping floor-length train.",
       ceremonyType: "Thanksgiving, Dedication & Milestone Anniversaries"
+    },
+    {
+      id: 4,
+      eventCategory: "Grand Ceremonial Kaftan & Jubilee Celebration",
+      title: "Look 04 — Emerald Brocade Boubou & Multi-Hue Batik Maxi Pair",
+      subtitle: "Opulent regal ceremonial robes engineered for grand receptions, VIP guests, and milestone anniversaries",
+      maleImage: "./images/women-bespoke-emerald-boubou.jpg",
+      femaleImage: "./images/women-bespoke-batik-bell-maxi.jpg",
+      maleLabel: "CEREMONIAL BOUBOU",
+      femaleLabel: "BATIK MAXI GOWN",
+      maleTitle: "Emerald Floral Brocade Boubou",
+      maleDesc: "Luminous Nigerian ceremonial silk brocade kaftan with intricate gold chest embroidery and flowing regal drape.",
+      femaleTitle: "Festive Multi-Hue Batik Brocade Maxi",
+      femaleDesc: "Floor-length metallic batik brocade gown featuring tiered flutter bell sleeves and contrast coral Peter Pan collar.",
+      ceremonyType: "Grand Boubou & Celebratory Reception"
     }
   ],
   menLooks: [
@@ -189,76 +205,63 @@ window.VICTORIA_DATA = {
   womenLooks: [
     {
       id: 1,
-      title: "Look 01 & 02 — Executive Sheath & Ceremonial Brocade Boubou",
-      subtitle: "Contrast floral balloon sleeve sheath dress paired with luminous emerald silk brocade kaftan",
+      title: "Look 01 & 02 — Executive Sheath & Beaded Lace Ceremony",
+      subtitle: "Contrast floral balloon sleeve sheath dress paired with hand-embellished blush crystal sequin gown",
       card1Image: "./images/women-bespoke-grey-balloon.jpg",
-      card2Image: "./images/women-bespoke-emerald-boubou.jpg",
+      card2Image: "./images/women-bespoke-pink-lace.jpg",
       card1Label: "LOOK 01",
       card1Sublabel: "Grey Sheath Gown",
       card1Title: "Grey Sheath Dress with Floral Balloon Sleeves",
       card2Label: "LOOK 02",
-      card2Sublabel: "Emerald Boubou Kaftan",
-      card2Title: "Emerald Green Floral Brocade Boubou"
+      card2Sublabel: "Blush Beaded Lace",
+      card2Title: "Blush Pink Beaded Lace Ceremony Ensemble"
     },
     {
       id: 2,
-      title: "Look 03 & 04 — Beaded Lace Ceremony & Royal Sapphire Pleated Midi",
-      subtitle: "Hand-embellished blush crystal sequin gown paired with vibrant royal blue crystal-collar dress",
-      card1Image: "./images/women-bespoke-pink-lace.jpg",
-      card2Image: "./images/women-bespoke-royal-blue.jpg",
+      title: "Look 03 & 04 — Royal Sapphire Pleated & Gold Baroque Crepe",
+      subtitle: "Rich royal blue A-line midi dress with beaded crystal collar paired with black crepe and opulent gold balloon sleeves",
+      card1Image: "./images/women-bespoke-royal-blue.jpg",
+      card2Image: "./images/women-bespoke-black-paisley.jpg",
       card1Label: "LOOK 03",
-      card1Sublabel: "Blush Beaded Lace",
-      card1Title: "Blush Pink Beaded Lace Ceremony Ensemble",
+      card1Sublabel: "Royal Sapphire Midi",
+      card1Title: "Royal Sapphire Pleated Flared Dress",
       card2Label: "LOOK 04",
-      card2Sublabel: "Royal Sapphire Midi",
-      card2Title: "Royal Sapphire Pleated Flared Dress"
+      card2Sublabel: "Baroque Silk Column",
+      card2Title: "Executive Black Crepe and Gold Baroque Gown"
     },
     {
       id: 3,
-      title: "Look 05 & 06 — Gold Baroque Crepe & Emerald Ankara Pencil Dress",
-      subtitle: "Black crepe with opulent baroque balloon sleeves paired with textured beaded asymmetric hem cocktail dress",
-      card1Image: "./images/women-bespoke-black-paisley.jpg",
-      card2Image: "./images/women-bespoke-ankara-asymmetric.jpg",
+      title: "Look 05 & 06 — Emerald Ankara Pencil & Vintage Botanical Swing",
+      subtitle: "Tailored textured beaded asymmetric cocktail dress paired with classic draped portrait collar pleated midi",
+      card1Image: "./images/women-bespoke-ankara-asymmetric.jpg",
+      card2Image: "./images/women-bespoke-vintage-floral.jpg",
       card1Label: "LOOK 05",
-      card1Sublabel: "Baroque Silk Column",
-      card1Title: "Executive Black Crepe and Gold Baroque Gown",
+      card1Sublabel: "Emerald Ankara Pencil",
+      card1Title: "Emerald & Gold Geometric Ankara Asymmetric Pencil Dress",
       card2Label: "LOOK 06",
-      card2Sublabel: "Emerald Ankara Pencil",
-      card2Title: "Emerald & Gold Geometric Ankara Asymmetric Pencil Dress"
+      card2Sublabel: "Vintage Botanical Swing",
+      card2Title: "Vintage Ivory Botanical Flared Midi Dress"
     },
     {
       id: 4,
-      title: "Look 07 & 08 — Vintage Ivory Botanical & Emerald Circles Skater",
-      subtitle: "Classic draped swing silhouette with pleated skirt paired with geometric circle print and sheer lace yoke",
-      card1Image: "./images/women-bespoke-vintage-floral.jpg",
-      card2Image: "./images/women-bespoke-green-lace-skater.jpg",
+      title: "Look 07 & 08 — Emerald Circles Skater & Monochrome Bow Blouse",
+      subtitle: "Geometric Dutch wax with sheer lace yoke paired with executive tie-neck blouse and fluted pencil skirt",
+      card1Image: "./images/women-bespoke-green-lace-skater.jpg",
+      card2Image: "./images/women-bespoke-monochrome-tie.jpg",
       card1Label: "LOOK 07",
-      card1Sublabel: "Vintage Botanical Swing",
-      card1Title: "Vintage Ivory Botanical Flared Midi Dress",
+      card1Sublabel: "Lace & Ankara Skater",
+      card1Title: "Emerald Circles Ankara & Sheer Black Lace Skater Dress",
       card2Label: "LOOK 08",
-      card2Sublabel: "Lace & Ankara Skater",
-      card2Title: "Emerald Circles Ankara & Sheer Black Lace Skater Dress"
+      card2Sublabel: "Monochrome Bow Blouse",
+      card2Title: "Monochrome Paisley Pussycat Bow Blouse & Fluted Skirt"
     },
     {
       id: 5,
-      title: "Look 09 & 10 — Monochrome Bow Blouse & Multi-Hue Batik Maxi",
-      subtitle: "Baroque tie-neck blouse with fluted pencil skirt paired with tiered flutter-sleeve metallic batik gown",
-      card1Image: "./images/women-bespoke-monochrome-tie.jpg",
-      card2Image: "./images/women-bespoke-batik-bell-maxi.jpg",
-      card1Label: "LOOK 09",
-      card1Sublabel: "Monochrome Bow Blouse",
-      card1Title: "Monochrome Paisley Pussycat Bow Blouse & Fluted Skirt",
-      card2Label: "LOOK 10",
-      card2Sublabel: "Tiered Batik Maxi",
-      card2Title: "Festive Multi-Hue Batik Brocade Maxi Gown"
-    },
-    {
-      id: 6,
-      title: "Look 11 & 01 — Peacock Teal French Lace & Grey Balloon Sheath",
+      title: "Look 09 & 01 — Peacock Teal French Lace & Grey Balloon Sheath",
       subtitle: "Structured square sweetheart corded lace evening gown paired with signature floral balloon sleeve sheath",
       card1Image: "./images/women-bespoke-teal-lace.jpg",
       card2Image: "./images/women-bespoke-grey-balloon.jpg",
-      card1Label: "LOOK 11",
+      card1Label: "LOOK 09",
       card1Sublabel: "Teal Corded Lace",
       card1Title: "Teal Corded French Lace Column Gown",
       card2Label: "LOOK 01",

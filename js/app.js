@@ -410,12 +410,16 @@
       maleImg.alt = `${item.title} - Male`;
     }
     if (maleTitle) maleTitle.textContent = item.maleTitle;
+    const maleLabel = document.getElementById('celebration-male-label');
+    if (maleLabel) maleLabel.textContent = item.maleLabel || "MALE VERSION";
 
     if (femaleImg) {
       femaleImg.src = item.femaleImage;
       femaleImg.alt = `${item.title} - Female`;
     }
     if (femaleTitle) femaleTitle.textContent = item.femaleTitle;
+    const femaleLabel = document.getElementById('celebration-female-label');
+    if (femaleLabel) femaleLabel.textContent = item.femaleLabel || "FEMALE VERSION";
 
     if (titleEl) titleEl.textContent = item.title;
     if (subtitleEl) subtitleEl.textContent = item.subtitle;
@@ -767,7 +771,13 @@
     },
     bookCurrentCelebration: (specificType = '') => {
       const item = DATA.celebrationLooks[state.celebrationIndex];
-      const desc = specificType ? `${item.title} (${specificType})` : `${item.title} (Matching Couple Set)`;
+      let label = specificType;
+      if (specificType === 'Male Version') {
+        label = item.maleLabel || item.maleTitle || 'Male Version';
+      } else if (specificType === 'Female Version') {
+        label = item.femaleLabel || item.femaleTitle || 'Female Version';
+      }
+      const desc = specificType ? `${item.title} (${label})` : `${item.title} (Ensemble Set)`;
       openBooking(desc, 'Occasions & Aso-Ebi');
     },
     bookCurrentMen: (perspective = '') => {
