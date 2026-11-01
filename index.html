@@ -502,24 +502,14 @@
             <!-- Dual Slanted Cards Grid: Left = Card 1, Right = Card 2 -->
             <div class="w-full grid grid-cols-2 gap-2 sm:gap-6 md:gap-8 items-center">
               <div onclick="window.VictoriaApp.bookCurrentChildren('Card1')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
-                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape flex items-center justify-center">
-                  <img id="children-boy-img" src="./images/children-bespoke-teal-mosaic.jpg" alt="Children Look 1" class="w-full h-full object-contain object-center origin-center transform transition-transform duration-500 group-hover:scale-105" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none"></div>
-                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
-                    <span id="children-card1-label" class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#bae6fd] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 01</span>
-                    <span id="children-card1-sublabel" class="text-[9px] sm:text-xs text-sky-300/80 tracking-wider uppercase mt-0.5">Mosaic Flutter Dress</span>
-                  </div>
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape">
+                  <img id="children-boy-img" src="./images/children-bespoke-teal-mosaic.jpg" alt="Children Look 1" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
                 </div>
               </div>
 
               <div onclick="window.VictoriaApp.bookCurrentChildren('Card2')" class="relative w-full aspect-[9/13] sm:aspect-[3/4] max-h-[58vh] sm:max-h-[66vh] filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] cursor-pointer group">
-                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape flex items-center justify-center">
-                  <img id="children-girl-img" src="./images/children-bespoke-yellow-lace.jpg" alt="Children Look 2" class="w-full h-full object-contain object-center origin-center transform transition-transform duration-500 group-hover:scale-105" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none"></div>
-                  <div class="absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center justify-center text-center px-2 pointer-events-none">
-                    <span id="children-card2-label" class="font-apple font-bold text-xs xs:text-sm sm:text-2xl md:text-3xl tracking-[0.14em] sm:tracking-[0.2em] text-[#fef08a] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 02</span>
-                    <span id="children-card2-sublabel" class="text-[9px] sm:text-xs text-amber-300/80 tracking-wider uppercase mt-0.5">Solar Peplum Dress</span>
-                  </div>
+                <div class="w-full h-full relative overflow-hidden bg-neutral-950 transition-transform duration-300 group-hover:scale-[1.01] border border-white/20 slanted-card-shape">
+                  <img id="children-girl-img" src="./images/children-bespoke-yellow-lace.jpg" alt="Children Look 2" class="w-full h-full object-cover object-top origin-top transform scale-[1.04] transition-transform duration-500 group-hover:scale-[1.07]" />
                 </div>
               </div>
             </div>
@@ -703,24 +693,14 @@
 
             <!-- 2 Archway Cards Grid: Left = Male Version, Right = Female Version -->
             <div class="w-full grid grid-cols-2 gap-2 sm:gap-8 lg:gap-14 max-w-[1040px] mx-auto justify-items-center">
-              <!-- Left Arch: LOOK 01 -->
+              <!-- Left Arch -->
               <div onclick="window.VictoriaApp.bookCurrentCelebration('Male Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
                 <img id="celebration-male-img" src="./images/women-bespoke-emerald-boubou.jpg" alt="Emerald Green Floral Brocade Boubou" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
-                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
-                  <span id="celebration-male-label" class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 01</span>
-                  <span id="celebration-male-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Emerald Green Floral Brocade Boubou</span>
-                </div>
               </div>
 
-              <!-- Right Arch: LOOK 02 -->
+              <!-- Right Arch -->
               <div onclick="window.VictoriaApp.bookCurrentCelebration('Female Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
                 <img id="celebration-female-img" src="./images/women-bespoke-batik-bell-maxi.jpg" alt="Festive Multi-Hue Batik Brocade Maxi Gown" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
-                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
-                  <span id="celebration-female-label" class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.08em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">LOOK 02</span>
-                  <span id="celebration-female-title" class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5 max-w-full truncate px-1">Festive Multi-Hue Batik Brocade Maxi Gown</span>
-                </div>
               </div>
             </div>
 

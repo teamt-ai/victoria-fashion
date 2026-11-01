@@ -431,17 +431,10 @@
       maleImg.src = item.maleImage;
       maleImg.alt = `${item.title} - Male`;
     }
-    if (maleTitle) maleTitle.textContent = item.maleTitle;
-    const maleLabel = document.getElementById('celebration-male-label');
-    if (maleLabel) maleLabel.textContent = item.maleLabel || "MALE VERSION";
-
     if (femaleImg) {
       femaleImg.src = item.femaleImage;
       femaleImg.alt = `${item.title} - Female`;
     }
-    if (femaleTitle) femaleTitle.textContent = item.femaleTitle;
-    const femaleLabel = document.getElementById('celebration-female-label');
-    if (femaleLabel) femaleLabel.textContent = item.femaleLabel || "FEMALE VERSION";
 
     if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
     if (subtitleEl) subtitleEl.textContent = '';
@@ -549,14 +542,7 @@
     if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
     if (subtitleEl) subtitleEl.textContent = '';
 
-    const card1Label = document.getElementById('children-card1-label');
-    const card1Sublabel = document.getElementById('children-card1-sublabel');
-    const card2Label = document.getElementById('children-card2-label');
-    const card2Sublabel = document.getElementById('children-card2-sublabel');
-    if (card1Label) card1Label.textContent = item.boyLabel || 'LOOK 01';
-    if (card1Sublabel) card1Sublabel.textContent = item.boySublabel || 'Mosaic Flutter Dress';
-    if (card2Label) card2Label.textContent = item.girlLabel || 'LOOK 02';
-    if (card2Sublabel) card2Sublabel.textContent = item.girlSublabel || 'Solar Peplum Dress';
+
 
     if (dotsContainer) {
       dotsContainer.innerHTML = DATA.childrenLooks.map((c, idx) => `
