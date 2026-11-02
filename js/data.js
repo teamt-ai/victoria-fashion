@@ -132,51 +132,6 @@ window.VICTORIA_DATA = {
       femaleTitle: "Festive Multi-Hue Batik Brocade Maxi Gown",
       femaleDesc: "Floor-length metallic batik brocade gown featuring tiered flutter bell sleeves and contrast coral Peter Pan collar.",
       ceremonyType: "Grand Boubou & Celebratory Reception"
-    },
-    {
-      id: 2,
-      eventCategory: "Royal Aso-Ebi & Traditional Wedding",
-      title: "Imperial Cobalt Indigo & Gold Embroidered Ensemble",
-      subtitle: "Unified royal blue ceremonial set for couple, family, and distinguished wedding guests",
-      maleImage: "./images/celebration-asoebi-male.jpg",
-      femaleImage: "./images/celebration-asoebi-female.jpg",
-      maleLabel: "MALE VERSION",
-      femaleLabel: "FEMALE VERSION",
-      maleTitle: "Royal 3-Piece Agbada",
-      maleDesc: "Heavyweight Swiss brocade with dense computerized gold chest embroidery & matching fila cap.",
-      femaleTitle: "Couture Mermaid Wrapper & Gele",
-      femaleDesc: "Hand-embellished George lace with cascading gold embroidered drape & sculptural headtie.",
-      ceremonyType: "Traditional Marriage & Grand Aso-Ebi"
-    },
-    {
-      id: 3,
-      eventCategory: "Chieftaincy Coronation & 50th Golden Jubilee",
-      title: "Benin Bronze & Midnight Navy Geometric Wax Pair",
-      subtitle: "Architectural coronation attire engineered for milestone birthdays and traditional titles",
-      maleImage: "./images/celebration-chieftaincy-male.jpg",
-      femaleImage: "./images/celebration-chieftaincy-female.jpg",
-      maleLabel: "MALE VERSION",
-      femaleLabel: "FEMALE VERSION",
-      maleTitle: "Bespoke Wax Dinner Tuxedo",
-      maleDesc: "Structured Italian satin shawl lapel with matching Nigerian wax trousers & silk bowtie.",
-      femaleTitle: "Architectural Peplum Ballgown",
-      femaleDesc: "Sculpted sweetheart shoulders, corset boning, and dramatic flared peplum silhouette.",
-      ceremonyType: "Chieftaincy, Coronation & Jubilee Gala"
-    },
-    {
-      id: 4,
-      eventCategory: "Child Dedication & Family Thanksgiving",
-      title: "Royal Indigo Brocade & Warm Ochre Couple Set",
-      subtitle: "Coordinated luxury tailoring designed for church thanksgiving and family blessings",
-      maleImage: "./images/celebration-thanksgiving-male.jpg",
-      femaleImage: "./images/celebration-thanksgiving-female.jpg",
-      maleLabel: "MALE VERSION",
-      femaleLabel: "FEMALE VERSION",
-      maleTitle: "Double-Breasted Brocade Blazer",
-      maleDesc: "Custom high-twist metallic weave with silver crest buttons and sharp cigarette trousers.",
-      femaleTitle: "Sculpted Ochre Column Gown",
-      femaleDesc: "Sweetheart corset bodice with dramatic high slit and sweeping floor-length train.",
-      ceremonyType: "Thanksgiving, Dedication & Milestone Anniversaries"
     }
   ],
   menLooks: [

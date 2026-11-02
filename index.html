@@ -244,7 +244,7 @@
 
         <!-- 5. OCCASIONS SECTION -->
         <section class="relative w-full min-h-[75vh] sm:min-h-[88vh] lg:min-h-[95vh] border-t border-[#1d1d1f] overflow-hidden bg-black flex items-end">
-          <img src="./images/occasions-asoebi.jpg" alt="Victoria Fashion Royal Couple Aso-Ebi" class="absolute inset-0 w-full h-full object-cover object-top sm:object-center select-none" loading="lazy" />
+          <img src="./images/women-bespoke-emerald-boubou.jpg" alt="Victoria Fashion Ceremonial Boubou & Bespoke Occasions" class="absolute inset-0 w-full h-full object-cover object-top sm:object-center select-none" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-black/10 pointer-events-none"></div>
           <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 to-transparent pointer-events-none"></div>
           <div class="relative z-10 w-full px-6 sm:px-16 lg:px-24 pb-14 sm:pb-24 pt-32 max-w-[1300px] mx-auto text-left">
@@ -552,23 +552,7 @@
             <span id="occasions-back-btn-text">Back to Home</span>
           </button>
 
-          <!-- Category Toggle Pills -->
-          <div class="flex items-center gap-1 sm:gap-2 p-1 bg-black/60 backdrop-blur-md rounded-full border border-amber-400/30 text-[10px] sm:text-xs">
-            <button 
-              id="occasions-tab-celebrations" 
-              onclick="window.VictoriaApp.navigateTo('occasions', 'celebrations')"
-              class="px-3 sm:px-4 py-1.5 rounded-full transition-all text-amber-300 font-bold bg-amber-400/20"
-            >
-              Celebrations &amp; Boubous
-            </button>
-            <button 
-              id="occasions-tab-weddings" 
-              onclick="window.VictoriaApp.navigateTo('occasions', 'weddings')"
-              class="px-3 sm:px-4 py-1.5 rounded-full transition-all text-neutral-400 hover:text-white"
-            >
-              Bridal Weddings
-            </button>
-          </div>
+
 
           <div class="flex items-center gap-2 text-[10px] sm:text-xs text-amber-200/90 font-mono tracking-wider sm:tracking-[0.22em] uppercase shrink-0">
             <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -583,111 +567,12 @@
         </header>
 
         <!-- ========================================================= -->
-        <!-- SUB-VIEW 1: OCCASIONS PORTAL (2 Archway Categories)       -->
-        <!-- ========================================================= -->
-        <div id="occasions-portal-section" class="w-full max-w-[1240px] mx-auto px-4 sm:px-8 py-4 sm:py-8 flex-1 flex flex-col justify-center items-center z-20">
-          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 max-w-[1040px] mx-auto">
-            <!-- PORTAL 1: WEDDINGS -->
-            <div onclick="window.VictoriaApp.navigateTo('occasions', 'weddings')" class="group cursor-pointer flex flex-col items-center text-center transition-transform duration-500 hover:-translate-y-2">
-              <div class="relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 group-hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] group-hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)]">
-                <img src="./images/wedding-look1-front.jpg" alt="Weddings & Bridal Couture" class="w-full h-full object-cover object-top transform scale-[1.03] transition-transform duration-700 group-hover:scale-[1.07]" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20 pointer-events-none"></div>
-                <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
-                <div class="absolute inset-x-0 bottom-6 sm:bottom-10 px-6 flex flex-col items-center">
-                  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-apple font-bold text-white tracking-widest uppercase mb-1 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
-                    Weddings
-                  </h2>
-                  <p class="text-[11px] sm:text-xs text-neutral-300 font-mono tracking-[0.16em] uppercase mb-4 max-w-xs leading-relaxed">
-                    Bridal Ballgowns, Sculpted Mermaids & Groomsmen Couture
-                  </p>
-                  <span class="border border-white/80 group-hover:border-white group-hover:bg-white group-hover:text-black text-white text-[10px] font-mono tracking-[0.2em] uppercase px-6 py-2.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-                    Explore Wedding Gowns →
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- PORTAL 2: OTHER CELEBRATIONS -->
-            <div onclick="window.VictoriaApp.navigateTo('occasions', 'celebrations')" class="group cursor-pointer flex flex-col items-center text-center transition-transform duration-500 hover:-translate-y-2">
-              <div class="relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 group-hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] group-hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)]">
-                <img src="./images/women-bespoke-emerald-boubou.jpg" alt="Ceremonial Boubou & Celebrations" class="w-full h-full object-cover object-top transform scale-[1.03] transition-transform duration-700 group-hover:scale-[1.07]" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20 pointer-events-none"></div>
-                <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
-                <div class="absolute inset-x-0 bottom-6 sm:bottom-10 px-6 flex flex-col items-center">
-                  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-apple font-bold text-white tracking-widest uppercase mb-1 drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
-                    Other Celebrations
-                  </h2>
-                  <p class="text-[11px] sm:text-xs text-neutral-300 font-mono tracking-[0.16em] uppercase mb-4 max-w-xs leading-relaxed">
-                    Celebration of Life, Naming Ceremonies & Chieftaincy
-                  </p>
-                  <span class="border border-white/80 group-hover:border-white group-hover:bg-white group-hover:text-black text-white text-[10px] font-mono tracking-[0.2em] uppercase px-6 py-2.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-                    Explore Celebrations →
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ========================================================= -->
-        <!-- SUB-VIEW 2: WEDDINGS (Dual Royal Archways: Front & Back)   -->
-        <!-- ========================================================= -->
-        <div id="occasions-weddings-section" class="hidden w-full max-w-[1240px] mx-auto px-3 sm:px-8 py-2 sm:py-4 flex-1 flex flex-col justify-center items-center z-20">
-          <!-- Dual Archways Container (Exact Same Scale & Shape as Portal) -->
-          <div class="relative w-full max-w-[1040px] mx-auto flex items-center justify-center">
-            <button onclick="window.VictoriaApp.prevWedding()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Previous">
-              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-
-            <!-- 2 Archway Cards Grid: Left = Front View, Right = Back View -->
-            <div class="w-full grid grid-cols-2 gap-2 sm:gap-8 lg:gap-14 max-w-[1040px] mx-auto justify-items-center">
-              <!-- Left Arch: FRONT VIEW -->
-              <div onclick="window.VictoriaApp.bookCurrentWedding('Front View')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
-                <img id="wedding-front-img" src="./images/wedding-look1-front.jpg" alt="Wedding Gown Front" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
-                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
-                  <span class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.1em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">FRONT VIEW</span>
-                  <span class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5">Front Perspective</span>
-                </div>
-              </div>
-
-              <!-- Right Arch: BACK VIEW -->
-              <div onclick="window.VictoriaApp.bookCurrentWedding('Back View')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
-                <img id="wedding-back-img" src="./images/wedding-look1-back.jpg" alt="Wedding Gown Back" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent pointer-events-none"></div>
-                <div class="absolute inset-x-0 bottom-3 sm:bottom-8 flex flex-col items-center justify-center text-center px-1 sm:px-2 pointer-events-none">
-                  <span class="font-apple font-bold text-[10px] xs:text-xs sm:text-2xl md:text-3xl tracking-[0.1em] sm:tracking-[0.2em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">BACK VIEW</span>
-                  <span class="text-[8px] xs:text-[9px] sm:text-xs text-[#a1a1a6] tracking-wider uppercase mt-0.5">Back Perspective</span>
-                </div>
-              </div>
-            </div>
-
-            <button onclick="window.VictoriaApp.nextWedding()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Next">
-              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-
-          <!-- Footer Bar -->
-          <footer class="w-full max-w-[1040px] mx-auto pt-3 sm:pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-amber-400/20 mt-3">
-            <div class="text-center sm:text-left max-w-md">
-              <h3 id="wedding-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Royal Ivory & 24k Gold Cathedral Ballgown</h3>
-            </div>
-            <div>
-              <button onclick="window.VictoriaApp.bookCurrentWedding('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
-                <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                <span>Order on WhatsApp</span>
-              </button>
-            </div>
-          </footer>
-        </div>
-
-        <!-- ========================================================= -->
         <!-- SUB-VIEW 3: OTHER CELEBRATIONS (Male & Female Pairs)      -->
         <!-- ========================================================= -->
-        <div id="occasions-celebrations-section" class="hidden w-full max-w-[1240px] mx-auto px-3 sm:px-8 py-2 sm:py-4 flex-1 flex flex-col justify-center items-center z-20">
+        <div id="occasions-celebrations-section" class="w-full max-w-[1240px] mx-auto px-3 sm:px-8 py-2 sm:py-4 flex-1 flex flex-col justify-center items-center z-20">
           <!-- Dual Archways Container (Exact Same Scale & Shape as Portal) -->
           <div class="relative w-full max-w-[1040px] mx-auto flex items-center justify-center">
-            <button onclick="window.VictoriaApp.prevCelebration()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Previous">
+            <button onclick="window.VictoriaApp.prevCelebration()" class="hidden absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Previous">
               <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
 
@@ -704,7 +589,7 @@
               </div>
             </div>
 
-            <button onclick="window.VictoriaApp.nextCelebration()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Next">
+            <button onclick="window.VictoriaApp.nextCelebration()" class="hidden absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Next">
               <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
           </div>
@@ -717,7 +602,7 @@
             <div>
               <button onclick="window.VictoriaApp.bookCurrentCelebration('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
                 <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                <span>Order Set on WhatsApp</span>
+                <span>Order on WhatsApp</span>
               </button>
             </div>
           </footer>

@@ -439,19 +439,23 @@
     if (titleEl) titleEl.textContent = (item.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
     if (subtitleEl) subtitleEl.textContent = '';
 
-    // Dots
+    // Dots & Counter
     if (dotsContainer) {
-      dotsContainer.innerHTML = DATA.celebrationLooks.map((c, idx) => `
-        <button
-          onclick="window.VictoriaApp.setCelebrationIndex(${idx})"
-          class="h-1.5 transition-all rounded-full ${state.celebrationIndex === idx ? 'w-8 bg-amber-400 shadow-[0_0_12px_rgba(203,161,53,0.8)]' : 'w-2 bg-white/20 hover:bg-white/40'}"
-          aria-label="Slide ${idx + 1}"
-        ></button>
-      `).join('');
+      if (DATA.celebrationLooks.length > 1) {
+        dotsContainer.innerHTML = DATA.celebrationLooks.map((c, idx) => `
+          <button
+            onclick="window.VictoriaApp.setCelebrationIndex(${idx})"
+            class="h-1.5 transition-all rounded-full ${state.celebrationIndex === idx ? 'w-8 bg-amber-400 shadow-[0_0_12px_rgba(203,161,53,0.8)]' : 'w-2 bg-white/20 hover:bg-white/40'}"
+            aria-label="Slide ${idx + 1}"
+          ></button>
+        `).join('');
+      } else {
+        dotsContainer.innerHTML = '';
+      }
     }
 
     if (counterEl) {
-      counterEl.textContent = `0${state.celebrationIndex + 1} / 0${DATA.celebrationLooks.length}`;
+      counterEl.textContent = DATA.celebrationLooks.length > 1 ? `0${state.celebrationIndex + 1} / 0${DATA.celebrationLooks.length}` : '';
     }
   }
 
@@ -769,13 +773,12 @@
     },
     bookCurrentCelebration: (specificType = '') => {
       const item = DATA.celebrationLooks[state.celebrationIndex];
-      let label = specificType;
-      if (specificType === 'Male Version') {
-        label = item.maleLabel || item.maleTitle || 'Male Version';
-      } else if (specificType === 'Female Version') {
-        label = item.femaleLabel || item.femaleTitle || 'Female Version';
+      let desc = item.title;
+      if (specificType === 'Male Version' || specificType === 'Card1' || specificType === 'Emerald Boubou') {
+        desc = item.maleTitle || item.title;
+      } else if (specificType === 'Female Version' || specificType === 'Card2' || specificType === 'Batik Maxi Gown') {
+        desc = item.femaleTitle || item.title;
       }
-      const desc = specificType ? `${item.title} (${label})` : `${item.title} (Ensemble Set)`;
       openBooking(desc, 'Occasions & Aso-Ebi');
     },
     bookCurrentMen: (perspective = '') => {
