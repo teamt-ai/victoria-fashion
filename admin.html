@@ -295,7 +295,7 @@
     const ATELIER_PASSCODE = "victoria2026";
 
     // Initialize Supabase Client with service key for admin operations
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
+    const sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
       auth: { persistSession: false }
     });
 
@@ -303,26 +303,31 @@
     let activeFilter = 'all';
     let itemToDelete = null;
 
-    // Check existing session
-    if (sessionStorage.getItem('vf_admin_auth') === 'true') {
+    // Check existing session (localStorage + sessionStorage)
+    if (localStorage.getItem('vf_admin_auth') === 'true' || sessionStorage.getItem('vf_admin_auth') === 'true') {
       showAdmin();
     }
 
     function handleLogin(e) {
-      e.preventDefault();
-      const code = document.getElementById('admin-passcode').value.trim();
+      if (e) e.preventDefault();
+      const input = document.getElementById('admin-passcode');
+      const code = input ? input.value.trim().toLowerCase() : '';
       const errEl = document.getElementById('login-error');
       
-      if (code === ATELIER_PASSCODE) {
+      if (code === ATELIER_PASSCODE.toLowerCase()) {
+        localStorage.setItem('vf_admin_auth', 'true');
         sessionStorage.setItem('vf_admin_auth', 'true');
         showAdmin();
       } else {
-        errEl.textContent = 'Incorrect passcode. Please try again.';
-        errEl.classList.remove('hidden');
+        if (errEl) {
+          errEl.textContent = 'Incorrect passcode. Please check and try again.';
+          errEl.classList.remove('hidden');
+        }
       }
     }
 
     function handleLogout() {
+      localStorage.removeItem('vf_admin_auth');
       sessionStorage.removeItem('vf_admin_auth');
       window.location.reload();
     }
@@ -447,7 +452,7 @@
 
       try {
         // 1. Upload file to Supabase Storage
-        const { data: uploadData, error: uploadError } = await supabase
+        const { data: uploadData, error: uploadError } = await sbClient
           .storage
           .from(BUCKET_NAME)
           .upload(storagePath, file, {
@@ -458,7 +463,7 @@
         if (uploadError) throw uploadError;
 
         // 2. Get Public URL
-        const { data: urlData } = supabase
+        const { data: urlData } = sbClient
           .storage
           .from(BUCKET_NAME)
           .getPublicUrl(storagePath);
@@ -481,7 +486,7 @@
         currentItems.unshift(newItem);
 
         const manifestBlob = new Blob([JSON.stringify(currentItems, null, 2)], { type: 'application/json' });
-        const { error: manifestError } = await supabase
+        const { error: manifestError } = await sbClient
           .storage
           .from(BUCKET_NAME)
           .upload(MANIFEST_FILE, manifestBlob, {
@@ -538,7 +543,7 @@
       try {
         // 1. Delete file from storage if path exists
         if (itemToDelete.storagePath) {
-          await supabase
+          await sbClient
             .storage
             .from(BUCKET_NAME)
             .remove([itemToDelete.storagePath]);
@@ -548,7 +553,7 @@
         currentItems = currentItems.filter(i => i.id !== itemToDelete.id);
 
         const manifestBlob = new Blob([JSON.stringify(currentItems, null, 2)], { type: 'application/json' });
-        await supabase
+        await sbClient
           .storage
           .from(BUCKET_NAME)
           .upload(MANIFEST_FILE, manifestBlob, {
