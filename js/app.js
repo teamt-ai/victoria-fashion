@@ -829,7 +829,96 @@
     }
   }, { passive: true });
 
+
+  // ==========================================
+  // SUPABASE DYNAMIC GALLERY SYNC
+  // ==========================================
+  async function syncSupabaseGallery() {
+    try {
+      const url = "https://pseyowecodortdepdcgu.supabase.co/storage/v1/object/public/victoria-images/manifest.json?t=" + Date.now();
+      const res = await fetch(url);
+      if (!res.ok) return;
+      const uploadedItems = await res.json();
+      if (!Array.isArray(uploadedItems) || uploadedItems.length === 0) return;
+
+      uploadedItems.forEach(item => {
+        const cat = (item.category || '').toLowerCase();
+        const catItem = {
+          id: item.id,
+          name: item.title,
+          desc: item.description || 'Bespoke creation by Victoria Fashion.',
+          image: item.image_url
+        };
+
+        if (cat === 'women') {
+          if (!DATA.catalogue.women.some(x => x.id === item.id)) {
+            DATA.catalogue.women.unshift(catItem);
+          }
+          if (!DATA.womenLooks.some(x => x.id === item.id)) {
+            DATA.womenLooks.unshift({
+              id: item.id,
+              title: item.title,
+              subtitle: item.description || '',
+              card1Image: item.image_url,
+              card2Image: item.image_url,
+              card1Title: item.title,
+              card2Title: item.title
+            });
+          }
+        } else if (cat === 'men') {
+          if (!DATA.catalogue.men.some(x => x.id === item.id)) {
+            DATA.catalogue.men.unshift(catItem);
+          }
+          if (!DATA.menLooks.some(x => x.id === item.id)) {
+            DATA.menLooks.unshift({
+              id: item.id,
+              title: item.title,
+              subtitle: item.description || '',
+              frontImage: item.image_url,
+              backImage: item.image_url,
+              frontLabel: 'FRONT VIEW',
+              backLabel: 'PERSPECTIVE'
+            });
+          }
+        } else if (cat === 'children') {
+          if (!DATA.catalogue.children.some(x => x.id === item.id)) {
+            DATA.catalogue.children.unshift(catItem);
+          }
+          if (!DATA.childrenLooks.some(x => x.id === item.id)) {
+            DATA.childrenLooks.unshift({
+              id: item.id,
+              title: item.title,
+              subtitle: item.description || '',
+              boyImage: item.image_url,
+              girlImage: item.image_url
+            });
+          }
+        } else if (cat === 'occasions') {
+          if (!DATA.catalogue.occasions.some(x => x.id === item.id)) {
+            DATA.catalogue.occasions.unshift(catItem);
+          }
+          if (!DATA.celebrationLooks.some(x => x.id === item.id)) {
+            DATA.celebrationLooks.unshift({
+              id: item.id,
+              title: item.title,
+              subtitle: item.description || '',
+              maleImage: item.image_url,
+              femaleImage: item.image_url,
+              maleTitle: item.title,
+              femaleTitle: item.title
+            });
+          }
+        }
+      });
+
+      renderActiveView();
+    } catch (err) {
+      console.warn('Supabase gallery sync notice:', err);
+    }
+  }
+
   // Initial startup
   handleHashChange();
+  syncSupabaseGallery();
 
 })();

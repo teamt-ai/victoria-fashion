@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victoria Fashion — Atelier Admin Portal</title>
+  <link rel="icon" type="image/png" href="./images/favicon.png" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-black text-neutral-100 flex flex-col selection:bg-amber-400 selection:text-black">
+
+  <!-- ============================================================ -->
+  <!-- 1. LOGIN GATE                                                -->
+  <!-- ============================================================ -->
+  <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl">
+    <div class="relative w-full max-w-md bg-[#121214] border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl text-center">
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-amber-300 mx-auto flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+        <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">Victoria Atelier Portal</h1>
+      <p class="text-xs sm:text-sm text-neutral-400 mb-8">Enter your secure atelier passcode to manage collection images.</p>
+      
+      <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <input 
+            type="password" 
+            id="admin-passcode" 
+            placeholder="Enter passcode (default: victoria2026)" 
+            class="w-full bg-[#1c1c1f] text-white border border-white/10 rounded-2xl px-5 py-4 text-center text-sm focus:border-amber-400 focus:outline-none transition-colors tracking-widest placeholder:text-neutral-600"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+        <p id="login-error" class="hidden text-xs text-rose-400 font-medium"></p>
+        <button 
+          type="submit" 
+          class="w-full bg-amber-400 hover:bg-amber-300 text-black font-semibold py-4 rounded-2xl text-sm transition-all duration-200 active:scale-95 shadow-[0_0_25px_rgba(251,191,36,0.25)]"
+        >
+          Unlock Admin Portal →
+        </button>
+      </form>
+      <div class="mt-6 text-[11px] text-neutral-600">
+        Victoria Fashion · Akwa Ibom, Nigeria
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 2. MAIN ADMIN PORTAL                                         -->
+  <!-- ============================================================ -->
+  <div id="admin-app" class="hidden flex-1 flex flex-col">
+    <!-- Top Nav -->
+    <header class="w-full border-b border-white/10 bg-[#0c0c0e]/80 backdrop-blur-xl sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 font-bold text-sm">
+            VF
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white tracking-wide">VICTORIA FASHION</div>
+            <div class="text-[10px] text-amber-300/80 font-mono tracking-wider uppercase">Atelier Admin Dashboard</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 sm:gap-4">
+          <a href="./index.html" target="_blank" class="text-xs text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/5 border border-white/10">
+            <span>View Live Site</span>
+            <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+          <button onclick="handleLogout()" class="text-xs text-rose-400 hover:text-rose-300 transition-colors px-3 py-2 rounded-xl bg-rose-500/10 border border-rose-500/20">
+            Lock
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-6xl w-full mx-auto px-4 sm:px-8 py-8 flex-1 space-y-10">
+
+      <!-- Upload Section Card -->
+      <section class="bg-[#121214] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 blur-[100px] pointer-events-none rounded-full"></div>
+
+        <div class="mb-6">
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+            <span>Upload New Bespoke Design</span>
+            <span class="text-xs font-mono font-normal px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">Live Instant Sync</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-neutral-400 mt-1">
+            Pick a photo, choose the collection category, and publish directly to the live website.
+          </p>
+        </div>
+
+        <form id="upload-form" onsubmit="handleUpload(event)" class="space-y-6">
+          
+          <!-- Category Selector -->
+          <div>
+            <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2.5">
+              1. Select Collection Category *
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <label class="cursor-pointer">
+                <input type="radio" name="category" value="women" checked class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-white/10 peer-checked:border-amber-400 peer-checked:bg-amber-400/10 transition-all text-center">
+                  <div class="text-sm font-semibold text-white peer-checked:text-amber-300">Women</div>
+                  <div class="text-[10px] text-neutral-400 mt-0.5">Haute Couture</div>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="category" value="men" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-white/10 peer-checked:border-amber-400 peer-checked:bg-amber-400/10 transition-all text-center">
+                  <div class="text-sm font-semibold text-white peer-checked:text-amber-300">Men</div>
+                  <div class="text-[10px] text-neutral-400 mt-0.5">Senators & Kaftans</div>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="category" value="children" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-white/10 peer-checked:border-amber-400 peer-checked:bg-amber-400/10 transition-all text-center">
+                  <div class="text-sm font-semibold text-white peer-checked:text-amber-300">Children</div>
+                  <div class="text-[10px] text-neutral-400 mt-0.5">Festive & Uniforms</div>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="category" value="occasions" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-white/10 peer-checked:border-amber-400 peer-checked:bg-amber-400/10 transition-all text-center">
+                  <div class="text-sm font-semibold text-white peer-checked:text-amber-300">Occasions</div>
+                  <div class="text-[10px] text-neutral-400 mt-0.5">Aso-Ebi & Boubous</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Image Drop / Picker -->
+          <div>
+            <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2.5">
+              2. Select Outfit Image *
+            </label>
+            <div 
+              id="drop-zone"
+              onclick="document.getElementById('image-file').click()"
+              class="relative border-2 border-dashed border-white/15 hover:border-amber-400/60 transition-all duration-300 rounded-3xl p-6 sm:p-10 flex flex-col items-center justify-center cursor-pointer bg-[#0e0e10] group text-center"
+            >
+              <input 
+                type="file" 
+                id="image-file" 
+                accept="image/*" 
+                class="hidden" 
+                onchange="handleImagePreview(event)" 
+                required 
+              />
+              
+              <!-- Placeholder State -->
+              <div id="preview-placeholder" class="flex flex-col items-center">
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 group-hover:border-amber-400/40 group-hover:bg-amber-400/5 transition-all flex items-center justify-center text-neutral-400 group-hover:text-amber-300 mb-3">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <div class="text-sm font-semibold text-white mb-1">
+                  Tap to choose from phone gallery or drag image here
+                </div>
+                <div class="text-xs text-neutral-500">Supports JPG, PNG, WEBP (up to 15MB)</div>
+              </div>
+
+              <!-- Preview State -->
+              <div id="preview-container" class="hidden flex-col items-center">
+                <div class="relative w-40 h-48 sm:w-48 sm:h-60 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-[0_10px_35px_rgba(245,158,11,0.2)] mb-3">
+                  <img id="image-preview" src="" alt="Selected Preview" class="w-full h-full object-cover" />
+                </div>
+                <span class="text-xs text-amber-300 font-medium">Click to change picture</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metadata Fields -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
+                3. Garment Title / Style Name *
+              </label>
+              <input 
+                type="text" 
+                id="item-title" 
+                placeholder="e.g. Royal Emerald Brocade Boubou" 
+                class="w-full bg-[#1c1c1f] text-white border border-white/10 rounded-2xl px-4 py-3.5 text-sm focus:border-amber-400 focus:outline-none transition-colors placeholder:text-neutral-600"
+                required
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
+                4. Description / Fabric Notes (Optional)
+              </label>
+              <input 
+                type="text" 
+                id="item-desc" 
+                placeholder="e.g. Pure silk brocade with gold embroidery" 
+                class="w-full bg-[#1c1c1f] text-white border border-white/10 rounded-2xl px-4 py-3.5 text-sm focus:border-amber-400 focus:outline-none transition-colors placeholder:text-neutral-600"
+              />
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div>
+            <button 
+              type="submit" 
+              id="upload-btn"
+              class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold py-4 px-6 rounded-2xl text-sm sm:text-base flex items-center justify-center gap-2 transition-all active:scale-[0.99] shadow-[0_10px_30px_rgba(37,211,102,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
+              <span id="upload-btn-text">Publish Design to Website</span>
+            </button>
+            <div id="upload-status" class="hidden mt-3 text-center text-xs font-medium"></div>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- Manage Gallery Section -->
+      <section class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Active Uploaded Designs</h2>
+            <p class="text-xs sm:text-sm text-neutral-400">View or delete custom designs published through this portal.</p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-[#121214] border border-white/10 text-xs">
+            <button onclick="setFilter('all')" class="gallery-tab px-3.5 py-1.5 rounded-xl font-medium transition-all bg-amber-400 text-black font-semibold" data-filter="all">All</button>
+            <button onclick="setFilter('women')" class="gallery-tab px-3.5 py-1.5 rounded-xl font-medium transition-all text-neutral-400 hover:text-white" data-filter="women">Women</button>
+            <button onclick="setFilter('men')" class="gallery-tab px-3.5 py-1.5 rounded-xl font-medium transition-all text-neutral-400 hover:text-white" data-filter="men">Men</button>
+            <button onclick="setFilter('children')" class="gallery-tab px-3.5 py-1.5 rounded-xl font-medium transition-all text-neutral-400 hover:text-white" data-filter="children">Children</button>
+            <button onclick="setFilter('occasions')" class="gallery-tab px-3.5 py-1.5 rounded-xl font-medium transition-all text-neutral-400 hover:text-white" data-filter="occasions">Occasions</button>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+          <!-- Rendered via JS -->
+        </div>
+
+        <div id="empty-state" class="hidden text-center py-16 bg-[#121214] border border-white/5 rounded-3xl p-8">
+          <div class="w-12 h-12 rounded-full bg-white/5 mx-auto flex items-center justify-center text-neutral-500 mb-3">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <p class="text-sm text-neutral-400 font-medium">No uploaded designs in this category yet.</p>
+          <p class="text-xs text-neutral-600 mt-1">Upload a photo using the form above to add it to the website.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="border-t border-white/10 py-6 text-center text-xs text-neutral-500">
+      Victoria Fashion Atelier Portal · Akwa Ibom, Nigeria · Connected to Supabase Storage
+    </footer>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="delete-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+    <div class="relative w-full max-w-sm bg-[#18181b] border border-white/10 rounded-3xl p-6 text-center">
+      <div class="w-12 h-12 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 mx-auto flex items-center justify-center mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-1">Delete Design?</h3>
+      <p class="text-xs text-neutral-400 mb-6">This will permanently remove the picture from the live website.</p>
+      <div class="flex items-center gap-3">
+        <button onclick="closeDeleteModal()" class="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs font-semibold transition-colors">
+          Cancel
+        </button>
+        <button id="confirm-delete-btn" onclick="executeDelete()" class="flex-1 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold transition-colors">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const SUPABASE_URL = "https://pseyowecodortdepdcgu.supabase.co";
+    // Service key for admin uploads & management
+    const SUPABASE_SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzZXlvd2Vjb2RvcnRkZXBkY2d1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NDU1NTg5MSwiZXhwIjoyMTAwMTMxODkxfQ.BpD8G_z7Jo04cGER85kXqT0Qaj0y020krZ2rjR6Y-wA";
+    const BUCKET_NAME = "victoria-images";
+    const MANIFEST_FILE = "manifest.json";
+
+    // Passcode: "victoria2026"
+    const ATELIER_PASSCODE = "victoria2026";
+
+    // Initialize Supabase Client with service key for admin operations
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
+      auth: { persistSession: false }
+    });
+
+    let currentItems = [];
+    let activeFilter = 'all';
+    let itemToDelete = null;
+
+    // Check existing session
+    if (sessionStorage.getItem('vf_admin_auth') === 'true') {
+      showAdmin();
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const code = document.getElementById('admin-passcode').value.trim();
+      const errEl = document.getElementById('login-error');
+      
+      if (code === ATELIER_PASSCODE) {
+        sessionStorage.setItem('vf_admin_auth', 'true');
+        showAdmin();
+      } else {
+        errEl.textContent = 'Incorrect passcode. Please try again.';
+        errEl.classList.remove('hidden');
+      }
+    }
+
+    function handleLogout() {
+      sessionStorage.removeItem('vf_admin_auth');
+      window.location.reload();
+    }
+
+    function showAdmin() {
+      document.getElementById('login-modal').classList.add('hidden');
+      document.getElementById('admin-app').classList.remove('hidden');
+      loadGallery();
+    }
+
+    function handleImagePreview(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        document.getElementById('image-preview').src = event.target.result;
+        document.getElementById('preview-placeholder').classList.add('hidden');
+        document.getElementById('preview-container').classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Load Manifest
+    async function loadGallery() {
+      try {
+        const timestamp = new Date().getTime();
+        const res = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${MANIFEST_FILE}?t=${timestamp}`);
+        if (res.ok) {
+          currentItems = await res.json();
+          if (!Array.isArray(currentItems)) currentItems = [];
+        } else {
+          currentItems = [];
+        }
+      } catch (err) {
+        console.error('Error loading manifest:', err);
+        currentItems = [];
+      }
+      renderGallery();
+    }
+
+    function setFilter(cat) {
+      activeFilter = cat;
+      document.querySelectorAll('.gallery-tab').forEach(btn => {
+        if (btn.dataset.filter === cat) {
+          btn.className = "gallery-tab px-3.5 py-1.5 rounded-xl font-medium transition-all bg-amber-400 text-black font-semibold";
+        } else {
+          btn.className = "gallery-tab px-3.5 py-1.5 rounded-xl font-medium transition-all text-neutral-400 hover:text-white";
+        }
+      });
+      renderGallery();
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('gallery-grid');
+      const empty = document.getElementById('empty-state');
+      
+      const filtered = activeFilter === 'all' 
+        ? currentItems 
+        : currentItems.filter(i => (i.category || '').toLowerCase() === activeFilter.toLowerCase());
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      grid.innerHTML = filtered.map(item => `
+        <div class="group relative bg-[#18181b] border border-white/10 rounded-2xl overflow-hidden flex flex-col transition-all hover:border-amber-400/50 hover:shadow-xl">
+          <div class="relative w-full aspect-[3/4] bg-neutral-900 overflow-hidden">
+            <img src="${item.image_url}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <span class="absolute top-2.5 left-2.5 text-[9px] font-mono uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-md border border-white/20 text-amber-300">
+              ${item.category}
+            </span>
+            <button 
+              onclick="promptDelete('${item.id}', '${item.storage_path}')" 
+              class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-black/80 hover:bg-rose-600 text-white flex items-center justify-center transition-all opacity-90 hover:opacity-100 shadow-lg"
+              title="Delete design"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            </button>
+          </div>
+          <div class="p-3.5 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 class="text-xs sm:text-sm font-semibold text-white line-clamp-1">${item.title}</h4>
+              ${item.description ? `<p class="text-[11px] text-neutral-400 line-clamp-1 mt-0.5">${item.description}</p>` : ''}
+            </div>
+            <div class="text-[10px] text-neutral-500 mt-2 font-mono">
+              ${new Date(item.created_at).toLocaleDateString()}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Handle Upload
+    async function handleUpload(e) {
+      e.preventDefault();
+      
+      const fileInput = document.getElementById('image-file');
+      const titleInput = document.getElementById('item-title');
+      const descInput = document.getElementById('item-desc');
+      const category = document.querySelector('input[name="category"]:checked').value;
+      const btn = document.getElementById('upload-btn');
+      const btnText = document.getElementById('upload-btn-text');
+      const status = document.getElementById('upload-status');
+
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert('Please choose an image file.');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const cleanFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+      const storagePath = `${category}/${Date.now()}_${cleanFileName}`;
+
+      btn.disabled = true;
+      btnText.textContent = "Uploading Image to Supabase...";
+      status.className = "mt-3 text-center text-xs text-amber-300 font-medium block";
+      status.textContent = "Uploading image file...";
+
+      try {
+        // 1. Upload file to Supabase Storage
+        const { data: uploadData, error: uploadError } = await supabase
+          .storage
+          .from(BUCKET_NAME)
+          .upload(storagePath, file, {
+            cacheControl: '3600',
+            upsert: false
+          });
+
+        if (uploadError) throw uploadError;
+
+        // 2. Get Public URL
+        const { data: urlData } = supabase
+          .storage
+          .from(BUCKET_NAME)
+          .getPublicUrl(storagePath);
+
+        const publicUrl = urlData.publicUrl;
+
+        // 3. Create new record
+        const newItem = {
+          id: 'vf_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+          title: titleInput.value.trim(),
+          category: category,
+          description: descInput.value.trim(),
+          image_url: publicUrl,
+          storage_path: storagePath,
+          created_at: new Date().toISOString()
+        };
+
+        // 4. Update manifest
+        btnText.textContent = "Syncing Website Manifest...";
+        currentItems.unshift(newItem);
+
+        const manifestBlob = new Blob([JSON.stringify(currentItems, null, 2)], { type: 'application/json' });
+        const { error: manifestError } = await supabase
+          .storage
+          .from(BUCKET_NAME)
+          .upload(MANIFEST_FILE, manifestBlob, {
+            contentType: 'application/json',
+            upsert: true
+          });
+
+        if (manifestError) throw manifestError;
+
+        // Success Reset
+        status.className = "mt-3 text-center text-xs text-emerald-400 font-medium block";
+        status.textContent = "✓ Design published live to Victoria Fashion!";
+        
+        fileInput.value = '';
+        titleInput.value = '';
+        descInput.value = '';
+        document.getElementById('preview-container').classList.add('hidden');
+        document.getElementById('preview-placeholder').classList.remove('hidden');
+
+        renderGallery();
+
+        setTimeout(() => {
+          status.classList.add('hidden');
+        }, 5000);
+
+      } catch (err) {
+        console.error('Upload failed:', err);
+        status.className = "mt-3 text-center text-xs text-rose-400 font-medium block";
+        status.textContent = "Upload failed: " + (err.message || err);
+      } finally {
+        btn.disabled = false;
+        btnText.textContent = "Publish Design to Website";
+      }
+    }
+
+    // Delete Operations
+    function promptDelete(id, storagePath) {
+      itemToDelete = { id, storagePath };
+      document.getElementById('delete-modal').classList.remove('hidden');
+    }
+
+    function closeDeleteModal() {
+      itemToDelete = null;
+      document.getElementById('delete-modal').classList.add('hidden');
+    }
+
+    async function executeDelete() {
+      if (!itemToDelete) return;
+
+      const deleteBtn = document.getElementById('confirm-delete-btn');
+      deleteBtn.textContent = "Deleting...";
+      deleteBtn.disabled = true;
+
+      try {
+        // 1. Delete file from storage if path exists
+        if (itemToDelete.storagePath) {
+          await supabase
+            .storage
+            .from(BUCKET_NAME)
+            .remove([itemToDelete.storagePath]);
+        }
+
+        // 2. Remove from manifest
+        currentItems = currentItems.filter(i => i.id !== itemToDelete.id);
+
+        const manifestBlob = new Blob([JSON.stringify(currentItems, null, 2)], { type: 'application/json' });
+        await supabase
+          .storage
+          .from(BUCKET_NAME)
+          .upload(MANIFEST_FILE, manifestBlob, {
+            contentType: 'application/json',
+            upsert: true
+          });
+
+        closeDeleteModal();
+        renderGallery();
+      } catch (err) {
+        console.error('Delete failed:', err);
+        alert('Failed to delete item: ' + (err.message || err));
+      } finally {
+        deleteBtn.textContent = "Delete";
+        deleteBtn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
