@@ -1,48 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Atelier Admin — Victoria Fashion</title>
+    <meta name="description" content="Victoria Fashion Atelier Management Portal." />
+    <meta name="theme-color" content="#000000" />
     <link rel="icon" type="image/png" href="./images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Exact Same Site Stylesheet -->
     <link rel="stylesheet" href="./css/style.css" />
+    <!-- Supabase JS Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
-  <body class="bg-black text-[#f5f5f7] font-apple antialiased min-h-screen flex flex-col justify-between selection:bg-[#0071e3] selection:text-white relative overflow-x-hidden">
+  <body class="bg-black text-[#f5f5f7] font-apple antialiased selection:bg-[#0071e3] selection:text-white overflow-x-hidden min-h-screen flex flex-col justify-between">
 
-    <!-- Ambient Luxury Background Glows -->
-    <div class="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-r from-emerald-500/10 via-amber-500/10 to-teal-500/10 blur-[150px] pointer-events-none rounded-full"></div>
-
-    <!-- Apple Glass Header -->
-    <header class="sticky top-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-white/10">
-      <div class="max-w-[1200px] mx-auto px-4 sm:px-8 h-[48px] flex items-center justify-between text-[12px]">
+    <!-- ============================================================= -->
+    <!-- 1. HEADER NAVIGATION (Exact Match to Main Website)             -->
+    <!-- ============================================================= -->
+    <header id="main-header" class="sticky top-0 z-50 w-full transition-all duration-300 bg-black/90 backdrop-blur-md border-b border-white/10">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-8 h-[48px] flex items-center justify-between text-[12px] font-normal tracking-tight text-[#d6d6d8]">
         
-        <!-- Brand -->
-        <a href="./index.html" class="flex items-center gap-1 text-white hover:opacity-80 transition-opacity">
+        <!-- Brand Name -->
+        <a 
+          href="./index.html#home"
+          class="flex items-baseline text-white hover:opacity-80 transition-opacity text-left whitespace-nowrap"
+        >
           <img 
             src="./images/logo-v.png" 
             alt="V" 
-            class="h-4 w-auto inline-block"
-            style="filter: drop-shadow(0 0 8px rgba(41,151,255,0.7));" 
-          />
-          <span class="font-extrabold tracking-[0.14em] uppercase text-sm">ICTORIA FASHION</span>
-          <span class="text-[11px] text-[#86868b] ml-2 pl-2 border-l border-white/20">Atelier</span>
+            style="height: 1.1em; width: auto; object-fit: contain; vertical-align: baseline; margin-right: -0.16em; display: inline-block; filter: drop-shadow(0 0 10px rgba(41,151,255,0.7));" 
+          /><span class="font-apple font-extrabold text-sm sm:text-base tracking-[0.14em] sm:tracking-[0.16em] uppercase text-white whitespace-nowrap" style="vertical-align: baseline;">ICTORIA FASHION</span>
+          <span class="hidden sm:inline-block text-[11px] text-[#86868b] pl-2 border-l border-white/20 whitespace-nowrap ml-2">
+            Atelier Portal
+          </span>
         </a>
 
-        <!-- Right Navigation Actions -->
-        <div class="flex items-center gap-4">
-          <a href="./index.html" target="_blank" class="text-[#2997ff] hover:underline text-xs flex items-center gap-1">
-            <span>View Site</span>
-            <span class="text-[10px]">↗</span>
+        <!-- Desktop Navigation Tabs -->
+        <nav class="hidden lg:flex items-center space-x-6 text-[12px] font-medium tracking-wide">
+          <a href="./index.html#home" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">HOME</a>
+          <a href="./index.html#catalogue" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">CATALOGUE</a>
+          <a href="./index.html#men" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">MEN</a>
+          <a href="./index.html#women" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">WOMEN</a>
+          <a href="./index.html#children" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">CHILDREN</a>
+          <a href="./index.html#occasions" class="nav-tab-btn text-[#a1a1a6] hover:text-white transition-colors duration-150">OCCASIONS</a>
+          <span class="text-white font-semibold border-b-2 border-white pb-0.5">ADMIN</span>
+        </nav>
+
+        <!-- Right CTA: Direct Live Site Link & Lock -->
+        <div class="flex items-center space-x-3 sm:space-x-4 shrink-0">
+          <a
+            href="./index.html"
+            target="_blank"
+            class="text-[#2997ff] hover:underline font-normal text-[12px] inline-flex items-center gap-1"
+          >
+            <span>Live Website</span>
+            <span class="text-xs">↗</span>
           </a>
+
           <button
             id="header-logout-btn"
             onclick="handleLogout()"
-            class="hidden text-[#86868b] hover:text-white text-xs border border-white/15 px-3 py-1 rounded-full transition-colors"
+            class="hidden text-[#86868b] hover:text-white text-[12px] transition-colors border border-white/10 px-2.5 py-1 rounded-full hover:border-white/30"
           >
             Lock
           </button>
@@ -50,29 +72,32 @@
       </div>
     </header>
 
-    <!-- Main Centered Container -->
-    <main class="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 z-10 w-full">
-
-      <!-- ============================================================= -->
-      <!-- 1. SIGN-IN CARD (Exact Style Match to Consultation Modal)     -->
-      <!-- ============================================================= -->
-      <div id="login-modal" class="w-full max-w-lg bg-[#121214] border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl text-left my-auto">
+    <!-- ============================================================= -->
+    <!-- 2. LOGIN MODAL GATE (Matches Website Consultation Modal)       -->
+    <!-- ============================================================= -->
+    <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl text-left">
+      <div class="relative w-full max-w-md bg-[#121214] border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl">
         <div class="mb-6">
-          <h1 class="text-3xl font-semibold text-white tracking-tight">Atelier Sign-in</h1>
-          <p class="text-sm text-[#86868b] mt-1">Victoria Fashion · Akwa Ibom, Nigeria</p>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px] font-mono tracking-widest uppercase text-[#86868b]">Victoria Atelier</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight">Atelier Admin Sign-in</h2>
+          <p class="text-sm text-[#86868b] mt-1.5 leading-relaxed">
+            Enter your atelier passcode to upload and manage bespoke images across all collections.
+          </p>
         </div>
 
-        <form onsubmit="handleLogin(event)" class="space-y-4">
+        <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
           <div>
             <label class="text-xs text-[#86868b] block mb-2 font-medium">Atelier Passcode</label>
             <input 
               type="password" 
               id="admin-passcode" 
-              placeholder="Enter passcode" 
+              placeholder="Enter passcode (e.g. victoria2026)" 
               class="w-full bg-[#1c1c1e] text-white border border-white/10 rounded-xl p-3.5 text-sm focus:border-white focus:outline-none placeholder:text-neutral-600 transition-colors"
               required
               autocomplete="current-password"
-              autofocus
             />
           </div>
 
@@ -80,185 +105,305 @@
 
           <button 
             type="submit" 
-            class="w-full bg-white hover:bg-neutral-200 text-black font-semibold py-3.5 px-6 rounded-full text-sm flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg"
+            class="w-full bg-white hover:bg-neutral-200 text-black font-semibold py-3.5 px-6 rounded-full text-sm flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(255,255,255,0.15)]"
           >
-            <span>Unlock Atelier</span>
+            <span>Unlock Dashboard</span>
             <span class="text-xs">→</span>
           </button>
         </form>
 
-        <div class="text-center text-[11px] text-[#6e6e73] mt-5">
-          Akwa Ibom, Nigeria · Secure Atelier Access
+        <div class="text-center text-[11px] text-[#6e6e73] mt-6">
+          Victoria Fashion · Akwa Ibom, Nigeria · Secure Supabase Storage
         </div>
       </div>
+    </div>
 
-      <!-- ============================================================= -->
-      <!-- 2. ATELIER PORTAL (Exact Match to Consultation Modal Styling) -->
-      <!-- ============================================================= -->
-      <div id="admin-app" class="hidden w-full max-w-lg flex flex-col items-center my-auto space-y-4">
+    <!-- ============================================================= -->
+    <!-- 3. MAIN ADMIN APP INTERFACE                                   -->
+    <!-- ============================================================= -->
+    <main id="admin-app" class="hidden w-full max-w-[1280px] mx-auto px-4 sm:px-8 py-8 sm:py-12 flex-1">
 
-        <!-- Top Segmented Pill Toggle -->
-        <div class="flex items-center p-1 bg-[#121214] border border-white/10 rounded-full text-xs font-medium w-full max-w-xs shadow-lg">
-          <button 
-            id="tab-btn-upload" 
-            type="button" 
-            onclick="switchTab('upload')" 
-            class="flex-1 py-2 rounded-full text-white bg-white/15 transition-all text-center"
-          >
-            Publish New
-          </button>
-          <button 
-            id="tab-btn-gallery" 
-            type="button" 
-            onclick="switchTab('gallery')" 
-            class="flex-1 py-2 rounded-full text-[#86868b] hover:text-white transition-all text-center"
-          >
-            Collection <span id="pill-count"></span>
-          </button>
+      <!-- Breadcrumbs & Title Header -->
+      <div class="mb-10 sm:mb-14">
+        <div class="flex items-center gap-2 text-xs text-[#86868b] mb-3 font-mono tracking-wider uppercase">
+          <span>Victoria Atelier</span>
+          <span>/</span>
+          <span class="text-white">Image Management</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight text-white mb-3">
+          Manage Collections.
+        </h1>
+        <p class="text-sm sm:text-base text-[#86868b] max-w-2xl leading-relaxed">
+          Upload custom bespoke photography from your phone or laptop. Added designs sync in real time across the Women, Men, Children, and Occasions collections.
+        </p>
+      </div>
+
+      <!-- Upload Section (Styled like Consultation Booking Box) -->
+      <section class="w-full bg-[#121214] border border-white/10 rounded-3xl p-6 sm:p-10 mb-16 shadow-2xl relative overflow-hidden">
+        <div class="border-b border-white/10 pb-5 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-semibold text-white tracking-tight">Upload New Design</h2>
+            <p class="text-xs sm:text-sm text-[#86868b] mt-0.5">Publish a newly finished outfit directly to the live website.</p>
+          </div>
+          <span class="text-[11px] text-emerald-400 font-mono tracking-wider px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/20 w-fit">
+            ● Supabase Cloud Storage Active
+          </span>
         </div>
 
-        <!-- VIEW A: UPLOAD CARD (Matches the User's Modal 1:1) -->
-        <div id="view-upload" class="w-full bg-[#121214] border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl text-left">
+        <form id="upload-form" onsubmit="handleUpload(event)" class="space-y-6">
           
-          <div class="mb-6">
-            <h2 class="text-3xl font-semibold text-white tracking-tight">Upload Design</h2>
-            <p class="text-sm text-[#86868b] mt-1">Victoria Fashion · Akwa Ibom, Nigeria</p>
+          <!-- Category Picker (Styled like Booking Department Grid) -->
+          <div>
+            <label class="text-xs text-[#86868b] block mb-2.5 font-medium uppercase tracking-wider">
+              1. Select Collection Department
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+              <button 
+                type="button" 
+                onclick="selectCategory('women')" 
+                id="dept-btn-women"
+                class="dept-btn p-3.5 rounded-xl border text-left transition-all border-white text-white font-medium bg-white/10"
+              >
+                <div class="font-semibold text-sm">Women</div>
+                <div class="text-[11px] text-[#86868b] mt-0.5">Haute Couture</div>
+              </button>
+
+              <button 
+                type="button" 
+                onclick="selectCategory('men')" 
+                id="dept-btn-men"
+                class="dept-btn p-3.5 rounded-xl border text-left transition-all border-white/10 text-[#86868b] hover:text-white"
+              >
+                <div class="font-semibold text-sm">Men</div>
+                <div class="text-[11px] text-[#86868b] mt-0.5">Senators & Kaftans</div>
+              </button>
+
+              <button 
+                type="button" 
+                onclick="selectCategory('children')" 
+                id="dept-btn-children"
+                class="dept-btn p-3.5 rounded-xl border text-left transition-all border-white/10 text-[#86868b] hover:text-white"
+              >
+                <div class="font-semibold text-sm">Children</div>
+                <div class="text-[11px] text-[#86868b] mt-0.5">Bespoke & Uniforms</div>
+              </button>
+
+              <button 
+                type="button" 
+                onclick="selectCategory('occasions')" 
+                id="dept-btn-occasions"
+                class="dept-btn p-3.5 rounded-xl border text-left transition-all border-white/10 text-[#86868b] hover:text-white"
+              >
+                <div class="font-semibold text-sm">Occasions</div>
+                <div class="text-[11px] text-[#86868b] mt-0.5">Aso-Ebi & Boubous</div>
+              </button>
+            </div>
           </div>
 
-          <form onsubmit="handleUpload(event)" class="space-y-4 mb-6">
-            
-            <!-- Select Department (Exact 2x2 Grid from Consultation Modal) -->
-            <div>
-              <label class="text-xs text-[#86868b] block mb-2 font-medium">Select Department</label>
-              <div class="grid grid-cols-2 gap-2 text-xs">
-                <button 
-                  type="button" 
-                  onclick="selectCategory('men')" 
-                  id="dept-btn-men" 
-                  class="booking-dept-btn p-3 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white"
-                >
-                  Men
-                </button>
-                <button 
-                  type="button" 
-                  onclick="selectCategory('women')" 
-                  id="dept-btn-women" 
-                  class="booking-dept-btn p-3 rounded-xl border text-left transition-colors border-white text-white font-medium bg-white/10"
-                >
-                  Women
-                </button>
-                <button 
-                  type="button" 
-                  onclick="selectCategory('children')" 
-                  id="dept-btn-children" 
-                  class="booking-dept-btn p-3 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white"
-                >
-                  Children & School Uniforms
-                </button>
-                <button 
-                  type="button" 
-                  onclick="selectCategory('occasions')" 
-                  id="dept-btn-occasions" 
-                  class="booking-dept-btn p-3 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white"
-                >
-                  Occasions & Aso-Ebi
-                </button>
-              </div>
-            </div>
+          <!-- Photo Selection (Clean Minimal Drag/Tap Zone) -->
+          <div>
+            <label class="text-xs text-[#86868b] block mb-2.5 font-medium uppercase tracking-wider">
+              2. Outfit Photography
+            </label>
+            <div 
+              id="drop-zone"
+              onclick="document.getElementById('image-file').click()"
+              class="border border-dashed border-white/20 hover:border-white/50 transition-colors rounded-2xl p-8 sm:p-12 flex flex-col items-center justify-center cursor-pointer bg-[#18181a] text-center group"
+            >
+              <input 
+                type="file" 
+                id="image-file" 
+                accept="image/*" 
+                class="hidden" 
+                onchange="handleImagePreview(event)" 
+                required 
+              />
 
-            <!-- Photo Upload Area -->
-            <div>
-              <label class="text-xs text-[#86868b] block mb-2 font-medium">Outfit Photography</label>
-              <div 
-                onclick="document.getElementById('image-file').click()"
-                class="w-full bg-[#1c1c1e] hover:bg-[#222225] border border-white/10 hover:border-white/20 rounded-xl p-3.5 cursor-pointer transition-colors flex items-center justify-between"
-              >
-                <div class="flex items-center gap-3 overflow-hidden">
-                  <img id="image-preview" src="" alt="" class="hidden w-10 h-10 object-cover rounded-lg border border-white/20 shrink-0" />
-                  <span id="file-label" class="text-sm text-[#86868b] truncate">
-                    Tap to pick photo from device...
-                  </span>
+              <!-- Empty Placeholder -->
+              <div id="preview-placeholder" class="flex flex-col items-center">
+                <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#86868b] group-hover:text-white group-hover:border-white/30 transition-all mb-3">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4v16m8-8H4"/></svg>
                 </div>
-                <span class="text-xs text-[#2997ff] shrink-0 font-medium ml-2">Choose</span>
-                <input 
-                  type="file" 
-                  id="image-file" 
-                  accept="image/*" 
-                  class="hidden" 
-                  onchange="handleImagePreview(event)" 
-                  required 
-                />
+                <p class="text-sm font-medium text-white mb-1">
+                  Tap to pick image from camera / gallery
+                </p>
+                <p class="text-xs text-[#86868b]">JPEG, PNG, WEBP (Bespoke full-length photo)</p>
+              </div>
+
+              <!-- Selected Image Preview -->
+              <div id="preview-container" class="hidden flex-col items-center">
+                <div class="relative w-44 h-56 sm:w-52 sm:h-64 rounded-xl overflow-hidden border border-white/30 shadow-2xl mb-3">
+                  <img id="image-preview" src="" alt="Selected Preview" class="w-full h-full object-cover" />
+                </div>
+                <span class="text-xs text-[#2997ff] hover:underline">Tap to choose different photo</span>
               </div>
             </div>
+          </div>
 
-            <!-- Style Name Input -->
+          <!-- Style Details Fields -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="text-xs text-[#86868b] block mb-2 font-medium">Style / Wear Title</label>
+              <label class="text-xs text-[#86868b] block mb-2 font-medium">3. Style Title / Wear Name *</label>
               <input 
                 type="text" 
                 id="item-title" 
                 placeholder="e.g. Royal Emerald Brocade Boubou" 
-                class="w-full bg-[#1c1c1e] text-white border border-white/10 rounded-xl p-3.5 text-sm focus:border-white focus:outline-none placeholder:text-neutral-600 transition-colors"
+                class="w-full bg-[#1c1c1e] text-white border border-white/10 rounded-xl p-3 text-sm focus:border-white focus:outline-none placeholder:text-neutral-600 font-apple"
                 required
               />
             </div>
 
-            <!-- WhatsApp Green Action Button (Exact Match) -->
-            <button
-              type="submit"
+            <div>
+              <label class="text-xs text-[#86868b] block mb-2 font-medium">4. Fabric / Details (Optional)</label>
+              <input 
+                type="text" 
+                id="item-desc" 
+                placeholder="e.g. Pure silk brocade with gold embroidery" 
+                class="w-full bg-[#1c1c1e] text-white border border-white/10 rounded-xl p-3 text-sm focus:border-white focus:outline-none placeholder:text-neutral-600 font-apple"
+              />
+            </div>
+          </div>
+
+          <!-- Upload Submit Button -->
+          <div class="pt-2">
+            <button 
+              type="submit" 
               id="upload-btn"
-              class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold py-3.5 px-6 rounded-full text-sm flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.3)] disabled:opacity-50"
+              class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold py-3.5 px-8 rounded-full text-sm inline-flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
               <span id="upload-btn-text">Publish to Victoria Fashion</span>
             </button>
+            <div id="upload-status" class="hidden mt-3 text-xs font-medium"></div>
+          </div>
 
-            <!-- Status Alert -->
-            <p id="upload-status" class="hidden text-center text-xs font-medium"></p>
-          </form>
+        </form>
+      </section>
 
-          <div class="text-center text-[11px] text-[#6e6e73]">
-            Akwa Ibom, Nigeria · Instantly live across website
+      <!-- Manage Existing Designs Section -->
+      <section class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#242426] pb-4">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight">Active Gallery Items</h2>
+            <p id="gallery-count-indicator" class="text-xs text-[#86868b] mt-1 font-mono">Loading designs...</p>
+          </div>
+
+          <!-- Category Filter Tabs (Exact Match to Main Catalogue Filter) -->
+          <div class="flex items-center space-x-6 text-xs font-medium tracking-wide">
+            <button onclick="setFilter('all')" class="cat-filter-btn text-white font-semibold border-b-2 border-white pb-1" data-filter="all">ALL</button>
+            <button onclick="setFilter('women')" class="cat-filter-btn text-[#a1a1a6] hover:text-white pb-1" data-filter="women">WOMEN</button>
+            <button onclick="setFilter('men')" class="cat-filter-btn text-[#a1a1a6] hover:text-white pb-1" data-filter="men">MEN</button>
+            <button onclick="setFilter('children')" class="cat-filter-btn text-[#a1a1a6] hover:text-white pb-1" data-filter="children">CHILDREN</button>
+            <button onclick="setFilter('occasions')" class="cat-filter-btn text-[#a1a1a6] hover:text-white pb-1" data-filter="occasions">OCCASIONS</button>
           </div>
         </div>
 
-        <!-- VIEW B: COLLECTION CARD -->
-        <div id="view-gallery" class="hidden w-full max-w-2xl bg-[#121214] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl text-left">
-          
-          <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
-            <div>
-              <h2 class="text-2xl font-semibold text-white tracking-tight">Active Collection</h2>
-              <p id="gallery-subtitle" class="text-xs text-[#86868b] mt-0.5">Published bespoke pieces</p>
-            </div>
-            
-            <!-- Category Filter -->
-            <div class="flex items-center gap-3 text-xs">
-              <button onclick="setFilter('all')" class="cat-filter-btn text-white font-semibold border-b-2 border-white pb-0.5" data-filter="all">All</button>
-              <button onclick="setFilter('women')" class="cat-filter-btn text-[#86868b] hover:text-white pb-0.5" data-filter="women">Women</button>
-              <button onclick="setFilter('men')" class="cat-filter-btn text-[#86868b] hover:text-white pb-0.5" data-filter="men">Men</button>
-              <button onclick="setFilter('children')" class="cat-filter-btn text-[#86868b] hover:text-white pb-0.5" data-filter="children">Children</button>
-              <button onclick="setFilter('occasions')" class="cat-filter-btn text-[#86868b] hover:text-white pb-0.5" data-filter="occasions">Occasions</button>
-            </div>
-          </div>
-
-          <!-- Lookbook Grid (Website Style) -->
-          <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-h-[60vh] overflow-y-auto pr-1"></div>
-
-          <div id="empty-state" class="hidden py-16 text-center text-[#86868b]">
-            <p class="text-sm">No outfits in this category yet.</p>
-          </div>
+        <!-- Gallery Grid (Exact Match to Catalogue Grid Cards) -->
+        <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6 pt-4">
+          <!-- Rendered via JS -->
         </div>
 
-      </div>
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden col-span-full w-full py-24 text-center text-[#86868b] flex flex-col items-center justify-center mx-auto">
+          <p class="font-apple text-xl text-white font-semibold mb-2">No Uploaded Designs Found</p>
+          <p class="text-sm text-[#86868b] max-w-md mx-auto leading-relaxed">
+            There are no custom uploaded designs in this category yet. Use the form above to publish pictures.
+          </p>
+        </div>
+      </section>
 
     </main>
 
-    <!-- Subtle Footer -->
-    <footer class="w-full py-4 text-center text-xs text-[#6e6e73]">
-      Victoria Fashion · Akwa Ibom, Nigeria
+    <!-- ============================================================= -->
+    <!-- 4. DELETE MODAL                                               -->
+    <!-- ============================================================= -->
+    <div id="delete-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl text-left">
+      <div class="relative w-full max-w-sm bg-[#121214] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl text-center">
+        <h3 class="text-xl font-semibold text-white tracking-tight mb-2">Delete Design?</h3>
+        <p class="text-xs text-[#86868b] mb-6 leading-relaxed">
+          This will permanently remove the picture from the live website and Supabase storage.
+        </p>
+        <div class="flex items-center gap-3">
+          <button 
+            onclick="closeDeleteModal()" 
+            class="flex-1 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors"
+          >
+            Cancel
+          </button>
+          <button 
+            id="confirm-delete-btn" 
+            onclick="executeDelete()" 
+            class="flex-1 py-3 rounded-full bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold transition-colors"
+          >
+            Delete Permanently
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- 5. APPLE CLEAN DIRECTORY FOOTER (Exact Match to Main Site)    -->
+    <!-- ============================================================= -->
+    <footer class="w-full bg-black text-[#86868b] text-[12px] border-t border-[#1d1d1f] pt-12 pb-14 px-6 sm:px-12 text-left mt-20">
+      <div class="max-w-[1140px] mx-auto">
+        <div class="border-b border-[#1d1d1f] pb-6 mb-8 text-[11px] text-[#6e6e73] leading-relaxed">
+          <p>
+            Victoria Fashion is a bespoke fashion tailoring house based in Akwa Ibom, Nigeria. We craft formal, traditional, ceremonial, and uniform garments using woven cotton, wool, linen, lace, and luxury African wax prints. We do not produce heavy stretch denim.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10 text-xs">
+          <div>
+            <div class="text-white font-medium mb-3">Departments</div>
+            <ul class="space-y-2">
+              <li><a href="./index.html#men" class="hover:text-white transition-colors">Men's Collection</a></li>
+              <li><a href="./index.html#women" class="hover:text-white transition-colors">Women's Collection</a></li>
+              <li><a href="./index.html#children" class="hover:text-white transition-colors">Children & Uniforms</a></li>
+              <li><a href="./index.html#occasions" class="hover:text-white transition-colors">Occasions & Aso-Ebi</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-white font-medium mb-3">Craftsmanship</div>
+            <ul class="space-y-2">
+              <li><a href="./index.html#experience" class="hover:text-white transition-colors">Service Experience</a></li>
+              <li><a href="./index.html#experience" class="hover:text-white transition-colors">The Finishing Standards</a></li>
+              <li><a href="./index.html#experience" class="hover:text-white transition-colors">Affordable Budget</a></li>
+              <li><a href="./index.html#experience" class="hover:text-white transition-colors">Range of Styles</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-white font-medium mb-3">Location</div>
+            <ul class="space-y-2 text-[#86868b]">
+              <li>Akwa Ibom State, Nigeria</li>
+              <li>In-person atelier fittings</li>
+              <li>Doorstep delivery nationwide</li>
+              <li>DHL express worldwide shipping</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="text-white font-medium mb-3">Consultation</div>
+            <ul class="space-y-2">
+              <li><a href="https://wa.me/2348000000000" target="_blank" rel="noreferrer" class="text-emerald-400 hover:underline">WhatsApp Direct</a></li>
+              <li><span class="text-[#86868b]">Fast response</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-[#1d1d1f] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] text-[#6e6e73]">
+          <div>
+            Copyright © 2026 Victoria Fashion. Akwa Ibom, Nigeria. All rights reserved. · <span class="text-white">Atelier Admin Active</span>
+          </div>
+          <div class="text-[#86868b]">
+            Akwa Ibom / Nigeria / Worldwide
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <!-- Controller Script -->
+    <!-- JavaScript Controller -->
     <script>
       const SUPABASE_URL = "https://pseyowecodortdepdcgu.supabase.co";
       const SUPABASE_SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzZXlvd2Vjb2RvcnRkZXBkY2d1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NDU1NTg5MSwiZXhwIjoyMTAwMTMxODkxfQ.BpD8G_z7Jo04cGER85kXqT0Qaj0y020krZ2rjR6Y-wA";
@@ -266,6 +411,7 @@
       const MANIFEST_FILE = "manifest.json";
       const ATELIER_PASSCODE = "victoria2026";
 
+      // Supabase client instance (named sbClient to avoid conflict with UMD global)
       const sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY, {
         auth: { persistSession: false }
       });
@@ -273,8 +419,9 @@
       let selectedCategory = 'women';
       let currentItems = [];
       let activeFilter = 'all';
+      let itemToDelete = null;
 
-      // Check session
+      // Check existing session
       if (localStorage.getItem('vf_admin_auth') === 'true' || sessionStorage.getItem('vf_admin_auth') === 'true') {
         showAdmin();
       }
@@ -291,7 +438,7 @@
           showAdmin();
         } else {
           if (errEl) {
-            errEl.textContent = 'Incorrect passcode.';
+            errEl.textContent = 'Incorrect passcode. Please check and try again.';
             errEl.classList.remove('hidden');
           }
         }
@@ -313,61 +460,32 @@
         loadGallery();
       }
 
-      function switchTab(tab) {
-        const viewUpload = document.getElementById('view-upload');
-        const viewGallery = document.getElementById('view-gallery');
-        const btnUpload = document.getElementById('tab-btn-upload');
-        const btnGallery = document.getElementById('tab-btn-gallery');
-
-        if (tab === 'upload') {
-          viewUpload.classList.remove('hidden');
-          viewGallery.classList.add('hidden');
-          btnUpload.className = "flex-1 py-2 rounded-full text-white bg-white/15 transition-all text-center";
-          btnGallery.className = "flex-1 py-2 rounded-full text-[#86868b] hover:text-white transition-all text-center";
-        } else {
-          viewUpload.classList.add('hidden');
-          viewGallery.classList.remove('hidden');
-          btnUpload.className = "flex-1 py-2 rounded-full text-[#86868b] hover:text-white transition-all text-center";
-          btnGallery.className = "flex-1 py-2 rounded-full text-white bg-white/15 transition-all text-center";
-          renderGallery();
-        }
-      }
-
       function selectCategory(cat) {
         selectedCategory = cat;
-        const allBtns = ['men', 'women', 'children', 'occasions'];
-        allBtns.forEach(id => {
-          const el = document.getElementById('dept-btn-' + id);
-          if (el) {
-            if (id === cat) {
-              el.className = "booking-dept-btn p-3 rounded-xl border text-left transition-colors border-white text-white font-medium bg-white/10";
-            } else {
-              el.className = "booking-dept-btn p-3 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white";
-            }
-          }
+        document.querySelectorAll('.dept-btn').forEach(btn => {
+          btn.className = "dept-btn p-3.5 rounded-xl border text-left transition-all border-white/10 text-[#86868b] hover:text-white";
         });
+        const activeBtn = document.getElementById('dept-btn-' + cat);
+        if (activeBtn) {
+          activeBtn.className = "dept-btn p-3.5 rounded-xl border text-left transition-all border-white text-white font-medium bg-white/10";
+        }
       }
 
       function handleImagePreview(e) {
         const file = e.target.files[0];
         if (!file) return;
 
-        const label = document.getElementById('file-label');
-        const preview = document.getElementById('image-preview');
-
-        if (label) label.textContent = file.name;
-
         const reader = new FileReader();
         reader.onload = (event) => {
-          if (preview) {
-            preview.src = event.target.result;
-            preview.classList.remove('hidden');
-          }
+          document.getElementById('image-preview').src = event.target.result;
+          document.getElementById('preview-placeholder').classList.add('hidden');
+          document.getElementById('preview-container').classList.remove('hidden');
         };
         reader.readAsDataURL(file);
       }
 
       async function loadGallery() {
+        const countEl = document.getElementById('gallery-count-indicator');
         try {
           const timestamp = new Date().getTime();
           const res = await fetch(`${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${MANIFEST_FILE}?t=${timestamp}`);
@@ -378,15 +496,12 @@
             currentItems = [];
           }
         } catch (err) {
-          console.error('Error loading manifest:', err);
+          console.error('Error loading gallery manifest:', err);
           currentItems = [];
         }
-
-        const pillCount = document.getElementById('pill-count');
-        const subTitle = document.getElementById('gallery-subtitle');
-        if (pillCount) pillCount.textContent = currentItems.length ? `(${currentItems.length})` : '';
-        if (subTitle) subTitle.textContent = `${currentItems.length} published bespoke design${currentItems.length === 1 ? '' : 's'}`;
-
+        if (countEl) {
+          countEl.textContent = `${currentItems.length} Uploaded Designs · Live on Victoria Fashion`;
+        }
         renderGallery();
       }
 
@@ -394,9 +509,9 @@
         activeFilter = cat;
         document.querySelectorAll('.cat-filter-btn').forEach(btn => {
           if (btn.dataset.filter === cat) {
-            btn.className = "cat-filter-btn text-white font-semibold border-b-2 border-white pb-0.5";
+            btn.className = "cat-filter-btn text-white font-semibold border-b-2 border-white pb-1";
           } else {
-            btn.className = "cat-filter-btn text-[#86868b] hover:text-white pb-0.5";
+            btn.className = "cat-filter-btn text-[#a1a1a6] hover:text-white pb-1";
           }
         });
         renderGallery();
@@ -405,7 +520,6 @@
       function renderGallery() {
         const grid = document.getElementById('gallery-grid');
         const empty = document.getElementById('empty-state');
-        if (!grid) return;
         
         const filtered = activeFilter === 'all' 
           ? currentItems 
@@ -413,31 +527,45 @@
 
         if (filtered.length === 0) {
           grid.innerHTML = '';
-          if (empty) empty.classList.remove('hidden');
+          empty.classList.remove('hidden');
           return;
         }
 
-        if (empty) empty.classList.add('hidden');
+        empty.classList.add('hidden');
         grid.innerHTML = filtered.map(item => `
-          <div class="catalogue-card group relative overflow-hidden rounded-xl border border-white/10 aspect-[3/4]">
-            <img src="${item.image_url}" alt="${item.title || 'Outfit'}" loading="lazy" class="w-full h-full object-cover" />
+          <div class="catalogue-card group relative">
+            <img src="${item.image_url}" alt="${item.title}" loading="lazy" />
+            <!-- Vignette Scrim from Main Site -->
             <div class="catalogue-card-scrim"></div>
-            
+
+            <!-- Faint Copyright Watermark from Main Site -->
+            <div class="catalogue-watermark">
+              <img src="./images/watermark-logo.png" alt="Victoria Fashion" class="catalogue-watermark-logo" loading="lazy" draggable="false" />
+            </div>
+
+            <!-- Department Badge -->
+            <div class="absolute top-3 left-3 z-20">
+              <span class="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/80 border border-white/20 text-[#f5e396]">
+                ${item.category}
+              </span>
+            </div>
+
+            <!-- Delete Trash Action -->
             <button 
-              onclick="deleteItem('${item.id}', '${item.storage_path}')"
-              title="Delete Outfit"
-              class="absolute top-2 right-2 z-20 bg-black/80 hover:bg-rose-600 text-white rounded-full p-2 transition-colors border border-white/20"
+              type="button"
+              onclick="promptDelete('${item.id}', '${item.storage_path}')"
+              class="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-black/80 hover:bg-rose-600 border border-white/20 hover:border-rose-500 text-white flex items-center justify-center transition-all opacity-90 hover:opacity-100 shadow-xl"
+              title="Delete from website"
             >
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
             </button>
 
-            <div class="absolute inset-x-0 bottom-2.5 flex flex-col items-center justify-center text-center px-2 pointer-events-none z-10">
-              <span class="font-apple font-bold text-xs tracking-wider text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] line-clamp-1">
-                ${item.title || 'Bespoke Outfit'}
+            <!-- Style Name overlay matching front/back view style in main site -->
+            <div class="absolute inset-x-0 bottom-4 flex flex-col items-center justify-center text-center px-3 z-20 pointer-events-none">
+              <span class="font-apple font-bold text-xs sm:text-sm tracking-[0.1em] text-[#f5e396] uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] line-clamp-2">
+                ${item.title}
               </span>
-              <span class="text-[9px] uppercase text-[#a1a1a6] tracking-widest mt-0.5">
-                ${item.category || ''}
-              </span>
+              ${item.description ? `<span class="text-[9px] text-[#a1a1a6] mt-0.5 line-clamp-1">${item.description}</span>` : ''}
             </div>
           </div>
         `).join('');
@@ -445,30 +573,30 @@
 
       async function handleUpload(e) {
         e.preventDefault();
+        
         const fileInput = document.getElementById('image-file');
         const titleInput = document.getElementById('item-title');
+        const descInput = document.getElementById('item-desc');
         const btn = document.getElementById('upload-btn');
         const btnText = document.getElementById('upload-btn-text');
         const status = document.getElementById('upload-status');
 
         if (!fileInput.files || fileInput.files.length === 0) {
-          alert('Please pick a photo.');
+          alert('Please pick an outfit image.');
           return;
         }
 
         const file = fileInput.files[0];
-        const ext = file.name.split('.').pop() || 'jpg';
-        const fileId = `${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-        const storagePath = `${selectedCategory}/${fileId}.${ext}`;
+        const cleanFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+        const storagePath = `${selectedCategory}/${Date.now()}_${cleanFileName}`;
+
+        btn.disabled = true;
+        btnText.textContent = "Uploading to Supabase...";
+        status.className = "mt-3 text-xs text-[#2997ff] font-medium block";
+        status.textContent = "Uploading high-resolution image file...";
 
         try {
-          btn.disabled = true;
-          btnText.textContent = "Publishing to Victoria Fashion...";
-          status.className = "text-center text-xs text-[#86868b] font-medium block";
-          status.textContent = "Uploading to Supabase...";
-          status.classList.remove('hidden');
-
-          const { error: uploadError } = await sbClient
+          const { data: uploadData, error: uploadError } = await sbClient
             .storage
             .from(BUCKET_NAME)
             .upload(storagePath, file, {
@@ -483,15 +611,19 @@
             .from(BUCKET_NAME)
             .getPublicUrl(storagePath);
 
+          const publicUrl = urlData.publicUrl;
+
           const newItem = {
-            id: fileId,
-            category: selectedCategory,
+            id: 'vf_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
             title: titleInput.value.trim(),
-            image_url: urlData.publicUrl,
+            category: selectedCategory,
+            description: descInput.value.trim(),
+            image_url: publicUrl,
             storage_path: storagePath,
             created_at: new Date().toISOString()
           };
 
+          btnText.textContent = "Syncing Website Manifest...";
           currentItems.unshift(newItem);
 
           const manifestBlob = new Blob([JSON.stringify(currentItems, null, 2)], { type: 'application/json' });
@@ -505,43 +637,60 @@
 
           if (manifestError) throw manifestError;
 
-          status.className = "text-center text-xs text-emerald-400 font-medium block";
+          status.className = "mt-3 text-xs text-emerald-400 font-medium block";
           status.textContent = "✓ Outfit published live to Victoria Fashion!";
           
           fileInput.value = '';
           titleInput.value = '';
-          document.getElementById('file-label').textContent = 'Tap to pick photo from device...';
-          document.getElementById('image-preview').classList.add('hidden');
+          descInput.value = '';
+          document.getElementById('preview-container').classList.add('hidden');
+          document.getElementById('preview-placeholder').classList.remove('hidden');
 
-          const pillCount = document.getElementById('pill-count');
-          if (pillCount) pillCount.textContent = `(${currentItems.length})`;
+          const countEl = document.getElementById('gallery-count-indicator');
+          if (countEl) countEl.textContent = `${currentItems.length} Uploaded Designs · Live on Victoria Fashion`;
+
+          renderGallery();
 
           setTimeout(() => {
             status.classList.add('hidden');
-          }, 4000);
+          }, 5000);
 
         } catch (err) {
           console.error('Upload failed:', err);
-          status.className = "text-center text-xs text-rose-400 font-medium block";
-          status.textContent = "Error: " + (err.message || err);
+          status.className = "mt-3 text-xs text-rose-400 font-medium block";
+          status.textContent = "Upload failed: " + (err.message || err);
         } finally {
           btn.disabled = false;
           btnText.textContent = "Publish to Victoria Fashion";
         }
       }
 
-      async function deleteItem(id, storagePath) {
-        if (!confirm('Permanently delete this outfit?')) return;
+      function promptDelete(id, storagePath) {
+        itemToDelete = { id, storagePath };
+        document.getElementById('delete-modal').classList.remove('hidden');
+      }
+
+      function closeDeleteModal() {
+        itemToDelete = null;
+        document.getElementById('delete-modal').classList.add('hidden');
+      }
+
+      async function executeDelete() {
+        if (!itemToDelete) return;
+
+        const deleteBtn = document.getElementById('confirm-delete-btn');
+        deleteBtn.textContent = "Deleting...";
+        deleteBtn.disabled = true;
 
         try {
-          if (storagePath) {
+          if (itemToDelete.storagePath) {
             await sbClient
               .storage
               .from(BUCKET_NAME)
-              .remove([storagePath]);
+              .remove([itemToDelete.storagePath]);
           }
 
-          currentItems = currentItems.filter(i => i.id !== id);
+          currentItems = currentItems.filter(i => i.id !== itemToDelete.id);
 
           const manifestBlob = new Blob([JSON.stringify(currentItems, null, 2)], { type: 'application/json' });
           await sbClient
@@ -552,12 +701,16 @@
               upsert: true
             });
 
-          const pillCount = document.getElementById('pill-count');
-          if (pillCount) pillCount.textContent = currentItems.length ? `(${currentItems.length})` : '';
+          closeDeleteModal();
+          const countEl = document.getElementById('gallery-count-indicator');
+          if (countEl) countEl.textContent = `${currentItems.length} Uploaded Designs · Live on Victoria Fashion`;
           renderGallery();
         } catch (err) {
           console.error('Delete failed:', err);
-          alert('Delete failed: ' + (err.message || err));
+          alert('Failed to delete item: ' + (err.message || err));
+        } finally {
+          deleteBtn.textContent = "Delete Permanently";
+          deleteBtn.disabled = false;
         }
       }
     </script>
