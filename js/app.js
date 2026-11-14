@@ -921,4 +921,6 @@
   handleHashChange();
   syncSupabaseGallery();
 
+  // Auto-sync when returning to the tab so newly uploaded outfits appear immediately
+  window.addEventListener('focus', syncSupabaseGallery);
 })();
