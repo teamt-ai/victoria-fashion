@@ -59,12 +59,12 @@
     <!-- ============================================================= -->
     <div id="login-modal" class="flex-1 flex items-center justify-center p-4">
       <div class="w-full max-w-sm mx-auto text-center">
-        <form onsubmit="handleLogin(event)" class="space-y-3.5">
+        <form onsubmit="handleLogin(event)" class="space-y-5">
           <input 
             type="password" 
             id="admin-passcode" 
             placeholder="Enter passcode" 
-            class="w-full bg-[#1c1c1e] text-white border border-white/15 rounded-xl px-4 py-3.5 text-sm text-center focus:border-white focus:outline-none placeholder:text-neutral-600 transition-colors font-apple"
+            class="w-full bg-[#161618] text-white border border-white/20 hover:border-white/40 focus:border-white focus:bg-[#1c1c1e] rounded-full px-6 py-3.5 text-sm text-center focus:outline-none placeholder:text-neutral-500 transition-all duration-200 font-apple tracking-wider"
             required
             autocomplete="current-password"
             autofocus
@@ -72,7 +72,7 @@
           <p id="login-error" class="hidden text-xs text-rose-400 font-medium"></p>
           <button 
             type="submit" 
-            class="w-full bg-white hover:bg-neutral-200 text-black font-semibold py-3.5 rounded-full text-sm transition-transform active:scale-95"
+            class="w-full bg-white hover:bg-neutral-200 text-black font-semibold py-3.5 rounded-full text-sm transition-all duration-200 active:scale-95 shadow-[0_4px_20px_rgba(255,255,255,0.12)] tracking-wide"
           >
             Unlock
           </button>
