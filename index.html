@@ -280,240 +280,200 @@
           </div>
         </section>
 
-        <!-- 7. 3-STEP PROCESS WITH ANIMATED BESPOKE JOURNEY -->
-        <section class="w-full py-20 px-6 sm:px-12 border-t border-[#1d1d1f] relative overflow-hidden">
+        <!-- 7. 3-STEP PROCESS: VERTICAL COUTURE TIMELINE -->
+        <section class="w-full py-24 px-6 sm:px-12 border-t border-[#1d1d1f] relative overflow-hidden bg-black">
           <style>
-            .process-track-beam {
+            .couture-stitch-track {
               position: absolute;
-              top: 0;
-              width: 140px;
-              height: 100%;
-              background: linear-gradient(90deg, transparent 0%, rgba(41,151,255,0.85) 50%, transparent 100%);
-              filter: drop-shadow(0 0 8px rgba(41,151,255,0.8));
-              animation: stepBeamMove 7.5s ease-in-out infinite;
+              left: 17px;
+              top: 18px;
+              bottom: 24px;
+              width: 2px;
+              background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(251,191,36,0.2) 20%, rgba(251,191,36,0.2) 80%, rgba(255,255,255,0.06) 100%);
             }
-            @keyframes stepBeamMove {
-              0% { left: -140px; opacity: 0; }
+            @media (min-width: 640px) {
+              .couture-stitch-track {
+                left: 19px;
+              }
+            }
+            .couture-stitch-beam {
+              position: absolute;
+              left: -1px;
+              width: 4px;
+              height: 140px;
+              background: linear-gradient(180deg, transparent 0%, #fbbf24 40%, #ffffff 50%, #f59e0b 60%, transparent 100%);
+              filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.9));
+              border-radius: 9999px;
+              animation: coutureStitchFlow 7.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+            }
+            @keyframes coutureStitchFlow {
+              0% { top: -140px; opacity: 0; }
               5% { opacity: 1; }
               85% { opacity: 1; }
-              100% { left: 100%; opacity: 0; }
+              100% { top: calc(100% + 20px); opacity: 0; }
             }
-            .step-card-1 {
-              animation: stepHighlight1 7.5s ease-in-out infinite;
-            }
-            .step-card-2 {
-              animation: stepHighlight2 7.5s ease-in-out infinite;
-            }
-            .step-card-3 {
-              animation: stepHighlight3 7.5s ease-in-out infinite;
-            }
-            @keyframes stepHighlight1 {
+            .timeline-node-1 { animation: nodeGlow1 7.5s ease-in-out infinite; }
+            .timeline-node-2 { animation: nodeGlow2 7.5s ease-in-out infinite; }
+            .timeline-node-3 { animation: nodeGlow3 7.5s ease-in-out infinite; }
+
+            @keyframes nodeGlow1 {
               0%, 30% {
-                border-color: rgba(41, 151, 255, 0.45);
-                box-shadow: 0 10px 30px -10px rgba(41, 151, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-                transform: translateY(-4px);
-              }
-              36%, 100% {
-                border-color: rgba(255, 255, 255, 0.08);
-                box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-                transform: translateY(0);
-              }
-            }
-            @keyframes stepHighlight2 {
-              0%, 28% {
-                border-color: rgba(255, 255, 255, 0.08);
-                box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-                transform: translateY(0);
-              }
-              33%, 63% {
-                border-color: rgba(41, 151, 255, 0.45);
-                box-shadow: 0 10px 30px -10px rgba(41, 151, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-                transform: translateY(-4px);
-              }
-              69%, 100% {
-                border-color: rgba(255, 255, 255, 0.08);
-                box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-                transform: translateY(0);
-              }
-            }
-            @keyframes stepHighlight3 {
-              0%, 61% {
-                border-color: rgba(255, 255, 255, 0.08);
-                box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-                transform: translateY(0);
-              }
-              66%, 96% {
-                border-color: rgba(37, 211, 102, 0.45);
-                box-shadow: 0 10px 30px -10px rgba(37, 211, 102, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-                transform: translateY(-4px);
-              }
-              100% {
-                border-color: rgba(255, 255, 255, 0.08);
-                box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-                transform: translateY(0);
-              }
-            }
-            .step-badge-1 {
-              animation: badgePulse1 7.5s ease-in-out infinite;
-            }
-            .step-badge-2 {
-              animation: badgePulse2 7.5s ease-in-out infinite;
-            }
-            .step-badge-3 {
-              animation: badgePulse3 7.5s ease-in-out infinite;
-            }
-            @keyframes badgePulse1 {
-              0%, 30% {
-                border-color: #2997ff;
-                background: rgba(41, 151, 255, 0.15);
-                color: #fff;
-                box-shadow: 0 0 18px rgba(41, 151, 255, 0.6);
-                transform: scale(1.06);
+                border-color: #fbbf24;
+                box-shadow: 0 0 24px rgba(251, 191, 36, 0.75), inset 0 0 12px rgba(251, 191, 36, 0.5);
+                transform: scale(1.15);
               }
               36%, 100% {
                 border-color: rgba(255, 255, 255, 0.15);
-                background: #121214;
-                color: #86868b;
                 box-shadow: none;
                 transform: scale(1);
               }
             }
-            @keyframes badgePulse2 {
+            @keyframes nodeGlow2 {
               0%, 28% {
                 border-color: rgba(255, 255, 255, 0.15);
-                background: #121214;
-                color: #86868b;
                 box-shadow: none;
                 transform: scale(1);
               }
               33%, 63% {
-                border-color: #2997ff;
-                background: rgba(41, 151, 255, 0.15);
-                color: #fff;
-                box-shadow: 0 0 18px rgba(41, 151, 255, 0.6);
-                transform: scale(1.06);
+                border-color: #fbbf24;
+                box-shadow: 0 0 24px rgba(251, 191, 36, 0.75), inset 0 0 12px rgba(251, 191, 36, 0.5);
+                transform: scale(1.15);
               }
               69%, 100% {
                 border-color: rgba(255, 255, 255, 0.15);
-                background: #121214;
-                color: #86868b;
                 box-shadow: none;
                 transform: scale(1);
               }
             }
-            @keyframes badgePulse3 {
+            @keyframes nodeGlow3 {
               0%, 61% {
                 border-color: rgba(255, 255, 255, 0.15);
-                background: #121214;
-                color: #86868b;
                 box-shadow: none;
                 transform: scale(1);
               }
               66%, 96% {
-                border-color: #25D366;
-                background: rgba(37, 211, 102, 0.15);
-                color: #fff;
-                box-shadow: 0 0 18px rgba(37, 211, 102, 0.6);
-                transform: scale(1.06);
+                border-color: #34d399;
+                box-shadow: 0 0 24px rgba(52, 211, 153, 0.75), inset 0 0 12px rgba(52, 211, 153, 0.5);
+                transform: scale(1.15);
               }
               100% {
                 border-color: rgba(255, 255, 255, 0.15);
-                background: #121214;
-                color: #86868b;
                 box-shadow: none;
                 transform: scale(1);
               }
             }
-            .process-step-card:hover {
-              animation: none !important;
-              border-color: rgba(255, 255, 255, 0.35) !important;
-              box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7) !important;
-              transform: translateY(-6px) !important;
+            .timeline-content-1 { animation: textGlow1 7.5s ease-in-out infinite; }
+            .timeline-content-2 { animation: textGlow2 7.5s ease-in-out infinite; }
+            .timeline-content-3 { animation: textGlow3 7.5s ease-in-out infinite; }
+
+            @keyframes textGlow1 {
+              0%, 30% { opacity: 1; }
+              36%, 100% { opacity: 0.75; }
             }
-            .process-step-card:hover .step-badge {
+            @keyframes textGlow2 {
+              0%, 28% { opacity: 0.75; }
+              33%, 63% { opacity: 1; }
+              69%, 100% { opacity: 0.75; }
+            }
+            @keyframes textGlow3 {
+              0%, 61% { opacity: 0.75; }
+              66%, 96% { opacity: 1; }
+              100% { opacity: 0.75; }
+            }
+            .timeline-step-row:hover .timeline-node {
               animation: none !important;
-              border-color: #fff !important;
-              background: rgba(255,255,255,0.12) !important;
-              color: #fff !important;
-              box-shadow: 0 0 20px rgba(255, 255, 255, 0.5) !important;
+              border-color: #fbbf24 !important;
+              box-shadow: 0 0 28px rgba(251, 191, 36, 0.85) !important;
+              transform: scale(1.18) !important;
+            }
+            .timeline-step-row:hover .timeline-content {
+              animation: none !important;
+              opacity: 1 !important;
             }
             @media (prefers-reduced-motion: reduce) {
-              .process-step-card,
-              .step-badge,
-              .process-track-beam {
+              .couture-stitch-beam,
+              .timeline-node,
+              .timeline-content {
                 animation: none !important;
                 transform: none !important;
+                opacity: 1 !important;
               }
             }
           </style>
 
-          <div class="max-w-[1080px] mx-auto text-left">
+          <div class="max-w-[760px] mx-auto text-left">
             
-            <!-- Process Step Cards Grid -->
-            <div class="relative grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Section Kicker -->
+            <div class="mb-14">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.22em] text-amber-400 block mb-2">Bespoke Couture Process</span>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">How Your Outfit Comes to Life</h3>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative pl-14 sm:pl-16">
               
-              <!-- Connecting Line between Cards (Desktop) -->
-              <div class="hidden md:block absolute top-[52px] left-[15%] right-[15%] h-[2px] bg-white/10 overflow-hidden pointer-events-none z-0">
-                <div class="process-track-beam"></div>
+              <!-- Golden Stitch Vertical Track -->
+              <div class="couture-stitch-track">
+                <div class="couture-stitch-beam"></div>
               </div>
 
-              <!-- Step 1 Card -->
-              <div class="process-step-card step-card-1 relative z-10 bg-[#121214]/90 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300">
-                <div>
-                  <div class="flex items-center justify-between mb-5">
-                    <div class="step-badge step-badge-1 w-11 h-11 rounded-full border border-white/15 bg-[#121214] flex items-center justify-center font-bold text-xs transition-all duration-300">
-                      01
-                    </div>
-                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#2997ff]">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    </div>
+              <!-- Step 1 -->
+              <div class="timeline-step-row relative mb-14 transition-all duration-300 cursor-default">
+                <!-- Pin / Node -->
+                <div class="timeline-node timeline-node-1 absolute -left-[54px] sm:-left-[62px] top-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black border-2 border-white/15 flex items-center justify-center transition-all duration-300 z-10">
+                  <span class="text-[11px] font-bold font-mono text-amber-400">01</span>
+                </div>
+                <!-- Content -->
+                <div class="timeline-content timeline-content-1 transition-opacity duration-300">
+                  <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-amber-400/90 font-mono font-medium block mb-1.5">Phase 01 · Style Consultation</span>
+                  <h4 class="text-lg sm:text-2xl font-semibold text-white tracking-tight mb-2.5">1. Choose Style & Fabric</h4>
+                  <p class="text-xs sm:text-sm text-[#a1a1a6] leading-relaxed max-w-xl mb-3">
+                    Select from our catalog or bring your custom photo. Provide your own fabric or let Victoria supply Grade-A Dutch wax.
+                  </p>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[11px] text-[#86868b]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                    <span>Catalog Inspiration or Custom Photo Reference</span>
                   </div>
-                  <h4 class="text-white text-base sm:text-lg font-semibold tracking-tight mb-2">1. Choose Style & Fabric</h4>
-                  <p class="text-xs sm:text-sm text-[#86868b] leading-relaxed">Select from our catalog or bring your custom photo. Provide your own fabric or let Victoria supply Grade-A Dutch wax.</p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-white/5 flex items-center text-[11px] text-[#2997ff] font-medium">
-                  <span>Selection & Fabric</span>
-                  <span class="ml-auto text-xs">→</span>
-                </div>
-              </div>
-
-              <!-- Step 2 Card -->
-              <div class="process-step-card step-card-2 relative z-10 bg-[#121214]/90 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300">
-                <div>
-                  <div class="flex items-center justify-between mb-5">
-                    <div class="step-badge step-badge-2 w-11 h-11 rounded-full border border-white/15 bg-[#121214] flex items-center justify-center font-bold text-xs transition-all duration-300">
-                      02
-                    </div>
-                    <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-[#2997ff]">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-                    </div>
-                  </div>
-                  <h4 class="text-white text-base sm:text-lg font-semibold tracking-tight mb-2">2. Provide Measurements</h4>
-                  <p class="text-xs sm:text-sm text-[#86868b] leading-relaxed">Visit our atelier in Akwa Ibom or send your measurements directly over WhatsApp.</p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-white/5 flex items-center text-[11px] text-[#2997ff] font-medium">
-                  <span>Atelier Precision</span>
-                  <span class="ml-auto text-xs">→</span>
                 </div>
               </div>
 
-              <!-- Step 3 Card -->
-              <div class="process-step-card step-card-3 relative z-10 bg-[#121214]/90 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300">
-                <div>
-                  <div class="flex items-center justify-between mb-5">
-                    <div class="step-badge step-badge-3 w-11 h-11 rounded-full border border-white/15 bg-[#121214] flex items-center justify-center font-bold text-xs transition-all duration-300">
-                      03
-                    </div>
-                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    </div>
-                  </div>
-                  <h4 class="text-white text-base sm:text-lg font-semibold tracking-tight mb-2">3. Doorstep Delivery</h4>
-                  <p class="text-xs sm:text-sm text-[#86868b] leading-relaxed">Hand-pressed, neatly packaged, and delivered on time for your special occasion.</p>
+              <!-- Step 2 -->
+              <div class="timeline-step-row relative mb-14 transition-all duration-300 cursor-default">
+                <!-- Pin / Node -->
+                <div class="timeline-node timeline-node-2 absolute -left-[54px] sm:-left-[62px] top-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black border-2 border-white/15 flex items-center justify-center transition-all duration-300 z-10">
+                  <span class="text-[11px] font-bold font-mono text-amber-400">02</span>
                 </div>
-                <div class="mt-6 pt-4 border-t border-white/5 flex items-center text-[11px] text-emerald-400 font-medium">
-                  <span>Delivered Ready to Wear</span>
-                  <span class="ml-auto text-xs">✓</span>
+                <!-- Content -->
+                <div class="timeline-content timeline-content-2 transition-opacity duration-300">
+                  <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-amber-400/90 font-mono font-medium block mb-1.5">Phase 02 · Tailoring Precision</span>
+                  <h4 class="text-lg sm:text-2xl font-semibold text-white tracking-tight mb-2.5">2. Provide Measurements</h4>
+                  <p class="text-xs sm:text-sm text-[#a1a1a6] leading-relaxed max-w-xl mb-3">
+                    Visit our atelier in Akwa Ibom or send your measurements directly over WhatsApp.
+                  </p>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[11px] text-[#86868b]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                    <span>In-Person Atelier Fitting or Direct WhatsApp Consultation</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="timeline-step-row relative transition-all duration-300 cursor-default">
+                <!-- Pin / Node -->
+                <div class="timeline-node timeline-node-3 absolute -left-[54px] sm:-left-[62px] top-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black border-2 border-white/15 flex items-center justify-center transition-all duration-300 z-10">
+                  <span class="text-[11px] font-bold font-mono text-emerald-400">03</span>
+                </div>
+                <!-- Content -->
+                <div class="timeline-content timeline-content-3 transition-opacity duration-300">
+                  <span class="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-emerald-400/90 font-mono font-medium block mb-1.5">Phase 03 · Final Delivery</span>
+                  <h4 class="text-lg sm:text-2xl font-semibold text-white tracking-tight mb-2.5">3. Doorstep Delivery</h4>
+                  <p class="text-xs sm:text-sm text-[#a1a1a6] leading-relaxed max-w-xl mb-3">
+                    Hand-pressed, neatly packaged, and delivered on time for your special occasion.
+                  </p>
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-[11px] text-[#86868b]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    <span>Hand-Pressed, Package-Sealed & Delivered On Time</span>
+                  </div>
                 </div>
               </div>
 
