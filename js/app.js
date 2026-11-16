@@ -103,6 +103,8 @@
       renderChildren();
     } else if (state.activeTab === 'experience') {
       initVideos();
+    } else if (state.activeTab === 'booking') {
+      renderBooking();
     }
   }
 
@@ -577,6 +579,21 @@
   // ==========================================
   // 8. CONSULTATION / BOOKING (Full Page)
   // ==========================================
+  function renderBooking() {
+    const selectedStyleContainer = document.getElementById('booking-selected-style');
+    const generalDesc = document.getElementById('booking-general-desc');
+    const itemTitle = document.getElementById('booking-item-title');
+
+    if (state.bookingNotes && itemTitle) {
+      itemTitle.textContent = state.bookingNotes;
+      if (selectedStyleContainer) selectedStyleContainer.classList.remove('hidden');
+      if (generalDesc) generalDesc.classList.add('hidden');
+    } else {
+      if (selectedStyleContainer) selectedStyleContainer.classList.add('hidden');
+      if (generalDesc) generalDesc.classList.remove('hidden');
+    }
+  }
+
   function openBooking(initialItem = '', department = 'Men') {
     if (state.activeTab !== 'booking') {
       state.previousTab = state.activeTab;
@@ -584,19 +601,7 @@
     state.bookingDepartment = department;
     state.bookingNotes = initialItem;
 
-    const selectedStyleContainer = document.getElementById('booking-selected-style');
-    const generalDesc = document.getElementById('booking-general-desc');
-    const itemTitle = document.getElementById('booking-item-title');
-
-    if (initialItem && itemTitle) {
-      itemTitle.textContent = initialItem;
-      if (selectedStyleContainer) selectedStyleContainer.classList.remove('hidden');
-      if (generalDesc) generalDesc.classList.add('hidden');
-    } else {
-      if (selectedStyleContainer) selectedStyleContainer.classList.add('hidden');
-      if (generalDesc) generalDesc.classList.remove('hidden');
-    }
-
+    renderBooking();
     navigateTo('booking');
   }
 
