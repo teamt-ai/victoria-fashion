@@ -32,7 +32,8 @@
     childrenIndex: 0,
     // Catalogue state
     catalogueFilter: 'all',
-    // Modal state
+    // Full-page booking state
+    previousTab: 'home',
     bookingDepartment: 'Men',
     bookingNotes: ''
   };
@@ -42,10 +43,6 @@
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenuClose = document.getElementById('mobile-menu-close');
   const mobileDrawer = document.getElementById('mobile-drawer');
-  const bookingModal = document.getElementById('booking-modal');
-  const bookingDeptButtons = document.querySelectorAll('.booking-dept-btn');
-  const bookingNotesInput = document.getElementById('booking-notes');
-  const bookingSubmitBtn = document.getElementById('booking-submit-btn');
 
   // ==========================================
   // 1. ROUTING & TAB NAVIGATION
@@ -154,6 +151,8 @@
       state.activeTab = 'catalogue';
     } else if (rawHash.startsWith('experience')) {
       state.activeTab = 'experience';
+    } else if (rawHash.startsWith('booking')) {
+      state.activeTab = 'booking';
     } else {
       state.activeTab = 'home';
     }
@@ -576,77 +575,57 @@
   }
 
   // ==========================================
-  // 8. CONSULTATION / BOOKING MODAL
+  // 8. CONSULTATION / BOOKING (Full Page)
   // ==========================================
   function openBooking(initialItem = '', department = 'Men') {
+    if (state.activeTab !== 'booking') {
+      state.previousTab = state.activeTab;
+    }
     state.bookingDepartment = department;
-    state.bookingNotes = initialItem ? `Style: ${initialItem}` : '';
+    state.bookingNotes = initialItem;
 
-    if (bookingNotesInput) {
-      bookingNotesInput.value = state.bookingNotes;
+    const selectedStyleContainer = document.getElementById('booking-selected-style');
+    const generalDesc = document.getElementById('booking-general-desc');
+    const itemTitle = document.getElementById('booking-item-title');
+
+    if (initialItem && itemTitle) {
+      itemTitle.textContent = initialItem;
+      if (selectedStyleContainer) selectedStyleContainer.classList.remove('hidden');
+      if (generalDesc) generalDesc.classList.add('hidden');
+    } else {
+      if (selectedStyleContainer) selectedStyleContainer.classList.add('hidden');
+      if (generalDesc) generalDesc.classList.remove('hidden');
     }
 
-    updateDeptButtonUI();
-
-    if (bookingModal) {
-      bookingModal.classList.remove('hidden');
-      bookingModal.classList.add('flex');
-    }
+    navigateTo('booking');
   }
 
   function closeBooking() {
-    if (bookingModal) {
-      bookingModal.classList.add('hidden');
-      bookingModal.classList.remove('flex');
-    }
+    navigateTo(state.previousTab || 'home');
   }
 
-  function updateDeptButtonUI() {
-    bookingDeptButtons.forEach(btn => {
-      const dept = btn.getAttribute('data-dept');
-      if (dept === state.bookingDepartment) {
-        btn.className = 'booking-dept-btn p-2.5 rounded-xl border text-left transition-colors border-white text-white font-medium bg-white/10';
-      } else {
-        btn.className = 'booking-dept-btn p-2.5 rounded-xl border text-left transition-colors border-white/10 text-[#86868b] hover:text-white';
-      }
-    });
-  }
-
-  bookingDeptButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      state.bookingDepartment = btn.getAttribute('data-dept');
-      updateDeptButtonUI();
-    });
-  });
-
+  const bookingSubmitBtn = document.getElementById('booking-submit-btn');
   if (bookingSubmitBtn) {
     bookingSubmitBtn.addEventListener('click', () => {
-      const notes = bookingNotesInput ? bookingNotesInput.value.trim() : '';
+      const item = state.bookingNotes ? state.bookingNotes.trim() : '';
+      const dept = state.bookingDepartment || '';
       const lines = [
-        `*VICTORIA FASHION (AKWA IBOM) — CONSULTATION*`,
+        `*VICTORIA FASHION (AKWA IBOM) — BESPOKE CONSULTATION*`,
         `---------------------------------------------`,
-        `*Department:* ${state.bookingDepartment}`,
       ];
 
-      if (notes) {
-        lines.push(`*Style / Request:* ${notes}`);
+      if (item) {
+        lines.push(`*Selected Style:* ${item}`);
+      }
+      if (dept) {
+        lines.push(`*Department:* ${dept}`);
       }
 
       lines.push(`---------------------------------------------`);
-      lines.push(`Hello Victoria, I saw your website and would like to chat with you regarding sewing my clothes.`);
+      lines.push(`Hello Victoria, I saw your website and would like to chat with you regarding bespoke tailoring.`);
 
       const message = encodeURIComponent(lines.join('\n'));
       window.open(`https://wa.me/2348000000000?text=${message}`, '_blank');
-      closeBooking();
-    });
-  }
-
-  // Modal backdrop close
-  if (bookingModal) {
-    bookingModal.addEventListener('click', (e) => {
-      if (e.target === bookingModal) {
-        closeBooking();
-      }
     });
   }
 
@@ -658,7 +637,7 @@
   // 9. KEYBOARD & TOUCH NAVIGATION
   // ==========================================
   window.addEventListener('keydown', (e) => {
-    if (bookingModal && !bookingModal.classList.contains('hidden')) {
+    if (state.activeTab === 'booking') {
       if (e.key === 'Escape') closeBooking();
       return;
     }
