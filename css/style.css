@@ -160,3 +160,19 @@
   grid-column: 1 / -1 !important;
   width: 100% !important;
 }
+
+/* ===================================================
+   Hero Brand Heading - Fluid Mobile-First Responsive
+   Desktop design is 100% preserved (>= 640px)
+   =================================================== */
+.hero-brand-heading {
+  font-size: clamp(1.35rem, 7.1vw, 2.25rem);
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 640px) {
+  .hero-brand-heading {
+    font-size: clamp(2.4rem, 8.4vw, 7.8rem);
+    letter-spacing: 0.03em;
+  }
+}

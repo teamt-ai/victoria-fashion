@@ -12,6 +12,18 @@
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      .hero-brand-heading {
+        font-size: clamp(1.35rem, 7.1vw, 2.25rem);
+        letter-spacing: 0.02em;
+      }
+      @media (min-width: 640px) {
+        .hero-brand-heading {
+          font-size: clamp(2.4rem, 8.4vw, 7.8rem);
+          letter-spacing: 0.03em;
+        }
+      }
+    </style>
   </head>
   <body class="bg-black text-[#f5f5f7] font-apple antialiased selection:bg-[#0071e3] selection:text-white overflow-x-hidden min-h-screen flex flex-col">
 
@@ -121,8 +133,7 @@
 
           <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 flex flex-col items-center justify-center text-center">
             <!-- Big, Bold Brand Lockup on ONE LINE with Logo as 'V' -->
-            <h1 class="font-apple font-black uppercase leading-none text-center whitespace-nowrap select-none drop-shadow-[0_20px_60px_rgba(0,0,0,0.95)] mb-8 sm:mb-12"
-                style="font-size: clamp(2.4rem, 8.4vw, 7.8rem); letter-spacing: 0.03em;">
+            <h1 class="hero-brand-heading font-apple font-black uppercase leading-none text-center whitespace-nowrap select-none drop-shadow-[0_20px_60px_rgba(0,0,0,0.95)] mb-8 sm:mb-12">
               <img 
                 src="./images/logo-v.png" 
                 alt="Victoria Fashion Logo" 
