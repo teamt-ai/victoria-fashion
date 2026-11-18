@@ -162,17 +162,70 @@
 }
 
 /* ===================================================
-   Hero Brand Heading - Fluid Mobile-First Responsive
+   Hero Brand Responsive Lockup - Apple Mobile-First
    Desktop design is 100% preserved (>= 640px)
    =================================================== */
 .hero-brand-heading {
-  font-size: clamp(1.35rem, 7.1vw, 2.25rem);
-  letter-spacing: 0.02em;
+  font-family: SF Pro Display, SF Pro, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  user-select: none;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.95));
+  text-align: center;
+  line-height: 0.94;
 }
 
+.hero-brand-word-1,
+.hero-brand-word-2 {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.hero-brand-logo {
+  height: 1.08em;
+  width: auto;
+  object-fit: contain;
+  vertical-align: baseline;
+  margin-right: -0.22em;
+  display: inline-block;
+  filter: drop-shadow(0 0 35px rgba(41, 151, 255, 0.85));
+}
+
+.hero-brand-text {
+  background: linear-gradient(to bottom, #ffffff 0%, #f5f5f7 60%, #98989d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  font-style: italic;
+  padding-right: 0.06em;
+}
+
+/* Mobile: Bold, Majestic Apple Mobile Typography (< 640px) */
+@media (max-width: 639px) {
+  .hero-brand-heading {
+    font-size: clamp(2.35rem, 11.2vw, 3.25rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.04em;
+  }
+  .hero-brand-word-2 .hero-brand-text {
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Desktop: 100% UNTOUCHED ORIGINAL DESIGN (>= 640px) */
 @media (min-width: 640px) {
   .hero-brand-heading {
     font-size: clamp(2.4rem, 8.4vw, 7.8rem);
     letter-spacing: 0.03em;
+    display: block;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .hero-brand-word-1,
+  .hero-brand-word-2 {
+    display: inline-block;
   }
 }

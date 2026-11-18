@@ -14,13 +14,60 @@
     <link rel="stylesheet" href="./css/style.css" />
     <style>
       .hero-brand-heading {
-        font-size: clamp(1.35rem, 7.1vw, 2.25rem);
-        letter-spacing: 0.02em;
+        font-family: SF Pro Display, SF Pro, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        user-select: none;
+        filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.95));
+        text-align: center;
+        line-height: 0.94;
+      }
+      .hero-brand-word-1,
+      .hero-brand-word-2 {
+        display: inline-flex;
+        align-items: baseline;
+        justify-content: center;
+      }
+      .hero-brand-logo {
+        height: 1.08em;
+        width: auto;
+        object-fit: contain;
+        vertical-align: baseline;
+        margin-right: -0.22em;
+        display: inline-block;
+        filter: drop-shadow(0 0 35px rgba(41, 151, 255, 0.85));
+      }
+      .hero-brand-text {
+        background: linear-gradient(to bottom, #ffffff 0%, #f5f5f7 60%, #98989d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        font-style: italic;
+        padding-right: 0.06em;
+      }
+      @media (max-width: 639px) {
+        .hero-brand-heading {
+          font-size: clamp(2.35rem, 11.2vw, 3.25rem);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.04em;
+        }
+        .hero-brand-word-2 .hero-brand-text {
+          letter-spacing: 0.05em;
+        }
       }
       @media (min-width: 640px) {
         .hero-brand-heading {
           font-size: clamp(2.4rem, 8.4vw, 7.8rem);
           letter-spacing: 0.03em;
+          display: block;
+          white-space: nowrap;
+          line-height: 1;
+        }
+        .hero-brand-word-1,
+        .hero-brand-word-2 {
+          display: inline-block;
         }
       }
     </style>
@@ -127,45 +174,48 @@
       <section id="view-home" class="view-section active w-full bg-[#000000] text-white overflow-x-hidden">
         
         <!-- 1. HERO SECTION (Clean Luxury Brand Centerpiece) -->
-        <section class="relative w-full bg-black overflow-hidden flex items-center justify-center min-h-[80vh] sm:min-h-[88vh] py-20 sm:py-28">
+        <section class="relative w-full bg-black overflow-hidden flex items-center justify-center min-h-[75vh] sm:min-h-[88vh] py-14 sm:py-28">
           <!-- Ambient Royal Sapphire & Gold Aura -->
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[460px] bg-gradient-to-r from-blue-600/25 via-blue-500/15 to-indigo-600/20 blur-[150px] pointer-events-none rounded-full"></div>
 
           <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 flex flex-col items-center justify-center text-center">
-            <!-- Big, Bold Brand Lockup on ONE LINE with Logo as 'V' -->
-            <h1 class="hero-brand-heading font-apple font-black uppercase leading-none text-center whitespace-nowrap select-none drop-shadow-[0_20px_60px_rgba(0,0,0,0.95)] mb-8 sm:mb-12">
-              <img 
-                src="./images/logo-v.png" 
-                alt="Victoria Fashion Logo" 
-                style="height: 1.08em; width: auto; object-fit: contain; vertical-align: baseline; margin-right: -0.22em; display: inline-block; filter: drop-shadow(0 0 35px rgba(41,151,255,0.85));"
-              /><span class="bg-gradient-to-b from-[#ffffff] via-[#f5f5f7] to-[#98989d] bg-clip-text text-transparent font-black tracking-[0.03em] italic"
-                    style="line-height: 1; display: inline-block; vertical-align: baseline; font-style: italic; padding-right: 0.08em;">ICTORIA FASHION</span>
+            <!-- Brand Lockup: Stacked & Bold on Mobile, Single-Line on Desktop -->
+            <h1 class="hero-brand-heading font-apple font-black uppercase text-center select-none drop-shadow-[0_20px_60px_rgba(0,0,0,0.95)] mb-4 sm:mb-12">
+              <span class="hero-brand-word-1">
+                <img 
+                  src="./images/logo-v.png" 
+                  alt="Victoria Fashion Logo" 
+                  class="hero-brand-logo"
+                /><span class="hero-brand-text">ICTORIA</span>
+              </span><span class="hidden sm:inline">&nbsp;</span><span class="hero-brand-word-2">
+                <span class="hero-brand-text">FASHION</span>
+              </span>
             </h1>
 
-            <!-- Subheading Tagline -->
-            <p class="font-apple text-xl sm:text-3xl lg:text-4xl text-white font-medium tracking-tight mb-4 max-w-3xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+            <!-- Subheading Tagline (Apple Balanced Rhythm) -->
+            <p class="font-apple text-base sm:text-3xl lg:text-4xl text-white font-medium tracking-tight mb-2.5 sm:mb-4 max-w-[340px] sm:max-w-3xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]" style="text-wrap: balance;">
               Bespoke African Wax Prints &amp; Modern Tailoring.
             </p>
 
-            <p class="font-apple text-xs sm:text-base text-[#a1a1a6] mb-8 sm:mb-10 font-normal max-w-xl mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] px-2">
+            <p class="font-apple text-[11px] sm:text-base text-[#86868b] sm:text-[#a1a1a6] mb-6 sm:mb-10 font-normal max-w-[320px] sm:max-w-xl mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] px-2" style="text-wrap: balance;">
               Akwa Ibom, Nigeria · Handcrafted with Precision for Men, Women &amp; Children
             </p>
 
-            <!-- Luxury Action Buttons -->
-            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm sm:text-base">
+            <!-- Luxury Action Buttons (Side-by-Side Apple Pills on Mobile & Desktop) -->
+            <div class="flex flex-row items-center justify-center gap-2.5 sm:gap-6 text-xs sm:text-base">
               <button
                 data-nav-target="men"
-                class="bg-[#2997ff] hover:bg-[#0077ed] text-white px-8 py-3.5 rounded-full font-medium transition-all duration-300 drop-shadow-[0_4px_20px_rgba(41,151,255,0.4)] hover:scale-105 inline-flex items-center gap-2"
+                class="bg-[#2997ff] hover:bg-[#0077ed] text-white px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-medium transition-all duration-300 drop-shadow-[0_4px_20px_rgba(41,151,255,0.4)] hover:scale-105 inline-flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer"
               >
                 <span>Explore Collections</span>
-                <span class="text-xs">→</span>
+                <span class="text-[10px] sm:text-xs">→</span>
               </button>
               <button
                 onclick="window.VictoriaApp.openBooking('', 'Men')"
-                class="bg-white/10 hover:bg-white/20 text-white border border-white/25 px-8 py-3.5 rounded-full font-medium transition-all duration-300 backdrop-blur-md hover:scale-105 inline-flex items-center gap-2"
+                class="bg-white/10 hover:bg-white/20 text-white border border-white/25 px-4.5 sm:px-8 py-2.5 sm:py-3.5 rounded-full font-medium transition-all duration-300 backdrop-blur-md hover:scale-105 inline-flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer"
               >
                 <span>Book on WhatsApp</span>
-                <span class="text-xs">›</span>
+                <span class="text-[10px] sm:text-xs">›</span>
               </button>
             </div>
           </div>
