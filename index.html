@@ -165,43 +165,91 @@
         .mobile-overlay-section .mobile-text-wrapper .section-links button {
           filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9)) !important;
         }
+      }
 
-        /* Apple-Grade Mobile Navigation Drawer & Toggle */
+      /* ===================================================
+         Apple-Grade Mobile Navigation Drawer & Toggle
+         Desktop layout is 100% preserved (>= 1024px)
+         =================================================== */
+      #mobile-drawer {
+        display: none !important;
+      }
+
+      @media (max-width: 1023px) {
         #mobile-drawer {
-          background-color: #000000 !important;
+          display: none !important;
+          position: fixed !important;
+          top: 48px !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100vw !important;
+          height: calc(100vh - 48px) !important;
+          height: calc(100dvh - 48px) !important;
           background: #000000 !important;
-          opacity: 1 !important;
+          background-color: #000000 !important;
+          z-index: 99999 !important;
+          overflow-y: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          padding: 1.5rem 1.75rem 2.5rem 1.75rem !important;
+          box-sizing: border-box !important;
         }
 
-        #mobile-menu-toggle .hamburger-line-1 {
-          transform-origin: center;
-          transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        #mobile-menu-toggle .hamburger-line-2 {
-          transition: opacity 0.2s ease, transform 0.2s ease;
-        }
-        #mobile-menu-toggle .hamburger-line-3 {
-          transform-origin: center;
-          transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
+        #mobile-drawer.is-open {
+          display: flex !important;
         }
 
-        #mobile-menu-toggle.is-active .hamburger-line-1 {
-          transform: translateY(5.25px) rotate(45deg);
+        #mobile-menu-toggle.is-active #hamburger-icon-bars {
+          display: none !important;
         }
-        #mobile-menu-toggle.is-active .hamburger-line-2 {
-          opacity: 0;
-          transform: scaleX(0);
-        }
-        #mobile-menu-toggle.is-active .hamburger-line-3 {
-          transform: translateY(-5.25px) rotate(-45deg);
+        #mobile-menu-toggle.is-active #hamburger-icon-close {
+          display: block !important;
         }
 
         .mobile-nav-link {
-          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
-          letter-spacing: -0.015em;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          width: 100% !important;
+          text-align: left !important;
+          padding: 1rem 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif !important;
+          background: transparent !important;
+          cursor: pointer !important;
+          transition: opacity 0.15s ease !important;
         }
         .mobile-nav-link:active {
-          opacity: 0.6;
+          opacity: 0.6 !important;
+        }
+        .mobile-nav-link .nav-label {
+          font-size: 24px !important;
+          font-weight: 600 !important;
+          letter-spacing: -0.015em !important;
+          color: #86868b !important;
+          transition: color 0.15s ease !important;
+        }
+        .mobile-nav-link.is-active .nav-label,
+        .mobile-nav-link:active .nav-label {
+          color: #ffffff !important;
+        }
+        .mobile-nav-link .nav-arrow {
+          width: 14px !important;
+          height: 14px !important;
+          color: #424245 !important;
+          transition: color 0.15s ease !important;
+        }
+        .mobile-nav-link.is-active .nav-arrow,
+        .mobile-nav-link:active .nav-arrow {
+          color: #ffffff !important;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        #mobile-drawer {
+          display: none !important;
         }
       }
     </style>
@@ -250,80 +298,82 @@
             <span class="hidden sm:inline">BOOKING</span>
           </button>
 
-          <!-- Mobile Menu Button (Apple Minimalist Morphing Toggle) -->
+          <!-- Mobile Menu Button (Apple Minimalist Toggle) -->
           <button
             id="mobile-menu-toggle"
             class="lg:hidden text-white p-2 -mr-1.5 focus:outline-none flex items-center justify-center transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
             aria-expanded="false"
           >
-            <div class="w-4 h-[12px] relative flex flex-col justify-between pointer-events-none">
-              <span class="hamburger-line-1 block h-[1.5px] w-full bg-[#f5f5f7] rounded-full"></span>
-              <span class="hamburger-line-2 block h-[1.5px] w-full bg-[#f5f5f7] rounded-full"></span>
-              <span class="hamburger-line-3 block h-[1.5px] w-full bg-[#f5f5f7] rounded-full"></span>
-            </div>
+            <!-- 3-line hamburger icon (visible when closed) -->
+            <svg id="hamburger-icon-bars" class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <!-- Apple close 'X' icon (visible when open) -->
+            <svg id="hamburger-icon-close" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
           </button>
-        </div>
-      </div>
-
-      <!-- Mobile Navigation Drawer (Apple Mobile Standard: 100% Jet Black, Zero Bleed-Through) -->
-      <div 
-        id="mobile-drawer" 
-        class="hidden lg:hidden fixed inset-0 top-[48px] h-[calc(100dvh-48px)] w-full overflow-y-auto overscroll-contain z-[1000] flex-col justify-between px-6 pt-5 pb-8 text-left"
-        style="background-color: #000000 !important; background: #000000 !important;"
-      >
-        <!-- Nav Links List -->
-        <nav class="flex flex-col w-full" aria-label="Mobile navigation">
-          <button data-nav-target="home" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
-            <span class="text-[25px] font-semibold tracking-tight text-[#f5f5f7] group-hover:text-white transition-colors">Home</span>
-            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          
-          <button data-nav-target="catalogue" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
-            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Catalogue</span>
-            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          
-          <button data-nav-target="men" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
-            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Men</span>
-            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          
-          <button data-nav-target="women" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
-            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Women</span>
-            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          
-          <button data-nav-target="children" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
-            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Children</span>
-            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          
-          <button data-nav-target="occasions" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
-            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Occasions</span>
-            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-          
-          <button data-nav-target="experience" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
-            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Service Experience</span>
-            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </nav>
-
-        <!-- Bottom Luxury Atelier Action -->
-        <div class="pt-6 pb-2 w-full">
-          <button
-            onclick="window.VictoriaApp.openBooking('', 'General')"
-            class="w-full py-4 rounded-full font-semibold text-sm text-white tracking-wide flex items-center justify-center gap-2.5 transition-all duration-200 active:scale-[0.98]"
-            style="background: linear-gradient(135deg, #25D366 0%, #0d9668 100%); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);"
-          >
-            <svg class="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
-            <span>Chat with Victoria on WhatsApp</span>
-          </button>
-          <p class="text-center text-[11px] tracking-wider text-[#86868b] mt-3">Akwa Ibom Atelier · Handcrafted Haute Couture</p>
         </div>
       </div>
     </header>
+
+    <!-- Mobile Navigation Drawer (Apple Mobile Standard: 100% Jet Black, Full Viewport Overlay) -->
+    <div 
+      id="mobile-drawer" 
+      class="mobile-drawer-apple"
+    >
+      <!-- Nav Links List -->
+      <nav class="flex flex-col w-full" aria-label="Mobile navigation">
+        <button data-nav-target="home" class="mobile-nav-link group">
+          <span class="nav-label">Home</span>
+          <svg class="nav-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        
+        <button data-nav-target="catalogue" class="mobile-nav-link group">
+          <span class="nav-label">Catalogue</span>
+          <svg class="nav-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        
+        <button data-nav-target="men" class="mobile-nav-link group">
+          <span class="nav-label">Men</span>
+          <svg class="nav-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        
+        <button data-nav-target="women" class="mobile-nav-link group">
+          <span class="nav-label">Women</span>
+          <svg class="nav-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        
+        <button data-nav-target="children" class="mobile-nav-link group">
+          <span class="nav-label">Children</span>
+          <svg class="nav-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        
+        <button data-nav-target="occasions" class="mobile-nav-link group">
+          <span class="nav-label">Occasions</span>
+          <svg class="nav-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        
+        <button data-nav-target="experience" class="mobile-nav-link group">
+          <span class="nav-label">Service Experience</span>
+          <svg class="nav-arrow" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </nav>
+
+      <!-- Bottom Luxury Atelier Action -->
+      <div class="pt-6 pb-2 w-full">
+        <button
+          onclick="window.VictoriaApp.openBooking('', 'General')"
+          class="w-full py-4 rounded-full font-semibold text-sm text-white tracking-wide flex items-center justify-center gap-2.5 transition-all duration-200 active:scale-[0.98]"
+          style="background: linear-gradient(135deg, #25D366 0%, #0d9668 100%); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);"
+        >
+          <svg class="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
+          <span>Chat with Victoria on WhatsApp</span>
+        </button>
+        <p class="text-center text-[11px] tracking-wider text-[#86868b] mt-3">Akwa Ibom Atelier · Handcrafted Haute Couture</p>
+      </div>
+    </div>
 
     <!-- ============================================================= -->
     <!-- 2. MAIN DYNAMIC VIEW CONTAINER                                 -->

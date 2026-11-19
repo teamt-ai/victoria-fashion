@@ -49,8 +49,7 @@
   // ==========================================
   function openMobileDrawer() {
     if (!mobileDrawer) return;
-    mobileDrawer.classList.remove('hidden');
-    mobileDrawer.classList.add('flex');
+    mobileDrawer.classList.add('is-open');
     if (header) {
       header.classList.add('bg-black');
       header.classList.remove('bg-black/90');
@@ -64,8 +63,7 @@
 
   function closeMobileDrawer() {
     if (!mobileDrawer) return;
-    mobileDrawer.classList.add('hidden');
-    mobileDrawer.classList.remove('flex');
+    mobileDrawer.classList.remove('is-open');
     if (header && window.scrollY <= 20) {
       header.classList.add('bg-black/90');
       header.classList.remove('bg-black');
@@ -79,10 +77,10 @@
 
   function toggleMobileDrawer() {
     if (!mobileDrawer) return;
-    if (mobileDrawer.classList.contains('hidden')) {
-      openMobileDrawer();
-    } else {
+    if (mobileDrawer.classList.contains('is-open')) {
       closeMobileDrawer();
+    } else {
+      openMobileDrawer();
     }
   }
 
@@ -127,28 +125,10 @@
     // Update mobile drawer nav link active colors
     document.querySelectorAll('#mobile-drawer .mobile-nav-link').forEach(btn => {
       const target = btn.getAttribute('data-nav-target');
-      const textSpan = btn.querySelector('span:first-child');
-      const arrowSvg = btn.querySelector('svg');
       if (target === state.activeTab) {
         btn.classList.add('is-active');
-        if (textSpan) {
-          textSpan.classList.add('text-white', 'font-semibold');
-          textSpan.classList.remove('text-[#86868b]');
-        }
-        if (arrowSvg) {
-          arrowSvg.classList.add('text-white');
-          arrowSvg.classList.remove('text-[#424245]');
-        }
       } else {
         btn.classList.remove('is-active');
-        if (textSpan) {
-          textSpan.classList.remove('text-white', 'font-semibold');
-          textSpan.classList.add('text-[#86868b]');
-        }
-        if (arrowSvg) {
-          arrowSvg.classList.remove('text-white');
-          arrowSvg.classList.add('text-[#424245]');
-        }
       }
     });
 
@@ -260,7 +240,7 @@
 
   // Close drawer on ESC key
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileDrawer && !mobileDrawer.classList.contains('hidden')) {
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('is-open')) {
       closeMobileDrawer();
     }
   });
@@ -979,6 +959,7 @@
   }
 
   // Initial startup
+  closeMobileDrawer();
   handleHashChange();
   syncSupabaseGallery();
 
