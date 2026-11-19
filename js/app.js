@@ -649,57 +649,66 @@
     const container = document.getElementById('men-mobile-feed');
     if (!container || !DATA.menLooks || !DATA.menLooks.length) return;
 
-    container.innerHTML = DATA.menLooks.map((look, idx) => {
-      const total = DATA.menLooks.length;
+    const total = DATA.menLooks.length;
+    const itemsHtml = DATA.menLooks.map((look, idx) => {
       const cleanTitle = (look.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
       const safeTitle = escapeAttr(cleanTitle);
       const frontLabel = look.frontLabel || 'FRONT VIEW';
       const backLabel = look.backLabel || 'BACK VIEW';
 
       return `
-        <article class="mobile-look-item w-full mb-12">
-          <!-- Look Index & Title -->
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[11px] font-mono tracking-[0.2em] uppercase text-[#a1a1a6]">LOOK ${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}</span>
-            <span class="text-[9px] font-mono tracking-widest uppercase text-amber-400/90 bg-amber-950/40 border border-amber-500/25 px-2.5 py-0.5 rounded-full">MEN'S BESPOKE</span>
+        <article class="relative p-4 sm:p-5 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.85)] mb-8 overflow-hidden">
+          <!-- Card Header: Look Index & Badge -->
+          <div class="flex items-center justify-between gap-2 mb-2.5">
+            <span class="text-[11px] font-mono tracking-[0.2em] uppercase text-[#86868b]">LOOK ${String(idx + 1).padStart(2, '0')} OF ${String(total).padStart(2, '0')}</span>
+            <span class="text-[9px] font-mono tracking-widest uppercase text-amber-300 bg-amber-500/10 border border-amber-500/25 px-2.5 py-0.5 rounded-full">MEN'S BESPOKE</span>
           </div>
-          <h3 class="font-apple text-xl font-bold text-white tracking-tight leading-snug mb-3.5">${escapeText(cleanTitle)}</h3>
 
-          <!-- First Image UP (Top) -->
-          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Front View)', 'Men')" class="group relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-[#151517] border border-white/10 shadow-[0_12px_32px_rgba(0,0,0,0.85)] cursor-pointer active:scale-[0.99] transition-transform">
-            <img src="${look.frontImage}" alt="${safeTitle} - Front" loading="lazy" class="w-full h-full object-cover object-top" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-3.5 left-3.5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/15 pointer-events-none">
+          <!-- Look Title -->
+          <h3 class="capitalize font-apple text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-3.5">${escapeText(cleanTitle)}</h3>
+
+          <!-- First Image UP (Front View) -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Front View)', 'Men')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform">
+            <img src="${look.frontImage}" alt="${safeTitle} - Front" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
               <span class="w-1.5 h-1.5 rounded-full bg-[#f5e396]"></span>
               <span class="text-[10px] font-bold text-[#f5e396] tracking-[0.14em] uppercase">${escapeText(frontLabel)}</span>
             </div>
           </div>
 
-          <!-- Other Image BENEATH (Bottom) -->
-          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Back View)', 'Men')" class="group relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-[#151517] border border-white/10 shadow-[0_12px_32px_rgba(0,0,0,0.85)] cursor-pointer active:scale-[0.99] transition-transform mt-3.5">
-            <img src="${look.backImage}" alt="${safeTitle} - Back" loading="lazy" class="w-full h-full object-cover object-top" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-3.5 left-3.5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/15 pointer-events-none">
+          <!-- Other Image BENEATH (Back View) -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Back View)', 'Men')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform mt-3">
+            <img src="${look.backImage}" alt="${safeTitle} - Back" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
               <span class="text-[10px] font-bold text-[#f5e396] tracking-[0.14em] uppercase">${escapeText(backLabel)}</span>
             </div>
           </div>
 
-          <!-- Order / Consult CTA for this Look -->
-          <div class="mt-4">
-            <button onclick="window.VictoriaApp.openBooking('${safeTitle}', 'Men')" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#1c1c1e] to-[#252528] active:scale-[0.98] border border-white/10 flex items-center justify-center gap-2.5 text-white text-xs font-semibold tracking-wide transition-all shadow-md">
-              <svg class="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
-              <span>Order This Look on WhatsApp</span>
-            </button>
-          </div>
-
-          <!-- Hairline Divider -->
-          <div class="w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent mt-12"></div>
+          <!-- WhatsApp Action Pill -->
+          <button onclick="window.VictoriaApp.openBooking('${safeTitle}', 'Men')" class="w-full mt-4 py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)] transition-all">
+            <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
+            <span>Order This Look on WhatsApp</span>
+          </button>
         </article>
       `;
-    }).join('') + `
+    }).join('');
+
+    container.innerHTML = `
+      <!-- Apple Editorial Collection Header -->
+      <div class="mb-6 pt-2 pb-4 text-center sm:text-left border-b border-white/[0.08]">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-[10px] font-mono tracking-widest uppercase mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          <span>AKWA IBOM ATELIER</span>
+        </div>
+        <h2 class="font-apple text-2xl sm:text-3xl font-bold text-white tracking-tight">Men's Lookbook</h2>
+        <p class="text-xs text-[#86868b] mt-1 max-w-sm">Handcrafted traditional senators, grand agbadas & bespoke English wool suiting.</p>
+      </div>
+
+      ${itemsHtml}
+
       <!-- Mobile Bottom Bespoke Card -->
-      <div class="mt-4 p-6 rounded-2xl bg-[#121214] border border-white/10 text-center shadow-lg">
+      <div class="mt-4 p-6 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] text-center shadow-lg">
         <span class="text-[10px] font-mono tracking-widest text-amber-400 uppercase">AKWA IBOM ATELIER</span>
         <h4 class="text-base font-semibold text-white mt-1 mb-2">Have a custom fabric or suiting cut in mind?</h4>
         <p class="text-xs text-[#86868b] mb-4">Victoria crafts bespoke senators, agbadas, and English wool suiting to your precise measurements.</p>
@@ -715,8 +724,8 @@
     const container = document.getElementById('women-mobile-feed');
     if (!container || !DATA.womenLooks || !DATA.womenLooks.length) return;
 
-    container.innerHTML = DATA.womenLooks.map((look, idx) => {
-      const total = DATA.womenLooks.length;
+    const total = DATA.womenLooks.length;
+    const itemsHtml = DATA.womenLooks.map((look, idx) => {
       const cleanTitle = (look.title || look.card1Title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
       const safeTitle = escapeAttr(cleanTitle);
       const img1 = look.card1Image || look.frontImage;
@@ -725,49 +734,58 @@
       const label2 = look.card2Label || 'PERSPECTIVE VIEW';
 
       return `
-        <article class="mobile-look-item w-full mb-12">
-          <!-- Look Index & Title -->
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[11px] font-mono tracking-[0.2em] uppercase text-pink-300/80">LOOK ${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}</span>
-            <span class="text-[9px] font-mono tracking-widest uppercase text-pink-300 bg-pink-950/50 border border-pink-500/30 px-2.5 py-0.5 rounded-full">WOMEN'S COUTURE</span>
+        <article class="relative p-4 sm:p-5 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.85)] mb-8 overflow-hidden">
+          <!-- Card Header: Look Index & Badge -->
+          <div class="flex items-center justify-between gap-2 mb-2.5">
+            <span class="text-[11px] font-mono tracking-[0.2em] uppercase text-pink-300/80">LOOK ${String(idx + 1).padStart(2, '0')} OF ${String(total).padStart(2, '0')}</span>
+            <span class="text-[9px] font-mono tracking-widest uppercase text-pink-300 bg-pink-500/10 border border-pink-500/25 px-2.5 py-0.5 rounded-full">WOMEN'S COUTURE</span>
           </div>
-          <h3 class="font-apple text-xl font-bold text-white tracking-tight leading-snug mb-3.5">${escapeText(cleanTitle)}</h3>
 
-          <!-- First Image UP (Top) -->
-          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 1)', 'Women')" class="group relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-neutral-950 border border-pink-500/20 shadow-[0_12px_32px_rgba(0,0,0,0.85)] cursor-pointer active:scale-[0.99] transition-transform">
-            <img src="${img1}" alt="${safeTitle} - Look 1" loading="lazy" class="w-full h-full object-cover object-top" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-3.5 left-3.5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-pink-500/20 pointer-events-none">
+          <!-- Look Title -->
+          <h3 class="capitalize font-apple text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-3.5">${escapeText(cleanTitle)}</h3>
+
+          <!-- First Image UP (Top) Stage -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 1)', 'Women')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform">
+            <img src="${img1}" alt="${safeTitle} - Look 1" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
               <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>
               <span class="text-[10px] font-bold text-pink-200 tracking-[0.14em] uppercase">${escapeText(label1)}</span>
             </div>
           </div>
 
-          <!-- Other Image BENEATH (Bottom) -->
-          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 2)', 'Women')" class="group relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-neutral-950 border border-pink-500/20 shadow-[0_12px_32px_rgba(0,0,0,0.85)] cursor-pointer active:scale-[0.99] transition-transform mt-3.5">
-            <img src="${img2}" alt="${safeTitle} - Look 2" loading="lazy" class="w-full h-full object-cover object-top" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-3.5 left-3.5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-pink-500/20 pointer-events-none">
+          <!-- Other Image BENEATH (Bottom) Stage -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 2)', 'Women')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform mt-3">
+            <img src="${img2}" alt="${safeTitle} - Look 2" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
               <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-400"></span>
               <span class="text-[10px] font-bold text-pink-200 tracking-[0.14em] uppercase">${escapeText(label2)}</span>
             </div>
           </div>
 
-          <!-- Order / Consult CTA for this Look -->
-          <div class="mt-4">
-            <button onclick="window.VictoriaApp.openBooking('${safeTitle}', 'Women')" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#1c1c1e] to-[#252528] active:scale-[0.98] border border-pink-500/20 flex items-center justify-center gap-2.5 text-white text-xs font-semibold tracking-wide transition-all shadow-md">
-              <svg class="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
-              <span>Order This Look on WhatsApp</span>
-            </button>
-          </div>
-
-          <!-- Hairline Divider -->
-          <div class="w-full h-px bg-gradient-to-r from-transparent via-pink-500/20 to-transparent mt-12"></div>
+          <!-- WhatsApp Action Pill -->
+          <button onclick="window.VictoriaApp.openBooking('${safeTitle}', 'Women')" class="w-full mt-4 py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)] transition-all">
+            <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
+            <span>Order This Look on WhatsApp</span>
+          </button>
         </article>
       `;
-    }).join('') + `
+    }).join('');
+
+    container.innerHTML = `
+      <!-- Apple Editorial Collection Header -->
+      <div class="mb-6 pt-2 pb-4 text-center sm:text-left border-b border-white/[0.08]">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/25 text-pink-300 text-[10px] font-mono tracking-widest uppercase mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>
+          <span>HAUTE COUTURE ARCHIVE</span>
+        </div>
+        <h2 class="font-apple text-2xl sm:text-3xl font-bold text-white tracking-tight">Women's Couture</h2>
+        <p class="text-xs text-[#86868b] mt-1 max-w-sm">Sculpted silhouettes, structured corsetry & hand-beaded lace gowns.</p>
+      </div>
+
+      ${itemsHtml}
+
       <!-- Mobile Bottom Bespoke Card -->
-      <div class="mt-4 p-6 rounded-2xl bg-[#121214] border border-pink-500/20 text-center shadow-lg">
+      <div class="mt-4 p-6 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] text-center shadow-lg">
         <span class="text-[10px] font-mono tracking-widest text-pink-400 uppercase">AKWA IBOM ATELIER</span>
         <h4 class="text-base font-semibold text-white mt-1 mb-2">Have a custom evening dress or gown in mind?</h4>
         <p class="text-xs text-[#86868b] mb-4">Victoria designs and tailors bespoke couture gowns, corsets, and beaded lace to your exact silhouette.</p>
@@ -783,59 +801,150 @@
     const container = document.getElementById('children-mobile-feed');
     if (!container || !DATA.childrenLooks || !DATA.childrenLooks.length) return;
 
-    container.innerHTML = DATA.childrenLooks.map((look, idx) => {
-      const total = DATA.childrenLooks.length;
+    const total = DATA.childrenLooks.length;
+    const itemsHtml = DATA.childrenLooks.map((look, idx) => {
       const cleanTitle = (look.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
       const safeTitle = escapeAttr(cleanTitle);
+      const boyImg = look.boyImage;
+      const girlImg = look.girlImage;
+      const boyLabel = look.boyLabel || 'LOOK 01';
+      const girlLabel = look.girlLabel || 'LOOK 02';
 
       return `
-        <article class="mobile-look-item w-full mb-12">
-          <!-- Look Index & Title -->
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400">LOOK ${String(idx + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}</span>
+        <article class="relative p-4 sm:p-5 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.85)] mb-8 overflow-hidden">
+          <!-- Card Header: Look Index & Badge -->
+          <div class="flex items-center justify-between gap-2 mb-2.5">
+            <span class="text-[11px] font-mono tracking-[0.2em] uppercase text-neutral-400">LOOK ${String(idx + 1).padStart(2, '0')} OF ${String(total).padStart(2, '0')}</span>
             <span class="text-[9px] font-mono tracking-widest uppercase text-white/90 bg-neutral-900 border border-white/20 px-2.5 py-0.5 rounded-full">CHILDREN'S ATELIER</span>
           </div>
-          <h3 class="font-apple text-xl font-bold text-white tracking-tight leading-snug mb-3.5">${escapeText(cleanTitle)}</h3>
 
-          <!-- First Image UP (Top) -->
-          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 1)', 'Children')" class="group relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-[#d6c7b8] border border-white/20 shadow-[0_12px_32px_rgba(0,0,0,0.85)] cursor-pointer active:scale-[0.99] transition-transform">
-            <img src="${look.boyImage}" alt="${safeTitle} - Look 1" loading="lazy" class="w-full h-full object-cover object-center" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-3.5 left-3.5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 pointer-events-none">
+          <!-- Look Title -->
+          <h3 class="capitalize font-apple text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-3.5">${escapeText(cleanTitle)}</h3>
+
+          <!-- First Image UP (Top) Stage -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 1)', 'Children')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform">
+            <img src="${boyImg}" alt="${safeTitle} - Look 1" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
               <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
-              <span class="text-[10px] font-bold text-white tracking-[0.14em] uppercase">${escapeText(look.boyLabel || 'LOOK 01')}</span>
+              <span class="text-[10px] font-bold text-white tracking-[0.14em] uppercase">${escapeText(boyLabel)}</span>
             </div>
           </div>
 
-          <!-- Other Image BENEATH (Bottom) -->
-          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 2)', 'Children')" class="group relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-[#d6c7b8] border border-white/20 shadow-[0_12px_32px_rgba(0,0,0,0.85)] cursor-pointer active:scale-[0.99] transition-transform mt-3.5">
-            <img src="${look.girlImage}" alt="${safeTitle} - Look 2" loading="lazy" class="w-full h-full object-cover object-center" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-3.5 left-3.5 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/65 backdrop-blur-md border border-white/20 pointer-events-none">
+          <!-- Other Image BENEATH (Bottom) Stage -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 2)', 'Children')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform mt-3">
+            <img src="${girlImg}" alt="${safeTitle} - Look 2" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
               <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
-              <span class="text-[10px] font-bold text-white tracking-[0.14em] uppercase">${escapeText(look.girlLabel || 'LOOK 02')}</span>
+              <span class="text-[10px] font-bold text-white tracking-[0.14em] uppercase">${escapeText(girlLabel)}</span>
             </div>
           </div>
 
-          <!-- Order / Consult CTA for this Look -->
-          <div class="mt-4">
-            <button onclick="window.VictoriaApp.openBooking('${safeTitle}', 'Children')" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#1c1c1e] to-[#252528] active:scale-[0.98] border border-white/10 flex items-center justify-center gap-2.5 text-white text-xs font-semibold tracking-wide transition-all shadow-md">
-              <svg class="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
-              <span>Order This Look on WhatsApp</span>
-            </button>
-          </div>
-
-          <!-- Hairline Divider -->
-          <div class="w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent mt-12"></div>
+          <!-- WhatsApp Action Pill -->
+          <button onclick="window.VictoriaApp.openBooking('${safeTitle}', 'Children')" class="w-full mt-4 py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)] transition-all">
+            <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
+            <span>Order This Look on WhatsApp</span>
+          </button>
         </article>
       `;
-    }).join('') + `
+    }).join('');
+
+    container.innerHTML = `
+      <!-- Apple Editorial Collection Header -->
+      <div class="mb-6 pt-2 pb-4 text-center sm:text-left border-b border-white/[0.08]">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/25 text-teal-300 text-[10px] font-mono tracking-widest uppercase mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+          <span>YOUNG ROYALS</span>
+        </div>
+        <h2 class="font-apple text-2xl sm:text-3xl font-bold text-white tracking-tight">Children's Atelier</h2>
+        <p class="text-xs text-[#86868b] mt-1 max-w-sm">Festive birthday dresses, bespoke junior suits & celebratory outfits.</p>
+      </div>
+
+      ${itemsHtml}
+
       <!-- Mobile Bottom Bespoke Card -->
-      <div class="mt-4 p-6 rounded-2xl bg-[#121214] border border-white/10 text-center shadow-lg">
+      <div class="mt-4 p-6 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] text-center shadow-lg">
         <span class="text-[10px] font-mono tracking-widest text-white/80 uppercase">AKWA IBOM ATELIER</span>
         <h4 class="text-base font-semibold text-white mt-1 mb-2">Bespoke Children's Festive Outfits</h4>
         <p class="text-xs text-[#86868b] mb-4">Tailored dresses and boy suites handcrafted for birthday ceremonies, church, and school galas.</p>
         <button onclick="window.VictoriaApp.openBooking('Custom Children Style', 'Children')" class="w-full py-3.5 rounded-full bg-[#25D366] text-black font-semibold text-xs tracking-wide flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(37,211,102,0.3)]">
+          <span>Chat with Victoria on WhatsApp</span>
+          <span>→</span>
+        </button>
+      </div>
+    `;
+  }
+
+  function renderCelebrationsMobileFeed() {
+    const container = document.getElementById('celebrations-mobile-feed');
+    if (!container || !DATA.celebrationLooks || !DATA.celebrationLooks.length) return;
+
+    const total = DATA.celebrationLooks.length;
+    const itemsHtml = DATA.celebrationLooks.map((look, idx) => {
+      const cleanTitle = (look.title || '').replace(/^Look\s+\d+(\s*&\s*\d+)?\s*[—–-]\s*/i, '');
+      const safeTitle = escapeAttr(cleanTitle);
+      const img1 = look.maleImage;
+      const img2 = look.femaleImage;
+      const label1 = look.maleLabel || 'COORDINATED LOOK 01';
+      const label2 = look.femaleLabel || 'COORDINATED LOOK 02';
+      const subCategory = look.eventCategory || 'OCCASIONS & CELEBRATIONS';
+
+      return `
+        <article class="relative p-4 sm:p-5 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.85)] mb-8 overflow-hidden">
+          <!-- Card Header: Look Index & Badge -->
+          <div class="flex items-center justify-between gap-2 mb-2.5">
+            <span class="text-[11px] font-mono tracking-[0.2em] uppercase text-amber-300/80">PAIR ${String(idx + 1).padStart(2, '0')} OF ${String(total).padStart(2, '0')}</span>
+            <span class="text-[9px] font-mono tracking-widest uppercase text-amber-300 bg-amber-500/10 border border-amber-500/25 px-2.5 py-0.5 rounded-full truncate max-w-[200px]">${escapeText(subCategory)}</span>
+          </div>
+
+          <!-- Look Title -->
+          <h3 class="capitalize font-apple text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-3.5">${escapeText(cleanTitle)}</h3>
+
+          <!-- First Image UP (Top) Stage -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 1)', 'Occasions')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform">
+            <img src="${img1}" alt="${safeTitle} - Look 1" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span class="text-[10px] font-bold text-[#f5e396] tracking-[0.14em] uppercase">${escapeText(label1)}</span>
+            </div>
+          </div>
+
+          <!-- Other Image BENEATH (Bottom) Stage -->
+          <div onclick="window.VictoriaApp.openBooking('${safeTitle} (Look 2)', 'Occasions')" class="group relative w-full aspect-[4/5] max-h-[380px] rounded-2xl overflow-hidden bg-[#121215] border border-white/[0.08] flex items-center justify-center p-2.5 shadow-inner cursor-pointer active:scale-[0.99] transition-transform mt-3">
+            <img src="${img2}" alt="${safeTitle} - Look 2" loading="lazy" class="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-[1.02]" />
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 pointer-events-none">
+              <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+              <span class="text-[10px] font-bold text-[#f5e396] tracking-[0.14em] uppercase">${escapeText(label2)}</span>
+            </div>
+          </div>
+
+          <!-- WhatsApp Action Pill -->
+          <button onclick="window.VictoriaApp.openBooking('${safeTitle}', 'Occasions')" class="w-full mt-4 py-3.5 px-4 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-black font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(37,211,102,0.3)] transition-all">
+            <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
+            <span>Order This Look on WhatsApp</span>
+          </button>
+        </article>
+      `;
+    }).join('');
+
+    container.innerHTML = `
+      <!-- Apple Editorial Collection Header -->
+      <div class="mb-6 pt-2 pb-4 text-center sm:text-left border-b border-white/[0.08]">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-[10px] font-mono tracking-widest uppercase mb-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+          <span>CEREMONIAL ARCHIVE</span>
+        </div>
+        <h2 class="font-apple text-2xl sm:text-3xl font-bold text-white tracking-tight">Occasions & Celebrations</h2>
+        <p class="text-xs text-[#86868b] mt-1 max-w-sm">Coordinated bridal pairs, Aso-Ebi, coronation & grand milestone ensembles.</p>
+      </div>
+
+      ${itemsHtml}
+
+      <!-- Mobile Bottom Bespoke Card -->
+      <div class="mt-4 p-6 rounded-3xl bg-[#0c0c0e] border border-white/[0.08] text-center shadow-lg">
+        <span class="text-[10px] font-mono tracking-widest text-amber-400 uppercase">AKWA IBOM ATELIER</span>
+        <h4 class="text-base font-semibold text-white mt-1 mb-2">Planning a Wedding, Coronation, or Gala?</h4>
+        <p class="text-xs text-[#86868b] mb-4">Victoria coordinates full ceremonial suites for couples, bridal parties, and families across Akwa Ibom & worldwide.</p>
+        <button onclick="window.VictoriaApp.openBooking('Ceremonial Package Consultation', 'Occasions')" class="w-full py-3.5 rounded-full bg-[#25D366] text-black font-semibold text-xs tracking-wide flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(37,211,102,0.3)]">
           <span>Chat with Victoria on WhatsApp</span>
           <span>→</span>
         </button>
