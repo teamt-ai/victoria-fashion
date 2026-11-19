@@ -435,15 +435,13 @@
   #view-women.active,
   #view-children.active,
   #view-occasions.active {
-    background-image: none !important;
-    background-color: #000000 !important;
     display: block !important;
     height: auto !important;
     min-height: 100vh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
-    padding-bottom: 5rem !important;
+    padding-bottom: 4rem !important;
   }
   .desktop-showcase-container {
     display: none !important;
@@ -451,11 +449,11 @@
   .mobile-showcase-feed {
     display: block !important;
     width: 100% !important;
-    max-width: 480px !important;
+    max-width: 1240px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
 }
 

@@ -2,7 +2,26 @@
 // Standard Vanilla JavaScript (Zero Build Tools Required)
 window.VICTORIA_DATA = {
   catalogue: {
-    men: [],
+    men: [
+      {
+        id: "m-1",
+        name: "Bespoke Plum Silk-Wool Native Tunic",
+        desc: "Two-tone iridescent aubergine tailoring with vertical side panels & french cuffs.",
+        image: "./images/men-look1-front.jpg"
+      },
+      {
+        id: "m-2",
+        name: "Bespoke White & Gold Senator Native Tunic",
+        desc: "Pristine white luxury wool with vertical spinal gold piping & curved breast pocket detailing.",
+        image: "./images/men-look2-front.jpg"
+      },
+      {
+        id: "m-3",
+        name: "Ivory Minimalist Kaftan",
+        desc: "Modern concealed-placket tailoring in lightweight breathable wool.",
+        image: "./images/kaftan-air.jpg"
+      }
+    ],
     women: [
       {
         id: "w-1",
@@ -85,6 +104,30 @@ window.VICTORIA_DATA = {
         name: "Festive Multi-Hue Batik Brocade Maxi Gown",
         desc: "Vibrant floor-sweeping celebratory gown with tiered flutter bell sleeves, contrast coral Peter Pan collar, and shimmering metallic luster.",
         image: "./images/women-bespoke-batik-bell-maxi.jpg"
+      },
+      {
+        id: "occ-3",
+        name: "Royal Ivory & 24k Gold Cathedral Ballgown",
+        desc: "Bespoke structured corset with gold filigree embroidery & cascading chapel veil.",
+        image: "./images/wedding-look1-front.jpg"
+      },
+      {
+        id: "occ-4",
+        name: "Sculpted Mermaid Crystal & French Lace Gown",
+        desc: "Hand-embellished Swarovski crystals with multi-tiered ruffled organza fishtail train.",
+        image: "./images/wedding-look2-front.jpg"
+      },
+      {
+        id: "occ-5",
+        name: "Regal Emerald & Gold Velvet Corset Wedding Gown",
+        desc: "Rich architectural velvet silhouette with hand-beaded lace appliques.",
+        image: "./images/wedding-look3-front.jpg"
+      },
+      {
+        id: "occ-6",
+        name: "Golden Champagne Beaded Trumpet Gown",
+        desc: "Opulent micro-pleated trumpet silhouette with intricate gold crystal beadwork.",
+        image: "./images/wedding-look4-front.jpg"
       }
     ]
   },
