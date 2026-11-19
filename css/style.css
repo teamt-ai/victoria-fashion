@@ -426,3 +426,47 @@
   }
 }
 
+/* ===================================================
+   Mobile Vertical Showcase Feeds (Apple Editorial Feed)
+   Desktop layout (>= 1024px) is 100% UNTOUCHED
+   =================================================== */
+@media (max-width: 1023px) {
+  #view-men.active,
+  #view-women.active,
+  #view-children.active,
+  #view-occasions.active {
+    display: block !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .desktop-showcase-container {
+    display: none !important;
+  }
+  .mobile-showcase-feed {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #view-men.active,
+  #view-women.active,
+  #view-children.active,
+  #view-occasions.active {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+    min-height: 100vh !important;
+  }
+  .desktop-showcase-container {
+    display: flex !important;
+  }
+  .mobile-showcase-feed {
+    display: none !important;
+  }
+}
+
+

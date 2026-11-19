@@ -252,6 +252,49 @@
           display: none !important;
         }
       }
+
+      /* ===================================================
+         Mobile Vertical Showcase Feeds (Apple Editorial Feed)
+         Desktop layout (>= 1024px) is 100% UNTOUCHED
+         =================================================== */
+      @media (max-width: 1023px) {
+        #view-men.active,
+        #view-women.active,
+        #view-children.active,
+        #view-occasions.active {
+          display: block !important;
+          height: auto !important;
+          min-height: 100vh !important;
+          overflow-y: auto !important;
+          overflow-x: hidden !important;
+          -webkit-overflow-scrolling: touch !important;
+        }
+        .desktop-showcase-container {
+          display: none !important;
+        }
+        .mobile-showcase-feed {
+          display: block !important;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        #view-men.active,
+        #view-women.active,
+        #view-children.active,
+        #view-occasions.active {
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          overflow: hidden !important;
+          min-height: 100vh !important;
+        }
+        .desktop-showcase-container {
+          display: flex !important;
+        }
+        .mobile-showcase-feed {
+          display: none !important;
+        }
+      }
     </style>
   </head>
   <body class="bg-black text-[#f5f5f7] font-apple antialiased selection:bg-[#0071e3] selection:text-white overflow-x-hidden min-h-screen flex flex-col">
@@ -928,7 +971,7 @@
           </button>
         </div>
 
-        <div class="w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex flex-col justify-center items-center z-10">
+        <div class="desktop-showcase-container w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex-col justify-center items-center z-10">
           <div class="relative w-full max-w-[1000px] mx-auto flex items-center justify-center">
             <button onclick="window.VictoriaApp.prevMen()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-xl" aria-label="Previous">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -977,6 +1020,9 @@
             </div>
           </footer>
         </div>
+
+        <!-- Dedicated Mobile Showcase Feed (< 1024px) -->
+        <div id="men-mobile-feed" class="mobile-showcase-feed w-full max-w-lg mx-auto px-4 pt-2 pb-20 z-10"></div>
       </section>
 
 
@@ -994,7 +1040,7 @@
           </button>
         </div>
 
-        <div class="w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex flex-col justify-center items-center z-10">
+        <div class="desktop-showcase-container w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex-col justify-center items-center z-10">
           <div class="relative w-full max-w-[1000px] mx-auto flex items-center justify-center">
             <button onclick="window.VictoriaApp.prevWomen()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-pink-950/40 hover:bg-pink-900/60 border border-pink-400/30 hover:border-pink-400/60 backdrop-blur-md items-center justify-center text-pink-200 transition-all active:scale-95 shadow-[0_0_20px_rgba(236,72,153,0.3)]" aria-label="Previous">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -1033,6 +1079,9 @@
             </div>
           </footer>
         </div>
+
+        <!-- Dedicated Mobile Showcase Feed (< 1024px) -->
+        <div id="women-mobile-feed" class="mobile-showcase-feed w-full max-w-lg mx-auto px-4 pt-2 pb-20 z-10"></div>
       </section>
 
 
@@ -1046,7 +1095,7 @@
           </button>
         </div>
 
-        <div class="w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex flex-col justify-center items-center z-10">
+        <div class="desktop-showcase-container w-full max-w-[1100px] mx-auto px-3 sm:px-8 py-3 sm:py-8 flex-1 flex-col justify-center items-center z-10">
           <div class="relative w-full max-w-[1000px] mx-auto flex items-center justify-center">
             <button onclick="window.VictoriaApp.prevChildren()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-neutral-950/70 hover:bg-neutral-900 border border-white/20 hover:border-white/50 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.08)]" aria-label="Previous">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -1085,6 +1134,9 @@
             </div>
           </footer>
         </div>
+
+        <!-- Dedicated Mobile Showcase Feed (< 1024px) -->
+        <div id="children-mobile-feed" class="mobile-showcase-feed w-full max-w-lg mx-auto px-4 pt-2 pb-20 z-10"></div>
       </section>
 
 
@@ -1114,42 +1166,47 @@
         <!-- SUB-VIEW 3: OTHER CELEBRATIONS (Male & Female Pairs)      -->
         <!-- ========================================================= -->
         <div id="occasions-celebrations-section" class="w-full max-w-[1240px] mx-auto px-3 sm:px-8 py-2 sm:py-4 flex-1 flex flex-col justify-center items-center z-20">
-          <!-- Dual Archways Container (Exact Same Scale & Shape as Portal) -->
-          <div class="relative w-full max-w-[1040px] mx-auto flex items-center justify-center">
-            <button onclick="window.VictoriaApp.prevCelebration()" class="hidden absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Previous">
-              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
+          <!-- Desktop Dual Archways Slider (100% UNTOUCHED for >= 1024px) -->
+          <div class="desktop-showcase-container w-full max-w-[1040px] mx-auto flex-col items-center justify-center">
+            <div class="relative w-full max-w-[1040px] mx-auto flex items-center justify-center">
+              <button onclick="window.VictoriaApp.prevCelebration()" class="hidden md:flex absolute -left-12 lg:-left-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Previous">
+                <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
 
-            <!-- 2 Archway Cards Grid: Left = Male Version, Right = Female Version -->
-            <div class="w-full grid grid-cols-2 gap-2 sm:gap-8 lg:gap-14 max-w-[1040px] mx-auto justify-items-center">
-              <!-- Left Arch -->
-              <div onclick="window.VictoriaApp.bookCurrentCelebration('Male Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
-                <img id="celebration-male-img" src="./images/women-bespoke-emerald-boubou.jpg" alt="Emerald Green Floral Brocade Boubou" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+              <!-- 2 Archway Cards Grid: Left = Male Version, Right = Female Version -->
+              <div class="w-full grid grid-cols-2 gap-2 sm:gap-8 lg:gap-14 max-w-[1040px] mx-auto justify-items-center">
+                <!-- Left Arch -->
+                <div onclick="window.VictoriaApp.bookCurrentCelebration('Male Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
+                  <img id="celebration-male-img" src="./images/women-bespoke-emerald-boubou.jpg" alt="Emerald Green Floral Brocade Boubou" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                </div>
+
+                <!-- Right Arch -->
+                <div onclick="window.VictoriaApp.bookCurrentCelebration('Female Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
+                  <img id="celebration-female-img" src="./images/women-bespoke-batik-bell-maxi.jpg" alt="Festive Multi-Hue Batik Brocade Maxi Gown" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
+                </div>
               </div>
 
-              <!-- Right Arch -->
-              <div onclick="window.VictoriaApp.bookCurrentCelebration('Female Version')" class="group cursor-pointer relative w-full aspect-[3/4] max-w-[420px] arch-card-shape overflow-hidden bg-neutral-950 border border-amber-400/40 hover:border-amber-400 transition-all duration-500 shadow-[0_15px_50px_rgba(0,0,0,0.9)] hover:shadow-[0_20px_60px_rgba(203,161,53,0.25)] mx-auto">
-                <img id="celebration-female-img" src="./images/women-bespoke-batik-bell-maxi.jpg" alt="Festive Multi-Hue Batik Brocade Maxi Gown" class="w-full h-full object-cover object-top origin-top transition-transform duration-500 group-hover:scale-[1.03]" />
-              </div>
-            </div>
-
-            <button onclick="window.VictoriaApp.nextCelebration()" class="hidden absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Next">
-              <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-
-          <!-- Footer Bar -->
-          <footer class="w-full max-w-[1040px] mx-auto pt-3 sm:pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-amber-400/20 mt-3">
-            <div class="text-center sm:text-left max-w-md">
-              <h3 id="celebration-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Emerald Brocade Boubou &amp; Multi-Hue Batik Maxi Pair</h3>
-            </div>
-            <div>
-              <button onclick="window.VictoriaApp.bookCurrentCelebration('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
-                <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
-                <span>Order on WhatsApp</span>
+              <button onclick="window.VictoriaApp.nextCelebration()" class="hidden md:flex absolute -right-12 lg:-right-16 z-30 w-11 h-11 rounded-full bg-black/80 hover:bg-neutral-900 border border-amber-400/30 hover:border-amber-400 backdrop-blur-md items-center justify-center text-white transition-all active:scale-95 shadow-[0_0_20px_rgba(203,161,53,0.15)]" aria-label="Next">
+                <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </button>
             </div>
-          </footer>
+
+            <!-- Footer Bar -->
+            <footer class="w-full max-w-[1040px] mx-auto pt-3 sm:pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-amber-400/20 mt-3">
+              <div class="text-center sm:text-left max-w-md">
+                <h3 id="celebration-title" class="font-apple text-base sm:text-lg font-bold text-white tracking-wide">Emerald Brocade Boubou &amp; Multi-Hue Batik Maxi Pair</h3>
+              </div>
+              <div>
+                <button onclick="window.VictoriaApp.bookCurrentCelebration('')" class="bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_4px_20px_rgba(37,211,102,0.35)]">
+                  <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
+                  <span>Order on WhatsApp</span>
+                </button>
+              </div>
+            </footer>
+          </div>
+
+          <!-- Dedicated Mobile Showcase Feed (< 1024px) -->
+          <div id="celebrations-mobile-feed" class="mobile-showcase-feed w-full max-w-lg mx-auto px-4 pt-2 pb-20 z-10"></div>
         </div>
       </section>
 
