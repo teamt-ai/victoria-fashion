@@ -437,11 +437,10 @@
   #view-occasions.active {
     display: block !important;
     height: auto !important;
-    min-height: 100vh !important;
-    overflow-y: auto !important;
+    min-height: auto !important;
+    overflow-y: visible !important;
     overflow-x: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding-bottom: 4rem !important;
+    padding-bottom: 1.5rem !important;
   }
   .desktop-showcase-container {
     display: none !important;
@@ -454,6 +453,7 @@
     margin-right: auto !important;
     padding-left: 0.75rem !important;
     padding-right: 0.75rem !important;
+    padding-bottom: 0 !important;
   }
 }
 
