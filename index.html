@@ -165,6 +165,44 @@
         .mobile-overlay-section .mobile-text-wrapper .section-links button {
           filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9)) !important;
         }
+
+        /* Apple-Grade Mobile Navigation Drawer & Toggle */
+        #mobile-drawer {
+          background-color: #000000 !important;
+          background: #000000 !important;
+          opacity: 1 !important;
+        }
+
+        #mobile-menu-toggle .hamburger-line-1 {
+          transform-origin: center;
+          transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        #mobile-menu-toggle .hamburger-line-2 {
+          transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        #mobile-menu-toggle .hamburger-line-3 {
+          transform-origin: center;
+          transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        #mobile-menu-toggle.is-active .hamburger-line-1 {
+          transform: translateY(5.25px) rotate(45deg);
+        }
+        #mobile-menu-toggle.is-active .hamburger-line-2 {
+          opacity: 0;
+          transform: scaleX(0);
+        }
+        #mobile-menu-toggle.is-active .hamburger-line-3 {
+          transform: translateY(-5.25px) rotate(-45deg);
+        }
+
+        .mobile-nav-link {
+          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+          letter-spacing: -0.015em;
+        }
+        .mobile-nav-link:active {
+          opacity: 0.6;
+        }
       }
     </style>
   </head>
@@ -212,49 +250,77 @@
             <span class="hidden sm:inline">BOOKING</span>
           </button>
 
-          <!-- Mobile Menu Button -->
+          <!-- Mobile Menu Button (Apple Minimalist Morphing Toggle) -->
           <button
             id="mobile-menu-toggle"
-            class="lg:hidden text-white p-1"
-            aria-label="Toggle menu"
+            class="lg:hidden text-white p-2 -mr-1.5 focus:outline-none flex items-center justify-center transition-colors cursor-pointer"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
           >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <div class="w-4 h-[12px] relative flex flex-col justify-between pointer-events-none">
+              <span class="hamburger-line-1 block h-[1.5px] w-full bg-[#f5f5f7] rounded-full"></span>
+              <span class="hamburger-line-2 block h-[1.5px] w-full bg-[#f5f5f7] rounded-full"></span>
+              <span class="hamburger-line-3 block h-[1.5px] w-full bg-[#f5f5f7] rounded-full"></span>
+            </div>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Drawer -->
-      <div id="mobile-drawer" class="hidden lg:hidden fixed inset-x-0 top-[48px] bg-black/98 backdrop-blur-2xl border-b border-white/10 px-8 py-8 h-[calc(100vh-48px)] overflow-y-auto z-50 flex flex-col space-y-6 text-left">
-        <button data-nav-target="home" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-white font-bold">
-          <span>HOME</span><span class="text-sm text-neutral-600">›</span>
-        </button>
-        <button data-nav-target="catalogue" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
-          <span>CATALOGUE</span><span class="text-sm text-neutral-600">›</span>
-        </button>
-        <button data-nav-target="men" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
-          <span>MEN</span><span class="text-sm text-neutral-600">›</span>
-        </button>
-        <button data-nav-target="women" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
-          <span>WOMEN</span><span class="text-sm text-neutral-600">›</span>
-        </button>
-        <button data-nav-target="children" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
-          <span>CHILDREN</span><span class="text-sm text-neutral-600">›</span>
-        </button>
-        <button data-nav-target="occasions" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
-          <span>OCCASIONS</span><span class="text-sm text-neutral-600">›</span>
-        </button>
-        <button data-nav-target="experience" class="text-xl font-medium border-b border-[#242426] pb-3 flex items-center justify-between text-[#a1a1a6]">
-          <span>SERVICE EXPERIENCE</span><span class="text-sm text-neutral-600">›</span>
-        </button>
+      <!-- Mobile Navigation Drawer (Apple Mobile Standard: 100% Jet Black, Zero Bleed-Through) -->
+      <div 
+        id="mobile-drawer" 
+        class="hidden lg:hidden fixed inset-0 top-[48px] h-[calc(100dvh-48px)] w-full overflow-y-auto overscroll-contain z-[1000] flex-col justify-between px-6 pt-5 pb-8 text-left"
+        style="background-color: #000000 !important; background: #000000 !important;"
+      >
+        <!-- Nav Links List -->
+        <nav class="flex flex-col w-full" aria-label="Mobile navigation">
+          <button data-nav-target="home" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
+            <span class="text-[25px] font-semibold tracking-tight text-[#f5f5f7] group-hover:text-white transition-colors">Home</span>
+            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          
+          <button data-nav-target="catalogue" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
+            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Catalogue</span>
+            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          
+          <button data-nav-target="men" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
+            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Men</span>
+            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          
+          <button data-nav-target="women" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
+            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Women</span>
+            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          
+          <button data-nav-target="children" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
+            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Children</span>
+            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          
+          <button data-nav-target="occasions" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
+            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Occasions</span>
+            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+          
+          <button data-nav-target="experience" class="mobile-nav-link group w-full text-left py-3.5 flex items-center justify-between border-b border-[#1d1d1f] transition-all">
+            <span class="text-[25px] font-semibold tracking-tight text-[#86868b] group-hover:text-white transition-colors">Service Experience</span>
+            <svg class="w-3.5 h-3.5 text-[#424245] group-hover:text-[#86868b] transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </nav>
 
-        <div class="pt-4">
+        <!-- Bottom Luxury Atelier Action -->
+        <div class="pt-6 pb-2 w-full">
           <button
-            onclick="window.VictoriaApp.openBooking('', 'Men')"
-            class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black font-semibold py-3.5 rounded-full text-sm flex items-center justify-center gap-2"
+            onclick="window.VictoriaApp.openBooking('', 'General')"
+            class="w-full py-4 rounded-full font-semibold text-sm text-white tracking-wide flex items-center justify-center gap-2.5 transition-all duration-200 active:scale-[0.98]"
+            style="background: linear-gradient(135deg, #25D366 0%, #0d9668 100%); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);"
           >
-            <svg class="w-4 h-4 fill-black" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
+            <svg class="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7.02 8.48 7.02 9.68C7.02 10.88 7.89 12.04 8.01 12.2C8.13 12.37 9.72 14.82 12.16 15.87C12.74 16.12 13.19 16.27 13.55 16.38C14.13 16.57 14.66 16.54 15.08 16.48C15.55 16.41 16.52 15.89 16.72 15.33C16.92 14.77 16.92 14.29 16.86 14.2C16.8 14.1 16.64 14.04 16.4 13.92C16.16 13.8 15.01 13.23 14.8 13.15C14.59 13.07 14.43 13.03 14.27 13.27C14.11 13.51 13.65 14.04 13.51 14.2C13.37 14.36 13.23 14.38 12.99 14.26C12.75 14.14 11.98 13.89 11.07 13.08C10.36 12.45 9.88 11.67 9.74 11.43C9.6 11.19 9.73 11.06 9.85 10.94C9.96 10.83 10.09 10.66 10.21 10.52C10.33 10.38 10.37 10.28 10.45 10.12C10.53 9.96 10.49 9.82 10.43 9.7C10.37 9.58 9.91 8.45 9.72 7.99C9.53 7.54 9.34 7.6 9.19 7.59C9.05 7.58 8.89 7.58 8.73 7.58L8.53 7.33Z"/></svg>
             <span>Chat with Victoria on WhatsApp</span>
           </button>
+          <p class="text-center text-[11px] tracking-wider text-[#86868b] mt-3">Akwa Ibom Atelier · Handcrafted Haute Couture</p>
         </div>
       </div>
     </header>

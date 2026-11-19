@@ -45,6 +45,48 @@
   const mobileDrawer = document.getElementById('mobile-drawer');
 
   // ==========================================
+  // MOBILE DRAWER CONTROLS (Apple Standard)
+  // ==========================================
+  function openMobileDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.remove('hidden');
+    mobileDrawer.classList.add('flex');
+    if (header) {
+      header.classList.add('bg-black');
+      header.classList.remove('bg-black/90');
+    }
+    if (mobileMenuToggle) {
+      mobileMenuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenuToggle.classList.add('is-active');
+    }
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeMobileDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.add('hidden');
+    mobileDrawer.classList.remove('flex');
+    if (header && window.scrollY <= 20) {
+      header.classList.add('bg-black/90');
+      header.classList.remove('bg-black');
+    }
+    if (mobileMenuToggle) {
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenuToggle.classList.remove('is-active');
+    }
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  function toggleMobileDrawer() {
+    if (!mobileDrawer) return;
+    if (mobileDrawer.classList.contains('hidden')) {
+      openMobileDrawer();
+    } else {
+      closeMobileDrawer();
+    }
+  }
+
+  // ==========================================
   // 1. ROUTING & TAB NAVIGATION
   // ==========================================
   function navigateTo(tabId, subMode = null) {
@@ -61,9 +103,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Close mobile drawer if open
-    if (mobileDrawer) {
-      mobileDrawer.classList.add('hidden');
-    }
+    closeMobileDrawer();
   }
 
   function renderActiveView() {
@@ -81,6 +121,34 @@
       } else {
         btn.classList.remove('text-white', 'font-semibold');
         btn.classList.add('text-[#a1a1a6]');
+      }
+    });
+
+    // Update mobile drawer nav link active colors
+    document.querySelectorAll('#mobile-drawer .mobile-nav-link').forEach(btn => {
+      const target = btn.getAttribute('data-nav-target');
+      const textSpan = btn.querySelector('span:first-child');
+      const arrowSvg = btn.querySelector('svg');
+      if (target === state.activeTab) {
+        btn.classList.add('is-active');
+        if (textSpan) {
+          textSpan.classList.add('text-white', 'font-semibold');
+          textSpan.classList.remove('text-[#86868b]');
+        }
+        if (arrowSvg) {
+          arrowSvg.classList.add('text-white');
+          arrowSvg.classList.remove('text-[#424245]');
+        }
+      } else {
+        btn.classList.remove('is-active');
+        if (textSpan) {
+          textSpan.classList.remove('text-white', 'font-semibold');
+          textSpan.classList.add('text-[#86868b]');
+        }
+        if (arrowSvg) {
+          arrowSvg.classList.remove('text-white');
+          arrowSvg.classList.add('text-[#424245]');
+        }
       }
     });
 
@@ -176,17 +244,26 @@
     }
   });
 
-  // Mobile drawer events
+  // Mobile drawer events (Apple Standard)
   if (mobileMenuToggle && mobileDrawer) {
-    mobileMenuToggle.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('hidden');
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileDrawer();
     });
   }
   if (mobileMenuClose && mobileDrawer) {
-    mobileMenuClose.addEventListener('click', () => {
-      mobileDrawer.classList.add('hidden');
+    mobileMenuClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMobileDrawer();
     });
   }
+
+  // Close drawer on ESC key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer && !mobileDrawer.classList.contains('hidden')) {
+      closeMobileDrawer();
+    }
+  });
 
   // Bind nav buttons
   document.querySelectorAll('[data-nav-target]').forEach(btn => {

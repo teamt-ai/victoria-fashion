@@ -339,3 +339,49 @@
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9)) !important;
   }
 }
+
+/* ===================================================
+   Apple-Grade Mobile Navigation Drawer & Toggle
+   Desktop layout is 100% preserved (>= 1024px)
+   =================================================== */
+@media (max-width: 1023px) {
+  #mobile-drawer {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    opacity: 1 !important;
+  }
+
+  /* Apple Menu Toggle Morphing Animation */
+  #mobile-menu-toggle .hamburger-line-1 {
+    transform-origin: center;
+    transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  #mobile-menu-toggle .hamburger-line-2 {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  #mobile-menu-toggle .hamburger-line-3 {
+    transform-origin: center;
+    transition: transform 0.28s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  #mobile-menu-toggle.is-active .hamburger-line-1 {
+    transform: translateY(5.25px) rotate(45deg);
+  }
+  #mobile-menu-toggle.is-active .hamburger-line-2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  #mobile-menu-toggle.is-active .hamburger-line-3 {
+    transform: translateY(-5.25px) rotate(-45deg);
+  }
+
+  /* Mobile Nav Links */
+  .mobile-nav-link {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.015em;
+  }
+  .mobile-nav-link:active {
+    opacity: 0.6;
+  }
+}
+
